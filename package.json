@@ -1,0 +1,17 @@
+{
+    "name": "leetcode-roadmap",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "update-readme": "node scripts/update-readme.js",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "Tina",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "^3.6.2"
+    }
+}
