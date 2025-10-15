@@ -1,7 +1,5 @@
 # 203 Remove Linked List Elements
 
-## Problem Description
-
 Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
 
 **Example:**
@@ -29,26 +27,28 @@ Output: []
 
 ## Approach
 
-Describe the algorithm, technique, and complexity.
+| Technique    | Method    | Time Complexity | Space Complexity |
+| ------------ | --------- | --------------- | ---------------- |
+| Two Pointers | Traversal | O(n)            | O(1)             |
 
-**Algorithm:** Traversal
-**Technique:** Two Pointers
+### Initialization
 
-- Initialize a **dummy node** pointing to the head of the list.
+- `dummy`: a new node pointing to `head` to simplify deletion, especially if the head node needs to be removed.
 
-- Initialize two pointers:
-  1. `prev`: pointing to dummy
-  2. `curr`: pointing to head
+### Two Pointers
 
-- Traverse the list:
-  1. Store `curr.next` in a temporary variable `temp`.
-  2. If `curr.val == val`, set `prev.next = temp` to remove `curr`; otherwise, move `prev` to `curr`.
+- `prev`: pointing to the previous node, initially `dummy`.
+- `curr`: pointing to the current node, initially `head`.
+
+### Traversal Steps
+
+- Condition: While `curr` is exist.
+- Step:
+  1. Store `curr.next` in a temporary variable `temp` to preserve the next node.
+  2. If `curr.val == val`, remove `curr` by setting `prev.next = temp`; otherwise, move `prev` to `curr`.
   3. Move `curr` to `temp`.
 
-**Time Complexity:** O(n)
-**Space Complexity:** O(1)
-
-## Implementation Notes
+## Notes
 
 - The original head node may have `val`, so use a dummy node to ensure consistent deletion logic.
 - Move `prev` only when `curr` is not removed, because `prev` should not advanced if a node is deleted.

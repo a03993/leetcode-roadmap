@@ -1,7 +1,5 @@
 # 160 Intersection of Two Linked Lists
 
-## Problem Description
-
 Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
 
 **Example:**
@@ -29,25 +27,25 @@ Output: Intersected at '2'
 
 ## Approach
 
-Describe the algorithm, technique, and complexity.
+| Technique    | Method    | Time Complexity | Space Complexity |
+| ------------ | --------- | --------------- | ---------------- |
+| Two Pointers | Traversal | O(m+n)          | O(1)             |
 
-**Algorithm:** Traversal
-**Technique:** Two Pointers
+### Two Pointers
 
-- Initialize two pointers:
-  1. `pA`: pointing to headA
-  2. `pB`: pointing to headB
+- `pA`: pointing to current node in list A, initially `headA`.
+- `pB`: pointing to current node in list B, initially `headB`.
 
-- Traverse the list:
-  1. `pA = pA ? pA.next : headB`: move `pA` to `pA.next`, if `pA` is `null`, switch it to `headB`.
-  2. `pB = pB ? pB.next : headA`: move `pB` to `pB.next`, if `pB` is `null`, switch it to `headA`.
-  3. Return the node `pA` and `pB` meet or `null`.
+### Traversal Steps
 
-**Time Complexity:** O(m+n)
-**Space Complexity:** O(1)
+- Condition: While `pA` is not same with `pB`.
+- Step:
+  1. Move `pA` to the next node, or switch to `headB` if `null`.
+  2. Move `pB` to the next node, or switch to `headA` if `null`.
+  3. Return `pA` or `pB` – the intersection node, or `null` if no intersection exists.
 
-## Implementation Notes
+## Notes
 
-- Do **not** compare node values; compare the **node objects themselves**(`===`).
+- Do **not** compare node values; compare the **node objects themselves**(`pA == pB`).
 - Works for lists of different lengths without explicitly calculating their lengths.
 - If lists do not intersect, the loop will terminate when both pointers reach `null`.
