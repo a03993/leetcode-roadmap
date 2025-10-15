@@ -11,9 +11,9 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    let carry = 0;
     let dummyHead = new ListNode(0);
     let curr = dummyHead;
+    let carry = 0;
 
     while (l1 || l2 || carry > 0) {
         let val1 = l1 ? l1.val : 0
