@@ -27,7 +27,7 @@ codeFiles.forEach((file) => {
     // 將 problemSlug 轉成 Title Case
     const title = problemSlug
         .split("_")
-        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .map((s) => (s === s.toUpperCase() ? s : s.charAt(0).toUpperCase() + s.slice(1)))
         .join(" ");
 
     const codeLink = `[Link](codes/${file})`;
