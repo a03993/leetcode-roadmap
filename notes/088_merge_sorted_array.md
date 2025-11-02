@@ -50,13 +50,13 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 - `i`: pointers to the last valid element of `nums1`.
 - `j`: pointers to the last element of `nums2`.
-- `k`: pointers to the last last position of `nums1`.
+- `k`: pointers to the last position of `nums1`.
 
 ### Traversal
 
 - Condition: While `j >= 0` — as long as there are still elements from `nums2` to be placed.
 - Step:
-    1. Compare `nums1[i]` and `nums2[j]`, if `i >= 0` and `nums1[i] > nums2[j]`, place `nums1[i]` at `nums1[k]` and decrement `i`. Otherwise, place `nums2[j]` at `nums1[k]` and decrement `j`.
+    1. Compare `nums1[i]` and `nums2[j]`, if `nums1[i] > nums2[j]`, place `nums1[i]` at `nums1[k]` and decrement `i`. Otherwise, place `nums2[j]` at `nums1[k]` and decrement `j`.
     2. Move `k` one step left each iteration.
     3. <a id="step3"></a>When `nums1` is exhausted (`i < 0`), the remaining elements of `nums2` will naturally be copied to the front of `nums1`.
 
