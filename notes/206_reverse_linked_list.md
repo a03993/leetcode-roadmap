@@ -22,9 +22,9 @@ Output: [5,4,3,2,1]
 
 ### Three Pointers
 
-- `prev = null`: pointing to the previous node.
-- `curr = head`: pointing to the current node.
-- `temp = null`: temporarily variable to store the next node.
+- `prev`: points to the previous node, initially `null`.
+- `curr`: points to the current node, initially `head`.
+- `temp`: temporarily variable to store the next node(`curr.next`).
 
 ### Traversal
 
@@ -38,5 +38,4 @@ Output: [5,4,3,2,1]
 ## Notes
 
 - Always store `curr.next` in `temp` before updating `curr.next`.
-- Updating pointers in order: `curr.next = prev` → `prev = curr` → `curr = temp`.
-- After the loop, `prev` points to the head of the reversed list.
+- Update pointers carefully to reverse the current node.

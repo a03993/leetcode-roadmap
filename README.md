@@ -6,6 +6,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 |-----|---------|------|------|
 | 2 | Add Two Numbers | [Link](codes/002_add_two_numbers.js) | [Link](notes/002_add_two_numbers.md) |
 | 21 | Merge Two Sorted Lists | [Link](codes/021_merge_two_sorted_lists.js) | [Link](notes/021_merge_two_sorted_lists.md) |
+| 92 | Reverse Linked List II | [Link](codes/092_reverse_linked_list_II.js) | [Link](notes/092_reverse_linked_list_II.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 160 | Intersection Of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
