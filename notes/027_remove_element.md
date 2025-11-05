@@ -4,8 +4,8 @@ Given an integer array `nums` and an integer `val`, remove all occurrences of `v
 
 Consider the number of elements in `nums` which are not equal to `val` be `k`, to get accepted, you need to do the following things:
 
-Change the array `nums` such that the first `k` elements of `nums` contain the elements which are not equal to `val`. The remaining elements of `nums` are not important as well as the size of `nums`.
-Return `k`.
+- Change the array `nums` such that the first `k` elements of `nums` contain the elements which are not equal to `val`. The remaining elements of `nums` are not important as well as the size of `nums`.
+- Return `k`.
 
 **Custom Judge:**
 
@@ -59,8 +59,8 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ### Two pointers
 
-- `i`: pointer for scanning the array.
 - `k`: pointer for placing the next valid element.
+- `i`: pointer for scanning the array.
 
 ### Traversal
 
@@ -71,5 +71,5 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Notes
 
-- `k` serves two purposes: it represents the new length of the array and marks the next write position for valid elements.
+- `k` serves two purposes: it represents the new length of the array and also marks the next write position for valid elements.
 - When `i == k`, the assignment `nums[k] = nums[i]` becomes a no-op, but it’s fine — no special handling is required, which simplifies the implementation.
