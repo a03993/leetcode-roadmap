@@ -51,12 +51,12 @@ Both pointers move forward independently while processing corresponding nodes fr
 
 - Condition: While l1 or l2 or carry exists.
 - Step:
-  1. Take the current value `val1` from `l1` and `val2` from `l2`.
-  2. Compute `sum = val1 + val2 + carry`.
-  3. Set `carry = Math.floor(sum / 10)` for the next digit.
-  4. Create a new node with value `sum % 10` and attach it to `current.next`.
-  5. Move `curr` to the new node.
-  6. Advance `l1` and `l2` to their next nodes if they exist.
+    1. Take the current value `val1` from `l1` and `val2` from `l2`.
+    2. Compute `sum = val1 + val2 + carry`.
+    3. Set `carry = Math.floor(sum / 10)` for the next digit.
+    4. Create a new node with value `sum % 10` and attach it to `current.next`.
+    5. Move `curr` to the new node.
+    6. Advance `l1` and `l2` to their next nodes if they exist.
 
 ## Notes
 

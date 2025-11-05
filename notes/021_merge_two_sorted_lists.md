@@ -49,9 +49,9 @@ Output: [0]
 
 - Condition: While both `p1` and `p2` exist.
 - Step:
-  1. Compare `p1.val` and `p2.val` to decide which node will be assigned to `curr.next` and move that pointer forward.
-  2. Move `curr` forward.
-  3. After the loop, append any remaining nodes from `p1` or `p2` to `curr.next`.
+    1. Compare `p1.val` and `p2.val` to decide which node will be assigned to `curr.next` and move that pointer forward.
+    2. Move `curr` forward.
+    3. After the loop, append any remaining nodes from `p1` or `p2` to `curr.next`.
 
 ## Notes
 
