@@ -45,13 +45,13 @@ Output: [5]
 
 - Condition: from `left` to `right`.
 - Step:
-  1. Store `curr.next` in `temp` to not lose track of the next node.
-  2. Point `curr.next` to `prev` to reverse the link.
-  3. Move `prev` to `curr` to advance the previous pointer.
-  4. Move `curr` to `temp` to process the next node.
+    1. Store `curr.next` in `temp` to not lose track of the next node.
+    2. Point `curr.next` to `prev` to reverse the link.
+    3. Move `prev` to `curr` to advance the previous pointer.
+    4. Move `curr` to `temp` to process the next node.
 - After the loop:
-  1. Connects `leftPrev.next` to the new head of the reversed segment.
-  2. Connects `leftNode.next` to the node after the reversed segment.
+    1. Connects `leftPrev.next` to the new head of the reversed segment.
+    2. Connects `leftNode.next` to the node after the reversed segment.
 
 ## Notes
 
