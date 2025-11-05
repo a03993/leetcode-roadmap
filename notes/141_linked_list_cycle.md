@@ -54,16 +54,16 @@ Explanation: There is no cycle in the linked list.
 
 - Condition: While `curr` is not `null`.
 - Step:
-  1. If `passedNode.has(curr)` return `true`.
-  2. Add `curr` to `passedNode`.
-  3. Move `curr` one step forward.
-  4. If loop ends return `false`.
+    1. If `passedNode.has(curr)` return `true`.
+    2. Add `curr` to `passedNode`.
+    3. Move `curr` one step forward.
+    4. If loop ends return `false`.
 
-  ```
-  [head] → [node1] → [node2] → [node3] → [node4]
-                  ↑                       |
-                  └───────── (back to node2) ← cycle
-  ```
+    ```
+    [head] → [node1] → [node2] → [node3] → [node4]
+                    ↑                       |
+                    └───────── (back to node2) ← cycle
+    ```
 
 #### Code Skeleton:
 
@@ -97,22 +97,22 @@ return false;
 
 - Condition: While `fast` and `fast.next` are not `null`.
 - Step:
-  1. Move `slow` one step forward.
-  2. Move `fast` two step forward.
-  3. If `slow == fast` return true.
-  4. If loop ends return `false`.
+    1. Move `slow` one step forward.
+    2. Move `fast` two step forward.
+    3. If `slow == fast` return true.
+    4. If loop ends return `false`.
 
-  ```
-  slow → [head] → [node1] → [node2] → [node3] → [node4]
-  fast → [head] → [node2] → [node4] → [node2] → [node4]
-                                                   ↑
-                                                 cycle
-  ```
+    ```
+    slow → [head] → [node1] → [node2] → [node3] → [node4]
+    fast → [head] → [node2] → [node4] → [node2] → [node4]
+                                                     ↑
+                                                   cycle
+    ```
 
 ## Notes
 
 - `Set` stores **node references**, not values, so `has()` can detect if we visited the same node object before.
 - This method uses **O(n) extra space** because every visited node is stored.
 - To optimize space to O(1), use the **fast & slow pointer method** instead.
-  - Make sure to check both `fast` and `fast.next` in the loop condition to avoid null pointer errors.
-  - If there is a cycle, `slow` and `fast` pointers will eventually meet.
+    - Make sure to check both `fast` and `fast.next` in the loop condition to avoid null pointer errors.
+    - If there is a cycle, `slow` and `fast` pointers will eventually meet.

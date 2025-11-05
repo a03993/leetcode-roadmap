@@ -10,11 +10,11 @@
  * @param {number} val
  * @return {ListNode}
  */
-var removeElements = function(head, val) {
+var removeElements = function (head, val) {
     const dummy = new ListNode(0, head);
     let prev = dummy;
     let curr = head;
-    
+
     while (curr) {
         const temp = curr.next;
 
@@ -26,6 +26,6 @@ var removeElements = function(head, val) {
 
         curr = temp;
     }
-    
+
     return dummy.next;
 };

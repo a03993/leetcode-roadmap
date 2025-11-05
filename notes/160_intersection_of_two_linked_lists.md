@@ -40,9 +40,9 @@ Output: Intersected at '2'
 
 - Condition: While `pA` is not same with `pB`.
 - Step:
-  1. Move `pA` to the next node, or switch to `headB` if `null`.
-  2. Move `pB` to the next node, or switch to `headA` if `null`.
-  3. Return `pA` or `pB` – the intersection node, or `null` if no intersection exists.
+    1. Move `pA` to the next node, or switch to `headB` if `null`.
+    2. Move `pB` to the next node, or switch to `headA` if `null`.
+    3. Return `pA` or `pB` – the intersection node, or `null` if no intersection exists.
 
 ## Notes
 

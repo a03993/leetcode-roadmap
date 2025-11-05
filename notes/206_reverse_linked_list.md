@@ -30,10 +30,10 @@ Output: [5,4,3,2,1]
 
 - Condition: While `curr` is exist.
 - Step:
-  1. Store `curr.next` in `temp` to not lose track of the next node.
-  2. Point `curr.next` to `prev` to reverse the link.
-  3. Move `prev` to `curr` to advance the previous pointer.
-  4. Move `curr` to `temp` to process the next node.
+    1. Store `curr.next` in `temp` to not lose track of the next node.
+    2. Point `curr.next` to `prev` to reverse the link.
+    3. Move `prev` to `curr` to advance the previous pointer.
+    4. Move `curr` to `temp` to process the next node.
 
 ## Notes
 

@@ -44,9 +44,9 @@ Output: []
 
 - Condition: While `curr` is exist.
 - Step:
-  1. Store `curr.next` in a temporary variable `temp` to preserve the next node.
-  2. If `curr.val == val`, remove `curr` by setting `prev.next = temp`; otherwise, move `prev` to `curr`.
-  3. Move `curr` to `temp`.
+    1. Store `curr.next` in a temporary variable `temp` to preserve the next node.
+    2. If `curr.val == val`, remove `curr` by setting `prev.next = temp`; otherwise, move `prev` to `curr`.
+    3. Move `curr` to `temp`.
 
 ## Notes
 
