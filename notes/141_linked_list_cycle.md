@@ -1,10 +1,10 @@
 # 141 Linked List Cycle(Top Interview 150)
 
-Given head, the head of a linked list, determine if the linked list has a cycle in it.
+Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 
-There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to. **Note that `pos` is not passed as a parameter.**
 
-Return true if there is a cycle in the linked list. Otherwise, return false.
+Return `true` _if there is a cycle in the linked list._ Otherwise, return `false`.
 
 **Example:**
 
@@ -36,21 +36,20 @@ Explanation: There is no cycle in the linked list.
 
 ## Approach
 
-### Set Method
-
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(n)            | O(n)             |
+| Technique    | Method                             | Time Complexity | Space Complexity |
+| ------------ | ---------------------------------- | --------------- | ---------------- |
+| Two Pointers | Using `Set` to track visited nodes | O(n)            | O(n)             |
+| Two Pointers | Fast & slow pointer traversal      | O(n)            | O(1) ✅          |
 
 <details>
-<summary>Detail(click to expand)</summary>
+<summary style="font-size: 1.25em; font-weight: bold">Set</summary>
 
-#### Two Pointers
+### Two Pointers
 
 - `curr`: pointing to current node, initially `head`.
 - `passedNode`: a `Set` to store visited nodes.
 
-#### Traversal Steps
+### Traversal Steps
 
 - Condition: While `curr` is not `null`.
 - Step:
@@ -65,7 +64,7 @@ Explanation: There is no cycle in the linked list.
                     └───────── (back to node2) ← cycle
     ```
 
-#### Code Skeleton:
+### Code Skeleton
 
 ```
 let curr = head;
@@ -82,11 +81,8 @@ return false;
 
 </details>
 
-### Fast & Slow Pointer Method
-
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(n)            | O(1) ✅          |
+<details>
+<summary style="font-size: 1.25em; font-weight: bold">Fast & Slow Pointer</summary>
 
 #### Two Pointers
 
@@ -109,10 +105,14 @@ return false;
                                                    cycle
     ```
 
+</details>
+
 ## Notes
 
-- `Set` stores **node references**, not values, so `has()` can detect if we visited the same node object before.
-- This method uses **O(n) extra space** because every visited node is stored.
-- To optimize space to O(1), use the **fast & slow pointer method** instead.
+- The `Set` method uses `O(n)` because every visited node is stored. To optimize space to `O(1)`, use the **fast & slow pointer method** instead.
+
+- **`Set`:**
+    - Stores **node references** (not values), so `has()` can detect if the same node object has been visited.
+- **Fast & slow pointer:**
     - Make sure to check both `fast` and `fast.next` in the loop condition to avoid null pointer errors.
     - If there is a cycle, `slow` and `fast` pointers will eventually meet.
