@@ -1,4 +1,6 @@
-# 27 Remove Element(Top Interview 150)
+# 27 Remove Element
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given an integer array `nums` and an integer `val`, remove all occurrences of `val` in `nums` **in-place**. The order of the elements may be changed. Then return _the number of elements in `nums` which are not equal to `val`_.
 
@@ -15,7 +17,7 @@ The judge will test your solution with the following code:
 int[] nums = [...]; // Input array
 int val = ...; // Value to remove
 int[] expectedNums = [...]; // The expected answer with correct length.
-// It is sorted with no values equaling val.
+                            // It is sorted with no values equaling val.
 
 int k = removeElement(nums, val); // Calls your implementation
 
@@ -53,23 +55,21 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two pointers | Traversal | O(n)            | O(1)             |
+| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
+| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
+| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
 
-### Two pointers
+- Pointers:
+    - `k` (write pointer): Tracks the position for the next element that is not equal to `val`.
+    - `i` (read pointer): Scans the array to find elements to keep.
 
-- `k`: pointer for placing the next valid element.
-- `i`: pointer for scanning the array.
+- Traverse the array once.
 
-### Traversal
-
-- Condition: While `i < nums.length` — continue iterating while there are elements to examine.
-- Step:
-    1. If `nums[i] !== val`, assign `nums[k] = nums[i]` and increment `k`.
-    2. Increment `i` each iteration.
+- Steps:
+    1. If `nums[i]` is not equal to `val`, place it at `nums[k]`.
+    2. Increment `k`.
 
 ## Notes
 
-- `k` serves two purposes: it represents the new length of the array and also marks the next write position for valid elements.
-- When `i == k`, the assignment `nums[k] = nums[i]` becomes a no-op, but it’s fine — no special handling is required, which simplifies the implementation.
+- `k` serves two purposes: it **represents the new length of the array** and also **marks the next write position for valid elements**.
+- When `i == k`, the assignment `nums[k] = nums[i]` becomes a no-op, but it’s fine — _no special handling is required, which simplifies the implementation_.

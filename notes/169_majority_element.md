@@ -1,4 +1,6 @@
-# 169 Majority Element(Top Interview 150)
+# 169 Majority Element
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given an array `nums` of size `n`, return _the majority element_.
 
@@ -27,18 +29,40 @@ Output: 2
 
 ## Approach
 
-| Technique   | Method                     | Time Complexity | Space Complexity |
-| ----------- | -------------------------- | --------------- | ---------------- |
-| Sorting     | Sort and return middle     | O(n log n)      | O(1)             |
-| Boyer-Moore | Single-pass candidate vote | O(n) ✅         | O(1)             |
+<table>
+  <thead>
+    <tr>
+      <th>Topics</th>
+      <th>Category</th>
+      <th>Key Idea</th>
+      <th>Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Array, Hash Table, Divide and Conquer, Sorting, Counting</td>
+      <td>Sorting</td>
+      <td>Sort and return middle</td>
+      <td>O(n log n)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>In-place Voting</td>
+      <td>Boyer-Moore</td>
+      <td>O(n) ✅</td>
+      <td>O(1)</td>
+    </tr>
+  </tbody>
+</table>
 
 <details>
 <summary style="font-size: 1.25em; font-weight: bold">Sorting</summary>
 
-- Sort the array numerically using `Array.prototype.sort()`.
+- Sort the array using `Array.prototype.sort()`.
 - After sorting, the majority element always occupies the middle position, which can be found using `Math.floor()`.
 
-### Code Skeleton
+- Code Skeleton:
 
 ```
 nums.sort((a, b) => a - b);
@@ -50,16 +74,14 @@ return nums[Math.floor(nums.length / 2)];
 <details>
 <summary style="font-size: 1.25em; font-weight: bold">Boyer-Moore</summary>
 
-### Initial
+- Initialization:
+    - `candidate`: The current candidate element.
+    - `count`: The vote count for the candidate.
 
-- `candidate`: the current candidate element.
-- `count`: the vote count for the candidate.
+- Traverse the array once.
 
-### Traversal Steps
-
-- Condition: While `i < nums.length`, iterate through the array.
-- Step:
-    1. If `count == 0`, replace `candidate` with `nums[i]`.
+- Steps:
+    1. If `count == 0`, update `candidate` to `nums[i]`.
     2. If the current element equals `candidate`, increment `count`; otherwise, decrement `count`.
 
 </details>
@@ -68,9 +90,8 @@ return nums[Math.floor(nums.length / 2)];
 
 - **Sort** is simple and intuitive, but time complexity is `O(n log n)` due to sorting. Therefore, **Boyer-Moore** is the preferred approach.
     - **Sort:**
-        - The majority element always occupies the middle position after sorting, regardless of the number of other distinct elements.
+        - **The majority element always occupies the middle position** after sorting, regardless of other elements.
 
     - **Boyer-Moore:**
-        - Whenever `count` drops to 0, the previous candidate has been "balanced out" by other elements.
-        - Since the majority element appears more than n/2 times, it will remain as the candidate through all cancellations.
-        - Therefore, the final `candidate` after traversal is guaranteed to be the majority element.
+        - Whenever `count` drops to 0, the previous candidate has been **balanced out** by other elements.
+        - Since the majority element appears more than n/2 times, the final `candidate` after traversal is guaranteed to be the majority element.

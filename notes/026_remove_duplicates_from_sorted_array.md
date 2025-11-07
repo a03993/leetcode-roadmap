@@ -1,4 +1,6 @@
-# 26 Remove Duplicates from Sorted Array(Top Interview 150)
+# 26 Remove Duplicates from Sorted Array
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given an integer array `nums` sorted in **non-decreasing order**, remove the duplicates **in-place** such that each unique element appears only **once**. The **relative order** of the elements should be kept the **same**.
 
@@ -48,23 +50,23 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(n)            | O(1)             |
+| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
+| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
+| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
 
-### Two Pointers
+- Pointers:
+    - `k` (write pointer): Tracks the position for the next unique element.
+    - `i` (read pointer): Scans the array to find unique elements.
 
-- `k`: pointer for placing the new unique element.
-- `i`: pointer for scanning the array.
+- Traverse the array once.
 
-### Traversa
-
-- Condition: While `i < nums.length` — continue iterating while there are elements to examine.
-- Step:
-    1. If `nums[i] !== nums[k]`, assign `nums[k + 1] = nums[i]` and increment `k`.
-    2. Increment `i` each iteration.
+- Steps:
+    1. If `nums[i]` is not equal to `nums[k - 1]`, place it at `nums[k]` and increment `k`.
 
 ## Notes
 
-- `k` serves two purposes: it represents the new length of the array and also marks the next write position for a new unique element.
-- The previous unique element is at index `k - 1`.
+- Always compare the current read element (`nums[i]`) with the last unique element (`nums[k - 1]`), **not** with the next write position (`nums[k]`).
+    - Ensure the last unique element is never overwritten.
+    - Skips all repeated elements.
+    - Never misses any new elements.
+- Since the array is sorted, **duplicates are always consecutive**. When `nums[i]` is not equal to `nums[k - 1]`, it's a new unique element.

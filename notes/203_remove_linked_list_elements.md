@@ -27,23 +27,20 @@ Output: []
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(n)            | O(1)             |
+| Topics                 | Category         | Key Idea                   | Time Complexity | Space Complexity |
+| ---------------------- | ---------------- | -------------------------- | --------------- | ---------------- |
+| Linked List, Recursion | In-place Removal | Two Pointers (Prev & Curr) | O(n)            | O(1)             |
 
-### Initialization
+- Initialization:
+    - `dummy`: A new node pointing to `head` to simplify deletion.
 
-- `dummy`: a new node pointing to `head` to simplify deletion, especially if the head node needs to be removed.
+- Pointers:
+    - `prev`: Points to the node before the current node, used to update `next` pointers for deletion.
+    - `curr`: Points to the current node being checked for deletion.
 
-### Two Pointers
+- Loop Condition: While `curr` is exist.
 
-- `prev`: pointing to the previous node, initially `dummy`.
-- `curr`: pointing to the current node, initially `head`.
-
-### Traversal Steps
-
-- Condition: While `curr` is exist.
-- Step:
+- Steps:
     1. Store `curr.next` in a temporary variable `temp` to preserve the next node.
     2. If `curr.val == val`, remove `curr` by setting `prev.next = temp`; otherwise, move `prev` to `curr`.
     3. Move `curr` to `temp`.
