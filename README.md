@@ -11,6 +11,8 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 80 | Remove Duplicates From Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
 | 88 | Merge Sorted Array | [Link](codes/088_merge_sorted_array.js) | [Link](notes/088_merge_sorted_array.md) |
 | 92 | Reverse Linked List II | [Link](codes/092_reverse_linked_list_II.js) | [Link](notes/092_reverse_linked_list_II.md) |
+| 121 | Best Time To Buy And Sell Stock | [Link](codes/121_best_time_to_buy_and_sell_stock.js) | [Link](notes/121_best_time_to_buy_and_sell_stock.md) |
+| 122 | Best Time To Buy And Sell Stock II | [Link](codes/122_best_time_to_buy_and_sell_stock_II.js) | [Link](notes/122_best_time_to_buy_and_sell_stock_II.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 160 | Intersection Of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
