@@ -1,10 +1,12 @@
-# 88 Merge Sorted Array(Top Interview 150)
+# 88 Merge Sorted Array
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 You are given two integer arrays `nums1` and `nums2`, sorted in **non-decreasing order**, and two integers `m` and `n`, representing the number of elements in `nums1` and `nums2` respectively.
 
-Merge `nums1` and `nums2` into a single array sorted in **non-decreasing order**.
+**Merge** `nums1` and `nums2` into a single array sorted in **non-decreasing order**.
 
-The final sorted array should not be returned by the function, but instead be stored inside the array `nums1`. To accommodate this, `nums1` has a length of `m + n`, where the first `m` elements denote the elements that should be merged, and the last `n` elements are set to `0` and should be ignored. `nums2` has a length of `n`.
+The final sorted array should not be returned by the function, but instead be _stored inside the array `nums1`_. To accommodate this, `nums1` has a length of `m + n`, where the first `m` elements denote the elements that should be merged, and the last `n` elements are set to `0` and should be ignored. `nums2` has a length of `n`.
 
 **Example:**
 
@@ -42,26 +44,54 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ## Approach
 
-| Technique      | Method    | Time Complexity | Space Complexity |
-| -------------- | --------- | --------------- | ---------------- |
-| Three pointers | Traversal | O(m + n)        | O(1)             |
+| Topics                       | Category       | Key Idea                      | Time Complexity | Space Complexity |
+| ---------------------------- | -------------- | ----------------------------- | --------------- | ---------------- |
+| Array, Two Pointers, Sorting | In-place Merge | Three Pointers (Read & Write) | O(m + n)        | O(1)             |
 
-### Three pointers
+- Pointers:
+    - `i` (read pointer): Points to the last initialized element in `nums1`.
+    - `j` (read pointer): Points to the last element in `nums2`.
+    - `k` (write pointer): Points to the last position in the merged `nums1`.
 
-- `i`: pointers to the last valid element of `nums1`.
-- `j`: pointers to the last element of `nums2`.
-- `k`: pointers to the last position of `nums1`.
+- Loop Condition: While `j >= 0` — _as long as there are elements in `nums2` to merge in `nums1`._
 
-### Traversal
-
-- Condition: While `j >= 0` — as long as there are still elements from `nums2` to be placed.
-- Step:
-    1. Compare `nums1[i]` and `nums2[j]`, if `nums1[i] > nums2[j]`, place `nums1[i]` at `nums1[k]` and decrement `i`. Otherwise, place `nums2[j]` at `nums1[k]` and decrement `j`.
+- Steps:
+    1. Compare `nums1[i]` with `nums2[j]`
+        - `nums1[i] > nums2[j]`: place `nums1[i]` at `nums1[k]` and decrement `i`.
+        - `nums1[i] < nums2[j]`: place `nums2[j]` at `nums1[k]` and decrement `j`.
     2. Move `k` one step left each iteration.
-    3. <a id="step3"></a>When `nums1` is exhausted (`i < 0`), the remaining elements of `nums2` will naturally be copied to the front of `nums1`.
+    3. When `nums1` is exhausted (`i < 0`), the remaining elements of `nums2` will naturally be copied to the front of `nums1`.
 
 ## Notes
 
 - The key insight is that filling from the back prevents overwriting elements in `nums1` that have not yet been compared.
-- If `n = 0`, `nums2` is empty → `nums1` stays unchanged.
-- If `m = 0`, `nums1` is empty → copy all from `nums2`. (Related to [Traversal Step 3](#step3))
+- Always compare `nums1[i] > nums2[j]`, **not the other way around**:
+    - This ensures that when `i < 0`, the remaining elements in `nums2` are safely copied in.
+    - Reversing the comparison (`nums2[j] > nums1[i]`) can lead to `undefined` comparisons and may cause infinite loops or timeout.
+
+        ```
+        let i = m - 1;
+        let j = n - 1;
+        let k = m + n - 1;
+
+        while (j >= 0) {
+            if (nums2[j] > nums1[i]) {
+                nums1[k] = nums2[j];
+                j--;
+            } else {
+                nums1[k] = nums1[i];
+                i--;
+            }
+            k--;
+        }
+        ```
+
+        <span style="color: red; font-weight: bold">❌ Error: Time Limit Exceeded</span>
+        - <span style="color: red;">When `i = -1`, `nums[i]` is `undefined`.</span>
+        - <span style="color: red;">`nums2[j] > nums1[i]` → `false`.</span>
+        - <span style="color: red;">Enter `else` → decrement `i` → `i` becomes `-2`, `-3`...</span>
+        - <span style="color: red;">`j` is always the same → infinite loops → timeout.</span>
+
+- Edge cases:
+    - If `n = 0`: `nums2` is empty → `nums1` stays unchanged.
+    - If `m = 0`: `nums1` is empty → copy all elements from `nums2`.

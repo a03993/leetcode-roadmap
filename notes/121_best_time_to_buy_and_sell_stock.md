@@ -1,4 +1,6 @@
-# 121 Best Time to Buy and Sell Stock(Top Interview 150)
+# 121 Best Time to Buy and Sell Stock
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 You are given an array `prices` where `prices[i]` is the price of a given stock on the `iᵗʰ` day.
 
@@ -28,18 +30,17 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 ## Approach
 
-| Technique | Method      | Time Complexity | Space Complexity |
-| --------- | ----------- | --------------- | ---------------- |
-| Math      | linear scan | O(n)            | O(1)             |
+| Topics                     | Category             | Key Idea                     | Time Complexity | Space Complexity |
+| -------------------------- | -------------------- | ---------------------------- | --------------- | ---------------- |
+| Array, Dynamic Programming | In-place Calculation | Track Min Price & Max Profit | O(n)            | O(1)             |
 
 - Traverse the array once.
-- Keep track of the **minimum price** seen so far.
-- For each price, calculate the potential `profit = price - minPrice`.
-- Update the **maximum profit** if this profit is higher.
+- Track the **min price** using `Math.min()` and update it if `prices[i]` is lower.
+- Track the **max profit** using `Math.max()` abd update it if `prices[i] - min` is higher.
 
 ## Notes
 
-Manual if/else approach:
+Manual `if/else` approach:
 
 ```
 let profit = 0;

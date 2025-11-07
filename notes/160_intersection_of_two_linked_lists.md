@@ -27,19 +27,16 @@ Output: Intersected at '2'
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(m+n)          | O(1)             |
+| Topics                                | Category           | Key Idea     | Time Complexity | Space Complexity |
+| ------------------------------------- | ------------------ | ------------ | --------------- | ---------------- |
+| Hash Table, Linked List, Two Pointers | In-place Traversal | Two Pointers | O(m+n)          | O(1)             |
 
-### Two Pointers
+- Pointers:
+    - `pA`: Traverses list A and then switches to list B.
+    - `pB`: Traverses list B and then switches to list A.
 
-- `pA`: pointing to current node in list A, initially `headA`.
-- `pB`: pointing to current node in list B, initially `headB`.
-
-### Traversal Steps
-
-- Condition: While `pA` is not same with `pB`.
-- Step:
+- Loop Condition: While `pA` is not same with `pB`.
+- Steps:
     1. Move `pA` to the next node, or switch to `headB` if `null`.
     2. Move `pB` to the next node, or switch to `headA` if `null`.
     3. Return `pA` or `pB` – the intersection node, or `null` if no intersection exists.

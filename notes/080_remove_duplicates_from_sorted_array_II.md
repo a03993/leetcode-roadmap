@@ -1,4 +1,6 @@
-# 80 Remove Duplicates from Sorted Array II(Top Interview 150)
+# 80 Remove Duplicates from Sorted Array II
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given an integer array `nums` sorted in **non-decreasing order**, remove some duplicates **in-place** such that each unique element appears **at most twice**. The **relative order** of the elements should be kept the **same**.
 
@@ -50,25 +52,23 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(n)            | O(1)             |
+| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
+| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
+| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
 
-### Two Pointers
+- Pointers:
+    - `k` (write pointer): Tracks the position for the next element to write, ensuring at most two duplicates are kept.
+    - `i` (read pointer): Scans the array to find elements to keep.
 
-- `k`: pointer for placing the next valid element (slow pointer).
-- `i`: pointer for scanning the array (fast pointer).
+- Traverse the array once.
 
-### Traversal
-
-- Condition: While `i < nums.length`, iterate through the array.
-- Step:
-    1. If `k < 2` → always place `nums[i]` at `nums[k]` (first two elements are always kept).
-    2. If `k >= 2` → compare `nums[i]` with `nums[k-2]`:
-        - If `nums[i] != nums[k-2]` → place `nums[i]` at `nums[k]` (does not exceed two duplicates).
-        - If `nums[i] == nums[k-2]` → skip `nums[i]`
-    3. Increment `k` only when a number is placed.
+- Steps:
+    1. **First two elements are always kept**: if `k < 2`, place `nums[i]` at `nums[k]`.
+    2. Place `nums[i]` at `nums[k]` **only** if `nums[i] != nums[k - 2]` to ensure at most two duplicates.
+    3. Increment `k` **only** when a number is placed.
     4. Increment `i` on every iteration.
+
+#### 🚀 Demonstration: `nums = [1,1,1,2,2,3]`
 
 ```
 Initial:
@@ -109,6 +109,5 @@ k = 5, array = [1,1,2,2,3,_]
 
 ## Notes
 
-- Same as [141 Linked List Cycle](/notes/141_linked_list_cycle.md): use slow (`k`) and fast (`i`) pointers to traverse and update the array **in-place**.
-- Because the array is sorted, comparing the current number with the element at `k-2` is enough to decide whether to place it, ensuring at most two duplicates.
-- `k < 2` ensures the first two numbers are always kept and works even if the array has 0 or 1 element. It also prevents out-of-bounds access when comparing with `nums[k-2]`.
+- `k < 2` ensures the first two numbers are always kept and works **even if the array has 0 or 1 element**.
+- Because the array is sorted, comparing the current number with the element at `k - 2` is **enough to decide whether to place it**, ensuring at most two duplicates.

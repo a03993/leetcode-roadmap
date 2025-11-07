@@ -1,4 +1,6 @@
-# 141 Linked List Cycle(Top Interview 150)
+# 141 Linked List Cycle
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 
@@ -36,23 +38,43 @@ Explanation: There is no cycle in the linked list.
 
 ## Approach
 
-| Technique    | Method                             | Time Complexity | Space Complexity |
-| ------------ | ---------------------------------- | --------------- | ---------------- |
-| Two Pointers | Using `Set` to track visited nodes | O(n)            | O(n)             |
-| Two Pointers | Fast & slow pointer traversal      | O(n)            | O(1) ✅          |
+<table>
+  <thead>
+    <tr>
+      <th>Topics</th>
+      <th>Category</th>
+      <th>Key Idea</th>
+      <th>Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Hash Table, Linked List, Two Pointers</td>
+      <td>Hash Set</td>
+      <td>Track Visited Nodes</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+    </tr>
+    <tr>
+      <td>In-place Traversal</td>
+      <td>Two Pointers (Slow & Fast)</td>
+      <td>O(n)</td>
+      <td>O(1) ✅</td>
+    </tr>
+  </tbody>
+</table>
 
 <details>
-<summary style="font-size: 1.25em; font-weight: bold">Set</summary>
+<summary style="font-size: 1.25em; font-weight: bold">Hash Set</summary>
 
-### Two Pointers
+- Initialization:
+    - `curr`: Points to current node, initially `head`.
+    - `passedNode`: A `Set` to store visited nodes.
 
-- `curr`: pointing to current node, initially `head`.
-- `passedNode`: a `Set` to store visited nodes.
+- Loop Condition: While `curr` is not `null`.
 
-### Traversal Steps
-
-- Condition: While `curr` is not `null`.
-- Step:
+- Steps:
     1. If `passedNode.has(curr)` return `true`.
     2. Add `curr` to `passedNode`.
     3. Move `curr` one step forward.
@@ -64,7 +86,7 @@ Explanation: There is no cycle in the linked list.
                     └───────── (back to node2) ← cycle
     ```
 
-### Code Skeleton
+- Code Skeleton:
 
 ```
 let curr = head;
@@ -82,17 +104,15 @@ return false;
 </details>
 
 <details>
-<summary style="font-size: 1.25em; font-weight: bold">Fast & Slow Pointer</summary>
+<summary style="font-size: 1.25em; font-weight: bold">In-place Traversal</summary>
 
-#### Two Pointers
+- Pointers:
+    - `slow` (slow pointer): Moves one step at a time.
+    - `fast` (fast pointer): Moves two steps at a time.
 
-- `slow`: pointing to current node, initially `head`.
-- `fast`: pointing to current node, initially `head`.
+- Loop Condition: While `fast` and `fast.next` are not `null`.
 
-#### Traversal Steps
-
-- Condition: While `fast` and `fast.next` are not `null`.
-- Step:
+- Steps:
     1. Move `slow` one step forward.
     2. Move `fast` two step forward.
     3. If `slow == fast` return true.
