@@ -1,4 +1,6 @@
-# 92 Reverse Linked List II(Top Interview 150)
+# 92 Reverse Linked List II
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given the `head` of a singly linked list and two integers `left` and `right` where `left <= right`, reverse the nodes of the list from position `left` to position `right`, and return the _reversed list_.
 
@@ -25,30 +27,28 @@ Output: [5]
 
 ## Approach
 
-| Technique      | Method    | Time Complexity | Space Complexity |
-| -------------- | --------- | --------------- | ---------------- |
-| Three Pointers | Traversal | O(n)            | O(1)             |
+| Topics      | Category          | Key Idea       | Time Complexity | Space Complexity |
+| ----------- | ----------------- | -------------- | --------------- | ---------------- |
+| Linked List | In-place Reversal | Three Pointers | O(n)            | O(1)             |
 
-### Initialization
+- Initialization:
+    - `dummy`: a new `ListNode(0, head)` to simplify building the resulting list.
+    - `leftPrev`: points to the node **before the left node**.
+    - `leftNode`: points to the node at position `left`.
 
-- `dummy`: a new `ListNode(0, head)` to simplify building the resulting list, especially when `left = 1`.
-- `leftPrev`: points to the node **before the left node**. If `left = 1`, this is the dummy.
-- `leftNode`: points to the node at position `left`.
+- Pointers:
+    - `prev`: Points to the previous node in the reversal, initially `null`.
+    - `curr`: Points to the current node being reversed.
+    - `temp`: Temporarily stores the next node to maintain the list connection.
 
-### Two Pointers
+- Loop Condition: from `left` to `right`.
 
-- `prev`: points to the previous node, initially `null`.
-- `curr`: points to the current node, initially `leftNode`.
-- `temp`: temporarily variable to store the next node(`curr.next`).
-
-### Traversal
-
-- Condition: from `left` to `right`.
-- Step:
+- Steps:
     1. Store `curr.next` in `temp` to not lose track of the next node.
     2. Point `curr.next` to `prev` to reverse the link.
     3. Move `prev` to `curr` to advance the previous pointer.
     4. Move `curr` to `temp` to process the next node.
+
 - After the loop:
     1. Connects `leftPrev.next` to the new head of the reversed segment.
     2. Connects `leftNode.next` to the node after the reversed segment.

@@ -16,20 +16,18 @@ Output: [5,4,3,2,1]
 
 ## Approach
 
-| Technique      | Method    | Time Complexity | Space Complexity |
-| -------------- | --------- | --------------- | ---------------- |
-| Three Pointers | Traversal | O(n)            | O(1)             |
+| Topics                 | Category          | Key Idea       | Time Complexity | Space Complexity |
+| ---------------------- | ----------------- | -------------- | --------------- | ---------------- |
+| Linked List, Recursion | In-place Reversal | Three Pointers | O(n)            | O(1)             |
 
-### Three Pointers
+- Pointers:
+    - `prev`: Points to the previous node, initially `null`.
+    - `curr`: Points to the current node being reversed.
+    - `temp`: Temporarily stores the next node to maintain the list connection.
 
-- `prev`: points to the previous node, initially `null`.
-- `curr`: points to the current node, initially `head`.
-- `temp`: temporarily variable to store the next node(`curr.next`).
+- Loop Condition: While `curr` is exist.
 
-### Traversal
-
-- Condition: While `curr` is exist.
-- Step:
+- Steps:
     1. Store `curr.next` in `temp` to not lose track of the next node.
     2. Point `curr.next` to `prev` to reverse the link.
     3. Move `prev` to `curr` to advance the previous pointer.
@@ -37,5 +35,4 @@ Output: [5,4,3,2,1]
 
 ## Notes
 
-- Always store `curr.next` in `temp` before updating `curr.next`.
-- Update pointers carefully to reverse the current node.
+- At the end of the loop, `prev` will be the new head of the reversed list.

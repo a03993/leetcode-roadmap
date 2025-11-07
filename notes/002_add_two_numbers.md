@@ -1,4 +1,6 @@
-# 2 Add Two Numbers(Top Interview 150)
+# 2 Add Two Numbers
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
@@ -30,27 +32,22 @@ Output: [8,9,9,9,0,0,0,1]
 
 ## Approach
 
-| Technique    | Method    | Time Complexity | Space Complexity |
-| ------------ | --------- | --------------- | ---------------- |
-| Two Pointers | Traversal | O(max(m, n))    | O(1)             |
+| Topics                       | Category           | Key Idea                | Time Complexity | Space Complexity |
+| ---------------------------- | ------------------ | ----------------------- | --------------- | ---------------- |
+| Linked List, Math, Recursion | In-place Traversal | Digit-by-Digit Addition | O(max(m, n))    | O(max(m, n))     |
 
-### Initialization
+- Initialization:
+    - `dummyHead`: A new `ListNode(0)` to simplify building the resulting list.
+    - `curr`: Reference to the current node in the resulting list, initially set to `dummyHead`.
+    - `carry = 0`: To track the carry during addition.
 
-- `dummyHead`: a new `ListNode(0)` to simplify building the resulting list.
-- `curr`: reference to the current node in the resulting list, initially set to `dummyHead`.
-- `carry = 0`: to track the carry during addition.
+- Pointers:
+    - `l1`: Traverses the first linked list.
+    - `l2`: Traverses the second linked list.
 
-### Two Pointers
+- Loop Condition: While `l1` or `l2` or `carry` exists.
 
-- `l1`: pointer for the **first** linked list.
-- `l2`: pointer for the **second** linked list.
-
-Both pointers move forward independently while processing corresponding nodes from each list, allowing simultaneous traversal and addition.
-
-### Traversal
-
-- Condition: While l1 or l2 or carry exists.
-- Step:
+- Steps:
     1. Take the current value `val1` from `l1` and `val2` from `l2`.
     2. Compute `sum = val1 + val2 + carry`.
     3. Set `carry = Math.floor(sum / 10)` for the next digit.
@@ -62,4 +59,4 @@ Both pointers move forward independently while processing corresponding nodes fr
 
 - Use a `dummyHead` to simplify handling of the head node.
 - Because `l1` and `l2` may have different lengths, treat the missing node as 0 (`let val1 = l1 ? l1.val : 0`).
-- The loop condition includes carry > 0 to handle the case where the last addition generates a new node.
+- The loop condition includes `carry > 0` to handle the case where the last addition generates a new node.

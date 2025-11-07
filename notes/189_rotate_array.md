@@ -1,4 +1,6 @@
-# 189 Rotate Array(Top Interview 150)
+# 189 Rotate Array
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 Given an integer array `nums`, rotate the array to the right by `k` steps, where `k` is non-negative.
 
@@ -34,11 +36,39 @@ rotate 2 steps to the right: [3,99,-1,-100]
 
 ## Approach
 
-| Technique          | Method         | Time Complexity | Space Complexity |
-| ------------------ | -------------- | --------------- | ---------------- |
-| Temporary Array    | Slice & Concat | O(n)            | O(n)             |
-| Cyclic Replacement | Traversal      | O(n)            | O(1) ✅          |
-| Reverse            | Reverse        | O(n)            | O(1) ✅          |
+<table>
+  <thead>
+    <tr>
+      <th>Topics</th>
+      <th>Category</th>
+      <th>Key Idea</th>
+      <th>Time Complexity</th>
+      <th>Space Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">Array, Math, Two Pointers</td>
+      <td>Temporary Array</td>
+      <td>Slice & Concat</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+    </tr>
+    <tr>
+      <td>In-place Replacement</td>
+      <td>Cyclic Replacement</td>
+      <td>O(n)</td>
+      <td>O(1)✅ </td>
+    </tr>
+    <tr>
+      <td>In-place Reverse</td>
+      <td>Three Reversals</td>
+      <td>O(n)</td>
+      <td>O(1)✅ </td>
+    </tr>
+
+  </tbody>
+</table>
 
 <details>
 <summary style="font-size: 1.25em; font-weight: bold">Temporary Array</summary>
@@ -63,27 +93,34 @@ for (let i = 0; i < nums.length; i++) {
 </details>
 
 <details>
-<summary style="font-size: 1.25em; font-weight: bold">Cyclic Replacement</summary>
+<summary style="font-size: 1.25em; font-weight: bold">In-place Replacement</summary>
 
-- Start at index 0 and store index in `current` and element in `prev`.
-- Calculate the new position for this element: `next = (current + k) % n`.
-- Place `prev` at `next`, and store the original value at `next` as the new `prev`.
-- Move to `next` and repeat until return to the starting index → one cycle is complete.
-- If there ate still elements left(`count < nums.length`), move to the next unprocessed index and start a new cycle.
+- Initialize `count = 0` to track how many elements have been rotated.
+- Loop through the array starting from index 0:
+    1. Set `current = i` and `prev = nums[i]`.
+    2. Use a `do-while` loop to process the current cycle:
+        - Calculate the new position: `next = (current + k) % n`.
+        - Place `prev` at `nums[next]`
+        - Save `temp` (the original `nums[next]` value) as the new `prev`.
+        - Move `current` to `next`.
+        - Increment `count`.
+    3. Continue the `do-while` loop until `current` returns to the starting index (`i`) → one cycle complete.
+- If `count < nums.length`, move to the next unprocessed index and start a new cycle.
 
 ### Code Skeleton
 
 ```
-k = k % nums.length;
+const n = nums.length;
+k = k % n;
 
 let count = 0;
 
-for (let i = 0; count < nums.length; i++) {
+for (let i = 0; count < n; i++) {
     let current = i;
     let prev = nums[i];
 
     do {
-        const next = (current + k) % nums.length;
+        const next = (current + k) % n;
         const temp = nums[next];
 
         nums[next] = prev;
@@ -94,12 +131,24 @@ for (let i = 0; count < nums.length; i++) {
 }
 ```
 
+### Flow
+
+| Iteration | current | next | prev | nums            | count |
+| --------- | ------- | ---- | ---- | --------------- | ----- |
+| 1         | 0       | 3    | 1    | [1,2,3,1,5,6,7] | 1     |
+| 2         | 3       | 6    | 4    | [1,2,3,1,5,6,4] | 2     |
+| 3         | 6       | 2    | 7    | [1,2,7,1,5,6,4] | 3     |
+| 4         | 2       | 5    | 3    | [1,2,7,1,5,3,4] | 4     |
+| 5         | 5       | 1    | 6    | [1,6,7,1,5,3,4] | 5     |
+| 6         | 1       | 4    | 2    | [1,6,7,1,2,3,4] | 6     |
+| 7         | 4       | 0    | 5    | [5,6,7,1,2,3,4] | 7     |
+
 </details>
 
 <details>
-<summary style="font-size: 1.25em; font-weight: bold">Reverse</summary>
+<summary style="font-size: 1.25em; font-weight: bold">In-place Reverse</summary>
 
-- Create a helper function to reverse a subarray. (Using `Array.prototype.reverse()` alone can only reverse entire array.)
+- **Create a helper function** to reverse a subarray.
 - Reverse entire array.
 - Reverse the first `k` element. (from start to `k - 1`)
 - Reverse the remaining element form index `k` to the end.
@@ -109,4 +158,5 @@ for (let i = 0; count < nums.length; i++) {
 ## Notes
 
 - Always do `k = k % nums.length` to handle cases where `k` is larger than the array length.
-- Normalize your approach for large arrays (length up to 10⁵) — **in-place** methods (Cyclic Replacement or Reverse) is efficient.
+- For large arrays (length up to 10⁵) — **In-place** methods are more efficient.
+- Using `Array.prototype.reverse()` alone can only reverse entire array, so a helper function is needed to reverse subarrays in the **In-place Reverse** method.

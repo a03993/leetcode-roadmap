@@ -1,4 +1,6 @@
-# 21 Merge Two Sorted Lists(Top Interview 150)
+# 21 Merge Two Sorted Lists
+
+<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
 
 You are given the heads of two sorted linked lists list1 and list2.
 
@@ -31,24 +33,21 @@ Output: [0]
 
 ## Approach
 
-| Technique      | Method    | Time Complexity | Space Complexity |
-| -------------- | --------- | --------------- | ---------------- |
-| Three Pointers | Traversal | O(n)            | O(1)             |
+| Topics                 | Category       | Key Idea       | Time Complexity | Space Complexity |
+| ---------------------- | -------------- | -------------- | --------------- | ---------------- |
+| Linked List, Recursion | In-place Merge | Three Pointers | O(n)            | O(1)             |
 
-### Initialization
+- Initialization:
+    - `dummyHead`: A new `ListNode(0)` to simplify building the resulting list.
 
-- `dummyHead`: a new `ListNode(0)` to simplify building the resulting list.
+- Pointers:
+    - `curr`: Builds the new merged list.
+    - `p1`: Traverses the first list.
+    - `p2`: Traverses the second list.
 
-### Three Pointers
+- Loop Condition: While both `p1` and `p2` exist.
 
-- `curr`: pointing to current node, initially `dummyHead`.
-- `p1`: pointing to current node in list 1, initially `list1`.
-- `p2`: pointing to current node in list 2, initially `list2`.
-
-### Traversal
-
-- Condition: While both `p1` and `p2` exist.
-- Step:
+- Steps:
     1. Compare `p1.val` and `p2.val` to decide which node will be assigned to `curr.next` and move that pointer forward.
     2. Move `curr` forward.
     3. After the loop, append any remaining nodes from `p1` or `p2` to `curr.next`.
