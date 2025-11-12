@@ -23,9 +23,38 @@ codeFiles.forEach((file) => {
 
     const [_, num, problemSlug] = match;
 
+    const minorWords = [
+        "a",
+        "an",
+        "the",
+        "and",
+        "but",
+        "or",
+        "for",
+        "nor",
+        "on",
+        "at",
+        "to",
+        "from",
+        "by",
+        "in",
+        "with",
+        "of",
+    ];
+
     const title = problemSlug
         .split("_")
-        .map((s) => (s == s.toUpperCase() ? s : s.charAt(0).toUpperCase() + s.slice(1)))
+        .map((s, index) => {
+            if (s == s.toUpperCase()) {
+                return s;
+            }
+
+            if (index != 0 && minorWords.includes(s.toLowerCase())) {
+                return s.toLowerCase();
+            }
+
+            return s.charAt(0).toUpperCase() + s.slice(1);
+        })
         .join(" ");
 
     const codeLink = `[Link](codes/${file})`;
