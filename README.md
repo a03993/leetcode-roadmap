@@ -4,6 +4,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 
 | No. | Problem | Code | Note |
 |-----|---------|------|------|
+| 1 | Two Sum | [Link](codes/001_two_sum.js) | [Link](notes/001_two_sum.md) |
 | 2 | Add Two Numbers | [Link](codes/002_add_two_numbers.js) | [Link](notes/002_add_two_numbers.md) |
 | 21 | Merge Two Sorted Lists | [Link](codes/021_merge_two_sorted_lists.js) | [Link](notes/021_merge_two_sorted_lists.md) |
 | 26 | Remove Duplicates from Sorted Array | [Link](codes/026_remove_duplicates_from_sorted_array.js) | [Link](notes/026_remove_duplicates_from_sorted_array.md) |
