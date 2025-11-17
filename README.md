@@ -19,6 +19,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 125 | Valid Palindrome | [Link](codes/125_valid_palindrome.js) | [Link](notes/125_valid_palindrome.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 160 | Intersection of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
+| 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_-_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_-_input_array_is_sorted.md) |
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
