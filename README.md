@@ -24,5 +24,6 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
 | 206 | Reverse Linked List | [Link](codes/206_reverse_linked_list.js) | [Link](notes/206_reverse_linked_list.md) |
+| 383 | Ransom Note | [Link](codes/383_ransom_note.js) | [Link](notes/383_ransom_note.md) |
 | 392 | Is Subsequence | [Link](codes/392_is_subsequence.js) | [Link](notes/392_is_subsequence.md) |
 
