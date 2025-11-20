@@ -30,9 +30,9 @@ Output: true
 
 ## Approach
 
-| Topics                       | Category | Key Idea                                         | Time Complexity | Space Complexity |
-| ---------------------------- | -------- | ------------------------------------------------ | --------------- | ---------------- |
-| Hash Table, String, Counting | Hash Map | Count ransomNote letters and match with magazine | O(m+n)          | O(n)             |
+| Topics                       | Category | Key Idea                                             | Time Complexity | Space Complexity |
+| ---------------------------- | -------- | ---------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, String, Counting | Hash Map | Count `ransomNote` letters and match with `magazine` | O(n+m)          | O(1)             |
 
 - Initialize: create a new Map and record the count of every character of `ransomNote`.
 
@@ -50,3 +50,4 @@ Output: true
 - Use `Map.get` and `Map.set` to read/update counts.
 - Use `Map.size == 0` for efficient termination instead of looping through keys.
 - Early return `true` if Map becomes empty.
+- Space Complexity: `O(1)`, because if we only deal with the 26 lowercase English letters a–z, the Map (or array) will store at most 26 keys regardless of the input string length.
