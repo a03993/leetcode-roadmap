@@ -23,6 +23,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
+| 205 | Isomorphic Strings | [Link](codes/205_isomorphic_strings.js) | [Link](notes/205_isomorphic_strings.md) |
 | 206 | Reverse Linked List | [Link](codes/206_reverse_linked_list.js) | [Link](notes/206_reverse_linked_list.md) |
 | 383 | Ransom Note | [Link](codes/383_ransom_note.js) | [Link](notes/383_ransom_note.md) |
 | 392 | Is Subsequence | [Link](codes/392_is_subsequence.js) | [Link](notes/392_is_subsequence.md) |
