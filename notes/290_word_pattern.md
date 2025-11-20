@@ -45,10 +45,10 @@ Output: false
 
 | Topics             | Category | Key Idea             | Time Complexity | Space Complexity |
 | ------------------ | -------- | -------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Double mapping check | O(n)            | O(n+m)           |
+| Hash Table, String | Hash Map | Double mapping check | O(n+m)          | O(n+m)           |
 
 - Initialize:
-    - Const `word` to store the string `s` after `spilt(" ")`.
+    - Const `word` to store the string `s` after `split(" ")`.
     - Create two Map `patternMap` and `wordMap`, to store mappings from `pattern` → `word` and `word` → `pattern`.
 
 - Traverse the string once, checking both mappings.
@@ -61,4 +61,5 @@ Output: false
 ## Notes
 
 - Same logic as [205 Isomorphic Strings](./205_isomorphic_strings.md).
-- Use `array.spilt(" ")` to spilt a string by spaces, because the problem states that `s` is a string where words are **separated by exactly one space**.
+- Use `array.split(" ")` to split a string by spaces, because the problem states that `s` is a string where words are **separated by exactly one space**.
+- An extra `O(m)` from splitting the to split it into words, which [205 Isomorphic Strings](./205_isomorphic_strings.md) does not require.

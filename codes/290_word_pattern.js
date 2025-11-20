@@ -5,12 +5,13 @@
  */
 var wordPattern = function (pattern, s) {
     const word = s.split(" ");
-    const patternMap = new Map();
-    const wordMap = new Map();
 
     if (pattern.length != word.length) {
         return false;
     }
+
+    const patternMap = new Map();
+    const wordMap = new Map();
 
     for (let i = 0; i < pattern.length; i++) {
         if (patternMap.has(pattern[i])) {
