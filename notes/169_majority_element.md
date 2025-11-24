@@ -1,6 +1,7 @@
 # 169 Majority Element
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8?style=flat-square)
 
 Given an array `nums` of size `n`, return _the majority element_.
 
