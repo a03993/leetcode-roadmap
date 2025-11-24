@@ -1,5 +1,8 @@
 # 1 Two Sum
 
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+
 Given an array of integers `nums` and an integer `target`, return _indices of the two numbers such that they add up to `target`_.
 
 You may assume that each input would have **_exactly_ one solution**, and you may not use the _same_ element twice.
@@ -35,9 +38,9 @@ Output: [0,1]
 
 ## Approach
 
-| Topics            | Category       | Key Idea                        | Time Complexity | Space Complexity |
-| ----------------- | -------------- | ------------------------------- | --------------- | ---------------- |
-| Array, Hash Table | Hash Map Check | Store previous numbers in a map | O(n)            | O(n)             |
+| Topics            | Category      | Key Idea                        | Time Complexity | Space Complexity |
+| ----------------- | ------------- | ------------------------------- | --------------- | ---------------- |
+| Array, Hash Table | One-pass Hash | Store previous numbers in a map | O(n)            | O(n)             |
 
 - Traverse the array once.
 

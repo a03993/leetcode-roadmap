@@ -1,6 +1,7 @@
 # 290 Word Pattern
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given a `pattern` and a string `s`, find if `s` follows the same pattern.
 
@@ -45,7 +46,7 @@ Output: false
 
 | Topics             | Category | Key Idea             | Time Complexity | Space Complexity |
 | ------------------ | -------- | -------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Double mapping check | O(n+m)          | O(n+m)           |
+| Hash Table, String | Hash Map | Double mapping check | O(n)            | O(n)             |
 
 - Initialize:
     - Const `word` to store the string `s` after `split(" ")`.
@@ -62,4 +63,4 @@ Output: false
 
 - Same logic as [205 Isomorphic Strings](./205_isomorphic_strings.md).
 - Use `array.split(" ")` to split a string by spaces, because the problem states that `s` is a string where words are **separated by exactly one space**.
-- An extra `O(m)` from splitting the to split it into words, which [205 Isomorphic Strings](./205_isomorphic_strings.md) does not require.
+- Time & Space Complexity: `O(m+n)`, which is `O(2n)` (often simplified to `O(n)` on LeetCode) because `pattern.length == words.length` (n = m).

@@ -1,5 +1,7 @@
 # 203 Remove Linked List Elements
 
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+
 Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
 
 **Example:**
@@ -27,9 +29,9 @@ Output: []
 
 ## Approach
 
-| Topics                 | Category         | Key Idea                   | Time Complexity | Space Complexity |
-| ---------------------- | ---------------- | -------------------------- | --------------- | ---------------- |
-| Linked List, Recursion | In-place Removal | Two Pointers (Prev & Curr) | O(n)            | O(1)             |
+| Topics                 | Category         | Key Idea                                                 | Time Complexity | Space Complexity |
+| ---------------------- | ---------------- | -------------------------------------------------------- | --------------- | ---------------- |
+| Linked List, Recursion | In-place Removal | Use dummy node and prev/curr pointers to remove elements | O(n)            | O(1)             |
 
 - Initialization:
     - `dummy`: A new node pointing to `head` to simplify deletion.

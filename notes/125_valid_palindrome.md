@@ -1,6 +1,7 @@
 # 125 Valid Palindrome
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 A phrase is a **palindrome** if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
@@ -34,23 +35,20 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 ## Approach
 
-| Topics               | Category       | Key Idea                                                             | Time Complexity | Space Complexity |
-| -------------------- | -------------- | -------------------------------------------------------------------- | --------------- | ---------------- |
-| Two Pointers, String | In-place Check | Two Pointers (Left & Right), Skip Non-Alphanumeric, Case-insensitive | O(n)            | O(1)             |
+| Topics               | Category       | Key Idea                                                                                 | Time Complexity | Space Complexity |
+| -------------------- | -------------- | ---------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| Two Pointers, String | In-place Check | Use left/right pointers to check palindrome, skipping non-alphanumeric and ignoring case | O(n)            | O(1)             |
 
 - Pointers:
-    - `i` (left pointer): Start from `0`, moves **rightward** skipping non-alphanumeric chars.
-    - `j` (right pointer): Start from `s.length - 1`, moves **leftward** skipping non-alphanumeric chars.
+    - `i` (left pointer): Starts at the beginning of the string.
+    - `j` (right pointer): Starts at the end of the string.
 
-- Loop Condition: While `i < j` - _Repeat until pointers meet or cross._
+- Loop Condition: While `i < j` - _continue until pointers meet or cross._
 
 - Steps:
-    1. Skip non-alphanumeric characters:
-        - Increment `i` until `s[i]` is alphanumeric or `i >= j`.
-        - Decrement `j` until `s[j]` is alphanumeric or `j >= i`.
-    2. Compare `s[i]` and `s[j]` after converting both to lowercase. If they are not equal, return `false` immediately.
-    3. Increment `i` and decrement `j` to move inward.
-    4. If the loop finishes without mismatch, return `true`.
+    1. Skip non-alphanumeric characters at `i` and `j`.
+    2. Compare characters case-insensitively.
+    3. If mismatch occurs, return `false`, or move `i` and `j` inward otherwise.
 
 ## Notes
 

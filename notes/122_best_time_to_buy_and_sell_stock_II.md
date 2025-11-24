@@ -1,6 +1,7 @@
 # 122 Best Time to Buy and Sell Stock II
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 You are given an integer array `prices` where `prices[i]` is the price of a given stock on the `iᵗʰ` day.
 
@@ -38,24 +39,25 @@ Constraints:
 
 ## Approach
 
-| Topics                             | Category             | Key Idea                   | Time Complexity | Space Complexity |
-| ---------------------------------- | -------------------- | -------------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming, Greedy | In-place Calculation | Accumulate Profit on Rises | O(n)            | O(1)             |
+| Topics                             | Category | Key Idea                             | Time Complexity | Space Complexity |
+| ---------------------------------- | -------- | ------------------------------------ | --------------- | ---------------- |
+| Array, Dynamic Programming, Greedy | Greedy   | Accumulate profit on all price rises | O(n)            | O(1)             |
 
 - Traverse the array once.
-- For each consecutive pair of days, if the price increases (`prices[i + 1] > prices[i]`), add the difference to `profit`.
+- For each consecutive pair of days, if the price increases (`prices[i] < prices[i + 1]`), add the difference to `profit`.
 
 #### 🚀 Demonstration: `prices = [7,1,5,3,6,4]`
 
 | Index (Day) | Price | Price Diff | Profit |
 | ----------- | ----- | ---------- | ------ |
 | 0           | 7     | 1 - 7 = -6 | 0      |
-| 1           | 1     | 5 - 1 = 4  | 4      |
+| 1           | 1     | 5 - 1 = 4  | 0 → 4  |
 | 2           | 5     | 3 - 5 = -2 | 4      |
-| 3           | 3     | 6 - 3 = 3  | 7      |
+| 3           | 3     | 6 - 3 = 3  | 4 → 7  |
 | 4           | 6     | 4 - 6 = -2 | 7      |
 
 ## Notes
 
 - **No need to track buy or sell days**.
-- By summing all positive differences between consecutive days, we capture every profitable transaction, which **guarantees the maximum total profit**. (累加正差值 = 最大利潤)
+- Summing all positive differences between consecutive days captures every profitable transaction, which **guarantees the maximum total profit**. (累加正差值 = 最大利潤)
+- Same logic as [055 Jump Game](./055_jump_game.md), **greedily** make optimal local choices to reach the global optimum.

@@ -1,5 +1,7 @@
 # 160 Intersection of Two Linked Lists
 
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+
 Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
 
 **Example:**
@@ -27,9 +29,9 @@ Output: Intersected at '2'
 
 ## Approach
 
-| Topics                                | Category           | Key Idea     | Time Complexity | Space Complexity |
-| ------------------------------------- | ------------------ | ------------ | --------------- | ---------------- |
-| Hash Table, Linked List, Two Pointers | In-place Traversal | Two Pointers | O(m+n)          | O(1)             |
+| Topics                                | Category           | Key Idea                                                       | Time Complexity | Space Complexity |
+| ------------------------------------- | ------------------ | -------------------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, Linked List, Two Pointers | In-place Traversal | Using two pointers to traverse both lists to find intersection | O(m+n)          | O(1)             |
 
 - Pointers:
     - `pA`: Traverses list A and then switches to list B.

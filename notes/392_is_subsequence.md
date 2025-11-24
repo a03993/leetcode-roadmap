@@ -1,6 +1,7 @@
 # 392 Is Subsequence
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given two strings `s` and `t`, return `true` _if `s` is a **subsequence** of `t`, or `false` otherwise_.
 
@@ -28,21 +29,20 @@ Output: false
 
 ## Approach
 
-| Topics                                    | Category       | Key Idea                    | Time Complexity | Space Complexity |
-| ----------------------------------------- | -------------- | --------------------------- | --------------- | ---------------- |
-| Two Pointers, String, Dynamic Programming | In-place Check | Two Pointers (Left & Right) | O(n)            | O(1)             |
+| Topics                                    | Category       | Key Idea                                                    | Time Complexity | Space Complexity |
+| ----------------------------------------- | -------------- | ----------------------------------------------------------- | --------------- | ---------------- |
+| Two Pointers, String, Dynamic Programming | In-place Check | Use two pointers to to check if `s` is a subsequence of `t` | O(n)            | O(1)             |
 
 - Pointers:
-    - `i` (left pointer): Points to current character in `s`. Moves right when a match is found.
-    - `j` (right pointer): Points to current character in `t`. Always moves right.
+    - `i`: Points to current character in `s`. Moves right when a match is found.
+    - `j`: Points to current character in `t`. Always moves right.
 
-- Loop Condition: While `i < s.length && j < t.length` — _traverse `t` until either `s` is fully matched or `t` ends_.
+- Loop Condition: While `i < s.length && j < t.length` — _traverse `t` until all characters in `s`are matched or `t` ends_.
 
 - Steps:
-    1. Compare `s[i]` with `t[j]`, If they are equal, increment `i`.
+    1. If `s[i]` is equal to `t[j]`, increment `i`.
     2. Increment `j` in each iteration.
-    3. Repeat until loop ends.
-    4. After the loop, return `i == s.length` to check if all characters in s were matched in order.
+    3. After the loop, return `i == s.length` to determine if `s` is a subsequence.
 
 ## Notes
 

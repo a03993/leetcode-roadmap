@@ -1,6 +1,7 @@
 # 45 Jump Game II
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 You are given a **0-indexed** array of integers `nums` of length `n`. You are initially positioned at index 0.
 
@@ -32,34 +33,33 @@ Output: 2
 
 ## Approach
 
-| Topics                              | Category             | Key Idea                  | Time Complexity | Space Complexity |
-| ----------------------------------- | -------------------- | ------------------------- | --------------- | ---------------- |
+| Topics                             | Category             | Key Idea                  | Time Complexity | Space Complexity |
+| ---------------------------------- | -------------------- | ------------------------- | --------------- | ---------------- |
 | Array, Dynamic Programming, Greedy | In-place Calculation | Track reach and nextReach | O(n)            | O(1)             |
 
 - Initialization:
-    - `jumps = 0`: counts number of jumps.
-    - `reach = 0`: the **rightmost index** current jump can reach.
-    - `nextReach = 0`: the **farthest index** reachable within current jump range.
+    - `jumps`: Counts the number of jumps made.
+    - `currentReach`: The farthest index reachable **with the current jump**.
+    - `farthest`: The farthest index reachable **within the current jump range**.
 
 - Traverse the array once.
 
 - Steps:
-    1. Update `nextReach` by `max(nextReach, i + nums[i])` to track the farthest we can reach in this jump.
-    2. If `i == reach`:
+    1. Update `farthest` using `max(farthest, i + nums[i])` to track the farthest reachable index from the current range.
+    2. When `i` reach `currentReach`:
         - Increment `jumps`
-        - Update `reach` by `nextReach`
-    3. Return `jumps` after loop completes.
+        - Update `currentReach` to `farthest`.
 
 #### 🚀 Demonstration: `nums = [2,3,1,1,4]` ✅ result: 2
 
-| Index `i` | `nums[i]` | nextReach | jumps | reach | Explanation                                               |
-| --------- | --------- | --------- | ----- | ----- | --------------------------------------------------------- |
-| 0         | 2         | 2         | 1     | 2     | `nextReach`=max(0, 0+2)=2, `jumps`++, `reach`=`nextReach` |
-| 1         | 3         | 4         | 1     | 2     | `nextReach`=max(2, 1+3)=4                                 |
-| 2         | 1         | 4         | 2     | 4     | `nextReach`=max(4, 2+1)=4, `jumps`++, `reach`=`nextReach` |
-| 3         | 1         | 4         | 2     | 4     | `nextReach`=max(4, 3+1)=4                                 |
+| Index `i` | `nums[i]` | farthest                | currentReach | jumps |
+| --------- | --------- | ----------------------- | ------------ | ----- |
+| 0         | 2         | 0 → 2 (`max(0, 0 + 2)`) | 0 → 2        | 0 → 1 |
+| 1         | 3         | 2 → 4 (`max(2, 1 + 3)`) | 2            | 1     |
+| 2         | 1         | 4 (`max(4, 2 + 1)`)     | 2 → 4        | 1 → 2 |
+| 3         | 1         | 4 (`max(4, 3 + 1)`)     | 4            | 2     |
 
 ## Notes
 
 - The test cases are guaranteed to be reachable.
-- Increment jumps only when **you reach the current jump’s limit**, because that’s when a new jump is needed.
+- When the index reaches `currentReach`, it means the current jump's range is fully used, so a new jump is required, and `currentReach` must be updated to the farthest reachable index.

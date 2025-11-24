@@ -1,6 +1,7 @@
 # 242 Valid Anagram
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 
@@ -25,9 +26,9 @@ Output: false
 
 ## Approach
 
-| Topics                      | Category | Key Idea                             | Time Complexity | Space Complexity |
-| --------------------------- | -------- | ------------------------------------ | --------------- | ---------------- |
-| Hash Table, String, Sorting | Hash Map | Count `s` letters and match with `t` | O(n)            | O(1)             |
+| Topics                      | Category | Key Idea                                            | Time Complexity | Space Complexity |
+| --------------------------- | -------- | --------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, String, Sorting | Hash Map | Mapping letters from `s` letters and match with `t` | O(n)            | O(1)             |
 
 - Initialize: create a new Map and record the count of every character of `s`.
 
@@ -42,5 +43,5 @@ Output: false
 ## Notes
 
 - Same logic as [383 Ransom Note](./383_ransom_note.md).
-- Time Complexity: `O(n + m)`, which simplifies to `O(n)` when `s.length = t.length (n = m)`, because big O notation ignores constant factors.
-- Space Complexity: `O(1)`, because if we only deal with the 26 lowercase English letters a–z, the Map (or array) will store at most 26 keys regardless of the input string length.
+- Time Complexity: `O(n + m)`, which is `O(2n)` (often simplified to `O(n)` on LeetCode) because `s.length == t.length` (n = m).
+- Space Complexity: `O(1)`, because only 26 lowercase English letters (`a–z`) are involved, so the Map stores at most 26 keys.

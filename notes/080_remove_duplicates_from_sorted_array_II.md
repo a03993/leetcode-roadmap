@@ -1,6 +1,7 @@
 # 80 Remove Duplicates from Sorted Array II
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 Given an integer array `nums` sorted in **non-decreasing order**, remove some duplicates **in-place** such that each unique element appears **at most twice**. The **relative order** of the elements should be kept the **same**.
 
@@ -52,21 +53,20 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Approach
 
-| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
-| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
-| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
+| Topics              | Category       | Key Idea                                               | Time Complexity | Space Complexity |
+| ------------------- | -------------- | ------------------------------------------------------ | --------------- | ---------------- |
+| Array, Two Pointers | In-place Write | Use read/write pointers to keep at most two duplicates | O(n)            | O(1)             |
 
 - Pointers:
-    - `k` (write pointer): Tracks the position for the next element to write, ensuring at most two duplicates are kept.
-    - `i` (read pointer): Scans the array to find elements to keep.
+    - `i` (read pointer): Scans the array from index 1 to find elements to keep.
+    - `k` (write pointer): Position to place the the next valid element, keeping at most two duplicates.
 
 - Traverse the array once.
 
 - Steps:
-    1. **First two elements are always kept**: if `k < 2`, place `nums[i]` at `nums[k]`.
-    2. Place `nums[i]` at `nums[k]` **only** if `nums[i] != nums[k - 2]` to ensure at most two duplicates.
-    3. Increment `k` **only** when a number is placed.
-    4. Increment `i` on every iteration.
+    1. If `k < 2` (**the first two elements are always kept**), write `nums[i]` to `nums[k]`.
+    2. Otherwise, write `nums[i]` to `nums[k]` only if `nums[i]` is not equal to `nums[k - 2]`, ensuring at most two duplicates remain.
+    3. Increment `k` whenever an element is written.
 
 #### 🚀 Demonstration: `nums = [1,1,1,2,2,3]`
 

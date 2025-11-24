@@ -17,7 +17,7 @@ var mergeTwoLists = function (list1, list2) {
     let p2 = list2;
 
     while (p1 && p2) {
-        if (p1.val >= p2.val) {
+        if (p1.val > p2.val) {
             curr.next = p2;
             p2 = p2.next;
         } else {
@@ -27,13 +27,7 @@ var mergeTwoLists = function (list1, list2) {
         curr = curr.next;
     }
 
-    if (p1) {
-        curr.next = p1;
-    }
-
-    if (p2) {
-        curr.next = p2;
-    }
+    curr.next = p1 || p2;
 
     return dummyHead.next;
 };
