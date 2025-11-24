@@ -1,6 +1,7 @@
 # 167 Two Sum II - Input Array Is Sorted
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 Given a **1-indexed** array of integers `numbers` that is already **_sorted in non-decreasing order_**, find two numbers such that they add up to a specific `target` number. Let these two numbers be `numbers[index₁]` and `numbers[index₂]` where `1 <= index₁ < index₂ <= numbers.length`.
 
@@ -15,19 +16,19 @@ Your solution must use only constant extra space.
 ```
 Input: numbers = [2,7,11,15], target = 9
 Output: [1,2]
-Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+Explanation: The `sum` of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 ```
 
 ```
 Input: numbers = [2,3,4], target = 6
 Output: [1,3]
-Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
+Explanation: The `sum` of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
 ```
 
 ```
 Input: numbers = [-1,0], target = -1
 Output: [1,2]
-Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
+Explanation: The `sum` of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 ```
 
 **Constraints:**
@@ -40,24 +41,23 @@ Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We ret
 
 ## Approach
 
-| Topics                             | Category | Key Idea                    | Time Complexity | Space Complexity |
-| ---------------------------------- | -------- | --------------------------- | --------------- | ---------------- |
-| Array, Two Pointers, Binary Search |          | Two Pointers (Left & Right) | O(n)            | O(1)             |
+| Topics                             | Category | Key Idea                                                                       | Time Complexity | Space Complexity |
+| ---------------------------------- | -------- | ------------------------------------------------------------------------------ | --------------- | ---------------- |
+| Array, Two Pointers, Binary Search | In-place | Use left/right pointers to find a pair that sums to `target` in a sorted array | O(n)            | O(1)             |
 
 - Pointers:
-    - `left`: Starts at index 0, moves rightward to increase total sum.
-    - `right`: Starts at `numbers.length - 1`, moves leftward to decrease total sum.
+    - `i` (left pointer): Starts at index 0, moves rightward to increase total `sum`.
+    - `j` (right pointer): Starts at `numbers.length - 1`, moves leftward to decrease total `sum`.
 
-- Loop Condition: while `left < right` — _Search until the two pointers converge_.
+- Loop Condition: while `i < j` — _Search until the two pointers converge_.
 
 - Steps:
-    1. Calculate the current sum.
-    2. If the sum equals target, return `[left + 1, right + 1]` (1-indexed requirement).
-    3. If the sum is less than target, move `left` to increase the sum.
-    4. If the sum is greater than target, move `right` to reduce the sum.
+    1. Calculate the current `sum`.
+    2. If the `sum` equals `target`, return `[i + 1, j + 1]` (1-indexed requirement).
+    3. If the `sum` is less than `target`, move `i` to increase the `sum`.
+    4. If the `sum` is greater than `target`, move `j` to reduce the `sum`.
 
 ## Notes
 
-- Array is already **sorted** → Two Pointers is the optimal pattern.
-- Using a Map becomes unnecessary overhead.
-- Problem requires using only **constant extra space**.
+- Array is **sorted**, using Two Pointers is the optimal approach.
+- Only **constant extra space** is allowed, so Map is **unnecessary**.

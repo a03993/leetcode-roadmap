@@ -1,6 +1,7 @@
 # 27 Remove Element
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given an integer array `nums` and an integer `val`, remove all occurrences of `val` in `nums` **in-place**. The order of the elements may be changed. Then return _the number of elements in `nums` which are not equal to `val`_.
 
@@ -55,21 +56,21 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Approach
 
-| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
-| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
-| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
+| Topics              | Category       | Key Idea                                                         | Time Complexity | Space Complexity |
+| ------------------- | -------------- | ---------------------------------------------------------------- | --------------- | ---------------- |
+| Array, Two Pointers | In-place Write | Use read/write pointers to overwrite the elements equal to `val` | O(n)            | O(1)             |
 
 - Pointers:
-    - `k` (write pointer): Tracks the position for the next element that is not equal to `val`.
     - `i` (read pointer): Scans the array to find elements to keep.
+    - `k` (write pointer): Position to place the next element not equal to `val`, also represents the new length of the array.
 
 - Traverse the array once.
 
 - Steps:
-    1. If `nums[i]` is not equal to `val`, place it at `nums[k]`.
+    1. If `nums[i]` is not equal to `val`, write it to `nums[k]`.
     2. Increment `k`.
 
 ## Notes
 
 - `k` serves two purposes: it **represents the new length of the array** and also **marks the next write position for valid elements**.
-- When `i == k`, the assignment `nums[k] = nums[i]` becomes a no-op, but it’s fine — _no special handling is required, which simplifies the implementation_.
+- When `i` is equal to `k` (initially both `0`), the assignment `nums[k] = nums[i]` becomes a **no-op**, but it doesn’t affect correctness — _simplifies implementation_.

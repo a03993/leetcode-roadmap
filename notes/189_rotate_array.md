@@ -1,6 +1,7 @@
 # 189 Rotate Array
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 Given an integer array `nums`, rotate the array to the right by `k` steps, where `k` is non-negative.
 

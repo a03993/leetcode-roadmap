@@ -1,6 +1,7 @@
 # 141 Linked List Cycle
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 

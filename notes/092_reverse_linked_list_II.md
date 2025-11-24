@@ -1,6 +1,7 @@
 # 92 Reverse Linked List II
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Medium](https://img.shields.io/badge/Medium-ffb800)
 
 Given the `head` of a singly linked list and two integers `left` and `right` where `left <= right`, reverse the nodes of the list from position `left` to position `right`, and return the _reversed list_.
 
@@ -27,9 +28,9 @@ Output: [5]
 
 ## Approach
 
-| Topics      | Category          | Key Idea       | Time Complexity | Space Complexity |
-| ----------- | ----------------- | -------------- | --------------- | ---------------- |
-| Linked List | In-place Reversal | Three Pointers | O(n)            | O(1)             |
+| Topics      | Category          | Key Idea                                                | Time Complexity | Space Complexity |
+| ----------- | ----------------- | ------------------------------------------------------- | --------------- | ---------------- |
+| Linked List | In-place Reversal | Using dummy node and prev/curr pointers reverse sublist | O(n)            | O(1)             |
 
 - Initialization:
     - `dummy`: a new `ListNode(0, head)` to simplify building the resulting list.

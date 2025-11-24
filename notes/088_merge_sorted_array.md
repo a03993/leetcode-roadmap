@@ -1,6 +1,7 @@
 # 88 Merge Sorted Array
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 You are given two integer arrays `nums1` and `nums2`, sorted in **non-decreasing order**, and two integers `m` and `n`, representing the number of elements in `nums1` and `nums2` respectively.
 
@@ -44,30 +45,27 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ## Approach
 
-| Topics                       | Category       | Key Idea                      | Time Complexity | Space Complexity |
-| ---------------------------- | -------------- | ----------------------------- | --------------- | ---------------- |
-| Array, Two Pointers, Sorting | In-place Merge | Three Pointers (Read & Write) | O(m + n)        | O(1)             |
+| Topics                       | Category       | Key Idea                                              | Time Complexity | Space Complexity |
+| ---------------------------- | -------------- | ----------------------------------------------------- | --------------- | ---------------- |
+| Array, Two Pointers, Sorting | In-place Merge | Use read/write pointers to merge `nums2` into `nums1` | O(m + n)        | O(1)             |
 
 - Pointers:
-    - `i` (read pointer): Points to the last initialized element in `nums1`.
-    - `j` (read pointer): Points to the last element in `nums2`.
-    - `k` (write pointer): Points to the last position in the merged `nums1`.
+    - `i` (read pointer): Last element in `nums1`.
+    - `j` (read pointer): Last element in `nums2`.
+    - `k` (write pointer): Last position in the merged `nums1`.
 
 - Loop Condition: While `j >= 0` — _as long as there are elements in `nums2` to merge in `nums1`._
 
 - Steps:
-    1. Compare `nums1[i]` with `nums2[j]`
-        - `nums1[i] > nums2[j]`: place `nums1[i]` at `nums1[k]` and decrement `i`.
-        - `nums1[i] < nums2[j]`: place `nums2[j]` at `nums1[k]` and decrement `j`.
-    2. Move `k` one step left each iteration.
-    3. When `nums1` is exhausted (`i < 0`), the remaining elements of `nums2` will naturally be copied to the front of `nums1`.
+    1. If `nums1[i] > nums2[j]`, write `nums1[i]` to `nums1[k]` and decrement `i`, write `nums2[j]` to `nums1[k]` and decrement `j` otherwise.
+    2. Decrement `k` each iteration.
 
 ## Notes
 
-- The key insight is that filling from the back prevents overwriting elements in `nums1` that have not yet been compared.
-- Always compare `nums1[i] > nums2[j]`, **not the other way around**:
-    - This ensures that when `i < 0`, the remaining elements in `nums2` are safely copied in.
-    - Reversing the comparison (`nums2[j] > nums1[i]`) can lead to `undefined` comparisons and may cause infinite loops or timeout.
+- Filling from the back prevents overwriting elements in `nums1` that have not yet been compared.
+- Always compare `nums1[i] > nums2[j]`, **not the other way around**!
+    - Ensures that when `i < 0`, remaining elements in `nums2` are safely copied to the front of `nums1`.
+    - Reversing the comparison (`nums2[j] > nums1[i]`) can lead to `undefined` comparisons and may cause infinite loops or timeout:
 
         ```
         let i = m - 1;

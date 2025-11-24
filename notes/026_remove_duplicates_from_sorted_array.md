@@ -1,6 +1,7 @@
 # 26 Remove Duplicates from Sorted Array
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given an integer array `nums` sorted in **non-decreasing order**, remove the duplicates **in-place** such that each unique element appears only **once**. The **relative order** of the elements should be kept the **same**.
 
@@ -46,22 +47,22 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 - `1 <= nums.length <= 3 * 10⁴`
 - `-100 <= nums[i] <= 100`
-- `nums` is sorted in non-decreasing order.
+- `nums` is sorted in **non-decreasing** order.
 
 ## Approach
 
-| Topics              | Category         | Key Idea                    | Time Complexity | Space Complexity |
-| ------------------- | ---------------- | --------------------------- | --------------- | ---------------- |
-| Array, Two Pointers | In-place Removal | Two Pointers (Read & Write) | O(n)            | O(1)             |
+| Topics              | Category       | Key Idea                                        | Time Complexity | Space Complexity |
+| ------------------- | -------------- | ----------------------------------------------- | --------------- | ---------------- |
+| Array, Two Pointers | In-place Write | Use read/write pointers to overwrite duplicates | O(n)            | O(1)             |
 
 - Pointers:
-    - `k` (write pointer): Tracks the position for the next unique element.
-    - `i` (read pointer): Scans the array to find unique elements.
+    - `i` (read pointer): Scans the array from index 1 to find unique elements.
+    - `k` (write pointer): Position to place the next unique element, initially `1`.
 
 - Traverse the array once.
 
 - Steps:
-    1. If `nums[i]` is not equal to `nums[k - 1]`, place it at `nums[k]` and increment `k`.
+    1. If `nums[i]` is not equal to `nums[k - 1]`, write it to `nums[k]` and increment `k`.
 
 ## Notes
 

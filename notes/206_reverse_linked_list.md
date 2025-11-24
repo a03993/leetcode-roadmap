@@ -1,5 +1,7 @@
 # 206 Reverse Linked List
 
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 
 **Example:**
@@ -16,9 +18,9 @@ Output: [5,4,3,2,1]
 
 ## Approach
 
-| Topics                 | Category          | Key Idea       | Time Complexity | Space Complexity |
-| ---------------------- | ----------------- | -------------- | --------------- | ---------------- |
-| Linked List, Recursion | In-place Reversal | Three Pointers | O(n)            | O(1)             |
+| Topics                 | Category          | Key Idea                                     | Time Complexity | Space Complexity |
+| ---------------------- | ----------------- | -------------------------------------------- | --------------- | ---------------- |
+| Linked List, Recursion | In-place Reversal | Using prev/curr pointers reverse entire list | O(n)            | O(1)             |
 
 - Pointers:
     - `prev`: Points to the previous node, initially `null`.

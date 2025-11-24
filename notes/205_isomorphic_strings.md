@@ -1,6 +1,7 @@
 # 205 Isomorphic Strings
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given two strings `s` and `t`, _determine if they are isomorphic_.
 
@@ -42,7 +43,7 @@ Output: true
 
 | Topics             | Category | Key Idea             | Time Complexity | Space Complexity |
 | ------------------ | -------- | -------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Double mapping check | O(n)            | O(n+m)           |
+| Hash Table, String | Hash Map | Double mapping check | O(n)            | O(n)             |
 
 - Initialize: Create two Map `sMap` and `tMap`, to store mappings from `s` → `t` and `t` → `s`.
 
@@ -55,5 +56,5 @@ Output: true
 
 ## Notes
 
-- Using only one Map is insufficient; e.g., `s = "badc", t = "baba"` would return wrong result.
-- Double mapping ensures each character in `s` maps uniquely to `t` and vice versa.
+- Same logic as [290 290 Word Pattern](./290_word_pattern.md).
+- Time & Space Complexity: `O(m+n)`, which is `O(2n)` (often simplified to `O(n)` on LeetCode) because `t.length == s.length` (n = m).

@@ -1,6 +1,7 @@
 # 383 Ransom Note
 
-<span style="background-color: #6CC644; color: white; padding: 0.2em 0.6em; border-radius: 12px; font-size: 0.9em">Top Interview 150</span>
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given two strings `ransomNote` and `magazine`, return `true` _if `ransomNote` can be constructed by using the letters from `magazine` and `false` otherwise_.
 
@@ -30,9 +31,9 @@ Output: true
 
 ## Approach
 
-| Topics                       | Category | Key Idea                                             | Time Complexity | Space Complexity |
-| ---------------------------- | -------- | ---------------------------------------------------- | --------------- | ---------------- |
-| Hash Table, String, Counting | Hash Map | Count `ransomNote` letters and match with `magazine` | O(n+m)          | O(1)             |
+| Topics                       | Category | Key Idea                                                    | Time Complexity | Space Complexity |
+| ---------------------------- | -------- | ----------------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, String, Counting | Hash Map | Mapping letters form `ransomNote` and match with `magazine` | O(n+m)          | O(1)             |
 
 - Initialize: create a new Map and record the count of every character of `ransomNote`.
 
@@ -42,12 +43,13 @@ Output: true
 
 - Steps:
     1. If a character exists in the Map, decrease its count.
-    2. Delete the key from the Map if its count reaches 0.
+    2. _Delete the key from the Map_ if the count reaches 0 and _update the Map with the new count_ otherwise.
     3. Return `true` immediately if the Map becomes empty.
 
 ## Notes
 
+- Same logic as [242 Valid Anagram](./242_valid_anagram.md).
 - Use `Map.get` and `Map.set` to read/update counts.
-- Use `Map.size == 0` for efficient termination instead of looping through keys.
 - Early return `true` if Map becomes empty.
-- Space Complexity: `O(1)`, because if we only deal with the 26 lowercase English letters a–z, the Map (or array) will store at most 26 keys regardless of the input string length.
+- Use `Map.size == 0` for efficient termination instead of checking all keys.
+- Space Complexity: `O(1)`, because only 26 lowercase English letters (`a–z`) are involved, so the Map stores at most 26 keys.
