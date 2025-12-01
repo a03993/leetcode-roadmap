@@ -13,6 +13,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 27 | Remove Element | [Link](codes/027_remove_element.js) | [Link](notes/027_remove_element.md) |
 | 45 | Jump Game II | [Link](codes/045_jump_game_II.js) | [Link](notes/045_jump_game_II.md) |
 | 55 | Jump Game | [Link](codes/055_jump_game.js) | [Link](notes/055_jump_game.md) |
+| 58 | Length of Last Word | [Link](codes/058_length_of_last_word.js) | [Link](notes/058_length_of_last_word.md) |
 | 66 | Plus One | [Link](codes/066_plus_one.js) | [Link](notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](codes/069_sqrt(x).js) | [Link](notes/069_sqrt(x).md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
