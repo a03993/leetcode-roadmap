@@ -14,7 +14,7 @@ let table = `| No. | Problem | Code | Note |\n|-----|---------|------|------|\n`
 
 codeFiles.forEach((file) => {
     const fileName = path.parse(file).name;
-    const match = fileName.match(/^(\d+)_([\w_-]+)$/);
+    const match = fileName.match(/^(\d+)_([\w\-\(\)]+)$/);
 
     if (!match) {
         console.warn(`Filename "${file}" does not match "NNN_problem_name.js" format`);
