@@ -12,6 +12,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 21 | Merge Two Sorted Lists | [Link](codes/021_merge_two_sorted_lists.js) | [Link](notes/021_merge_two_sorted_lists.md) |
 | 26 | Remove Duplicates from Sorted Array | [Link](codes/026_remove_duplicates_from_sorted_array.js) | [Link](notes/026_remove_duplicates_from_sorted_array.md) |
 | 27 | Remove Element | [Link](codes/027_remove_element.js) | [Link](notes/027_remove_element.md) |
+| 28 | Find the Index of the First Occurrence in a String | [Link](codes/028_find_the_index_of_the_first_occurrence_in_a_string.js) | [Link](notes/028_find_the_index_of_the_first_occurrence_in_a_string.md) |
 | 45 | Jump Game II | [Link](codes/045_jump_game_II.js) | [Link](notes/045_jump_game_II.md) |
 | 55 | Jump Game | [Link](codes/055_jump_game.js) | [Link](notes/055_jump_game.md) |
 | 58 | Length of Last Word | [Link](codes/058_length_of_last_word.js) | [Link](notes/058_length_of_last_word.md) |
