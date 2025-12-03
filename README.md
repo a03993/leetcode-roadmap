@@ -32,6 +32,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
 | 205 | Isomorphic Strings | [Link](codes/205_isomorphic_strings.js) | [Link](notes/205_isomorphic_strings.md) |
 | 206 | Reverse Linked List | [Link](codes/206_reverse_linked_list.js) | [Link](notes/206_reverse_linked_list.md) |
+| 219 | Contains Duplicate II | [Link](codes/219_contains_duplicate_II.js) | [Link](notes/219_contains_duplicate_II.md) |
 | 242 | Valid Anagram | [Link](codes/242_valid_anagram.js) | [Link](notes/242_valid_anagram.md) |
 | 290 | Word Pattern | [Link](codes/290_word_pattern.js) | [Link](notes/290_word_pattern.md) |
 | 383 | Ransom Note | [Link](codes/383_ransom_note.js) | [Link](notes/383_ransom_note.md) |
