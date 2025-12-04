@@ -1,7 +1,7 @@
 # 1 Two Sum
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8?style=flat-square)
 
 Given an array of integers `nums` and an integer `target`, return _indices of the two numbers such that they add up to `target`_.
 
@@ -11,18 +11,18 @@ You can return the answer in any order.
 
 **Example:**
 
-```
+```java
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 
-```
+```java
 Input: nums = [3,2,4], target = 6
 Output: [1,2]
 ```
 
-```
+```java
 Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
@@ -38,40 +38,54 @@ Output: [0,1]
 
 ## Approach
 
-| Topics            | Category      | Key Idea                        | Time Complexity | Space Complexity |
-| ----------------- | ------------- | ------------------------------- | --------------- | ---------------- |
-| Array, Hash Table | One-pass Hash | Store previous numbers in a map | O(n)            | O(n)             |
+| Topics            | Category | Key Idea                                                                | Time Complexity | Space Complexity |
+| ----------------- | -------- | ----------------------------------------------------------------------- | --------------- | ---------------- |
+| Array, Hash Table | Hash Map | Use a map to find complement while iterating, return indices when found | O(n)            | O(n)             |
 
-- Traverse the array once.
+1. Create map to store the index of each number.
+2. Loop through each number in the array.
+3. For each number, calculate its complement with the target.
+4. If the complement is exists in the map, return the indices of the complement and current number.
+5. Otherwise, store the current number and its index in the map.
 
-- Steps:
-    1. Check if `target - nums[i]` exists in the map,
-        - If yes, return `[map.get(complement), i]`.
-        - If not, store the current number **with its index** in the map: `map.set(nums[i], i)`.
-    2. Repeat until a solution is found (guaranteed exactly one solution by problem constraints).
+⭐ _It's important to use `Map.prototype.has()` for the check to correctly handle cases where a value's index might be `0`._
 
-## Notes
+### Complexity
 
-- Use `map.has(key)` instead of `map.get(key)` in the if check **to correctly handle `0` indices**.
-- Using a **Hash Map** reduces the time complexity from `O(n²)` to `O(n)` by **trading extra space for faster lookups**.
+1. **Time Complexity:** `O(n)`
+    - Traverse once
+    - `n`: length of the `nums`
+2. **Space Complexity:** `O(n)`
+    - `n`: number of elements stored in `map`
 
-#### 🚀 Demonstration: `nums = [2, 11, 7, 15], target = 22`
+## Follow-up: Comparing `O(n²)` vs `O(n)` Approaches
 
-1. **Brute Force (`O(n²)`):** Total of **6** comparisons (`n * (n - 1) / 2`)
+| Approach    | Time Complexity | Space Complexity |
+| ----------- | --------------- | ---------------- |
+| Brute Force | O(n²)           | O(1) ✅          |
+| Hash Map    | O(n) ✅         | O(n)             |
 
-    ```
-    for (let i = 0; i < nums.length; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (nums[i] + nums[j] === target) {
-                return [i, j];
+![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_7,_11,_15],_target_=_9-white?style=flat-square)
+
+1. **Brute Force:** Total of **6** comparisons (`n * (n - 1) / 2`)
+
+    Solution:
+
+    ```js
+    var twoSum = function (nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+            for (let j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return [i, j];
+                }
             }
         }
-    }
+    };
     ```
 
     Output:
 
-    ```
+    ```java
     Check pair: [2, 7]
     Check pair: [2, 11]
     Check pair: [2, 15]
@@ -81,15 +95,19 @@ Output: [0,1]
     Found: [2, 3]
     ```
 
-2. **Hash Map:** Only **3** operations needed to find the answer — _clearly faster than brute force_.
+2. **Hash Map:** Only **3** operations needed — _clearly faster than brute force!_
+
+    Solution: 👉 [code](../codes/001_two_sum.js)
 
     Output:
 
-    ```
-    Store in map: 2 -> 0
-    Store in map: 11 -> 1
-    Store in map: 7 -> 2
+    ```java
+    Store in map: 2 → 0
+    Store in map: 11 → 1
+    Store in map: 7 → 2
     Found: [2, 3]
     ```
 
-✅ Although the space complexity increases to `O(n)` because we store all numbers in the map, **the actual runtime is still much more efficient in practice**, especially for large arrays, because we **avoid** repeatedly checking every possible pair.
+### Why Hash Map is the better approach?
+
+The Hash Map approach reduces time complexity from `O(n²)` to `O(n)` by storing and looking up values efficiently. Brute force uses less space, but Hash Map trades a small amount of extra memory for a significant speedup, making it the preferred choice for larger inputs.

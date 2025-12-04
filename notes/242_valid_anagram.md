@@ -1,18 +1,18 @@
 # 242 Valid Anagram
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8?style=flat-square)
 
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 
 **Example:**
 
-```
+```java
 Input: s = "anagram", t = "nagaram"
 Output: true
 ```
 
-```
+```java
 Input: s = "rat", t = "car"
 Output: false
 ```
@@ -26,22 +26,24 @@ Output: false
 
 ## Approach
 
-| Topics                      | Category | Key Idea                                            | Time Complexity | Space Complexity |
-| --------------------------- | -------- | --------------------------------------------------- | --------------- | ---------------- |
-| Hash Table, String, Sorting | Hash Map | Mapping letters from `s` letters and match with `t` | O(n)            | O(1)             |
+| Topics                      | Category | Key Idea                                              | Time Complexity | Space Complexity |
+| --------------------------- | -------- | ----------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, String, Sorting | Hash Map | Count characters in s and match against t using a map | O(n)            | O(1)             |
 
-- Initialize: create a new Map and record the count of every character of `s`.
+1. If the lengths of `s` and `t` are different, return false.
+2. Create a map to count the frequency of each character in `s`.
+3. Loop through each character in `t`:
+    - If the character is not in the map, return false.
+    - Otherwise, decrement its count. If count becomes 0, remove it from the map.
+4. Return true if the map is empty — _all characters match_; otherwise, return false.
 
-- Loop Condition:
-    1. Traversal `s` to populate the Map.
-    2. Traversal `t` to decrement counts of corresponding characters.
+### Complexity
 
-- Steps:
-    1. If a character exists in the Map, decrease its count.
-    2. Delete the key from the Map if its count reaches 0.
+1. **Time Complexity**: `O(m+n)` → `O(n)`
+    - `m`: length of the `s`
+    - `n`: length of the `t`
+    - Since we traverse both strings once and `m = n`, this simplifies to `O(n)`
 
-## Notes
-
-- Same logic as [383 Ransom Note](./383_ransom_note.md).
-- Time Complexity: `O(n + m)`, which is `O(2n)` (often simplified to `O(n)` on LeetCode) because `s.length == t.length` (n = m).
-- Space Complexity: `O(1)`, because only 26 lowercase English letters (`a–z`) are involved, so the Map stores at most 26 keys.
+2. **Space Complexity**: `O(n)` → `O(1)`
+    - `n`: number of unique characters in `s`
+    - Since the input **only contains** lowercase letters (a–z), the map stores **at most 26 keys**, so it's effectively `O(1)`.

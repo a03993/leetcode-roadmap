@@ -3,21 +3,23 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-    const seen = new Set();
-
-    while (n != 1 && !seen.has(n)) {
-        seen.add(n);
+    const getNext = (num) => {
         let sum = 0;
-
-        while (n > 0) {
-            const digit = n % 10;
-
-            sum += digit * digit;
-            n = Math.floor(n / 10);
+        while (num > 0) {
+            const d = num % 10;
+            sum += d * d;
+            num = Math.floor(num / 10);
         }
+        return sum;
+    };
 
-        n = sum;
+    let slow = n;
+    let fast = getNext(n);
+
+    while (fast != 1 && slow != fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
     }
 
-    return n == 1;
+    return fast == 1;
 };
