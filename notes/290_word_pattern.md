@@ -1,7 +1,7 @@
 # 290 Word Pattern
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Easy](https://img.shields.io/badge/Easy-1cb8b8)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Easy](https://img.shields.io/badge/Easy-1cb8b8?style=flat-square)
 
 Given a `pattern` and a string `s`, find if `s` follows the same pattern.
 
@@ -13,22 +13,18 @@ Here **follow** means a full match, such that there is a bijection between a let
 
 **Example:**
 
-```
+```java
 Input: pattern = "abba", s = "dog cat cat dog"
-Output: true
+Output: true;
+// Explanation: The bijection can be established as 'a' maps to "dog" and 'b' maps to "cat"
 ```
 
-Explanation - The bijection can be established as:
-
-- `'a'` maps to `"dog"`.
-- `'b'` maps to `"cat"`.
-
-```
+```java
 Input: pattern = "abba", s = "dog cat cat fish"
 Output: false
 ```
 
-```
+```java
 Input: pattern = "aaaa", s = "dog cat cat dog"
 Output: false
 ```
@@ -44,23 +40,27 @@ Output: false
 
 ## Approach
 
-| Topics             | Category | Key Idea             | Time Complexity | Space Complexity |
-| ------------------ | -------- | -------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Double mapping check | O(n)            | O(n)             |
+| Topics             | Category | Key Idea                                                            | Time Complexity | Space Complexity |
+| ------------------ | -------- | ------------------------------------------------------------------- | --------------- | ---------------- |
+| Hash Table, String | Hash Map | Use two maps to ensure one-to-one mapping between pattern and words | O(n)            | O(n)             |
 
-- Initialize:
-    - Const `word` to store the string `s` after `split(" ")`.
-    - Create two Map `patternMap` and `wordMap`, to store mappings from `pattern` → `word` and `word` → `pattern`.
+1. Split `s` into `words`.
+2. Check if the length of `pattern` and `words`; if not, return false.
+3. Create two maps to track mappings from `pattern` to `words` and from `words` to `pattern`.
+4. Loop through each index:
+    - If a pattern character or word has not been mapped yet, add the mapping.
+    - If the existing mapping conflicts, return false.
+5. Return true — _pattern matches the words_.
 
-- Traverse the string once, checking both mappings.
+### Complexity
 
-- Steps:
-    1. If `patternMap` contains `pattern[i]`, check if `patternMap.get(pattern[i]) != word[i]` return `false`.
-    2. If `wordMap` contains `word[i]`, check if `wordMap.get(word[i]) != pattern[i]` return `false`.
-    3. If both checks pass, set `patternMap.set(pattern[i], word[i])` and `wordMap.set(word[i], pattern[i])`.
+n = `pattern.length` = `words.length`
 
-## Notes
+1. **Time Complexity**: O(n)
+    - Split string `s` into `words`: O(n)
+    - Traverse `pattern` and `words`: O(n)
+    - Map operations (`get`, `set`, `has`): O(1) each
 
-- Same logic as [205 Isomorphic Strings](./205_isomorphic_strings.md).
-- Use `array.split(" ")` to split a string by spaces, because the problem states that `s` is a string where words are **separated by exactly one space**.
-- Time & Space Complexity: `O(m+n)`, which is `O(2n)` (often simplified to `O(n)` on LeetCode) because `pattern.length == words.length` (n = m).
+2. **Space Complexity**: O(n)
+    - Store the split string `s` into array `words`: O(n)
+    - Two Maps (`patternMap` and `wordMap`): O(n)
