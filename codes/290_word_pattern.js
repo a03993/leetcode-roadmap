@@ -4,9 +4,9 @@
  * @return {boolean}
  */
 var wordPattern = function (pattern, s) {
-    const word = s.split(" ");
+    const words = s.split(" ");
 
-    if (pattern.length != word.length) {
+    if (pattern.length != words.length) {
         return false;
     }
 
@@ -14,20 +14,17 @@ var wordPattern = function (pattern, s) {
     const wordMap = new Map();
 
     for (let i = 0; i < pattern.length; i++) {
-        if (patternMap.has(pattern[i])) {
-            if (patternMap.get(pattern[i]) != word[i]) {
-                return false;
-            }
+        if (!patternMap.has(pattern[i])) {
+            patternMap.set(pattern[i], words[i]);
         }
 
-        if (wordMap.has(word[i])) {
-            if (wordMap.get(word[i]) != pattern[i]) {
-                return false;
-            }
+        if (!wordMap.has(words[i])) {
+            wordMap.set(words[i], pattern[i]);
         }
 
-        patternMap.set(pattern[i], word[i]);
-        wordMap.set(word[i], pattern[i]);
+        if (patternMap.get(pattern[i]) != words[i] || wordMap.get(words[i]) != pattern[i]) {
+            return false;
+        }
     }
 
     return true;
