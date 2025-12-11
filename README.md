@@ -25,6 +25,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 121 | Best Time to Buy and Sell Stock | [Link](codes/121_best_time_to_buy_and_sell_stock.js) | [Link](notes/121_best_time_to_buy_and_sell_stock.md) |
 | 122 | Best Time to Buy and Sell Stock II | [Link](codes/122_best_time_to_buy_and_sell_stock_II.js) | [Link](notes/122_best_time_to_buy_and_sell_stock_II.md) |
 | 125 | Valid Palindrome | [Link](codes/125_valid_palindrome.js) | [Link](notes/125_valid_palindrome.md) |
+| 128 | Longest Consecutive Sequence | [Link](codes/128_longest_consecutive_sequence.js) | [Link](notes/128_longest_consecutive_sequence.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 160 | Intersection of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
 | 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_-_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_-_input_array_is_sorted.md) |
