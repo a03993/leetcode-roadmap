@@ -13,22 +13,22 @@ Your solution must use only constant extra space.
 
 **Example:**
 
-```
+```java
 Input: numbers = [2,7,11,15], target = 9
 Output: [1,2]
-Explanation: The `sum` of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+// Explanation: The `sum` of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 ```
 
-```
+```java
 Input: numbers = [2,3,4], target = 6
 Output: [1,3]
-Explanation: The `sum` of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
+// Explanation: The `sum` of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
 ```
 
-```
+```java
 Input: numbers = [-1,0], target = -1
 Output: [1,2]
-Explanation: The `sum` of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
+// Explanation: The `sum` of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 ```
 
 **Constraints:**
@@ -41,21 +41,26 @@ Explanation: The `sum` of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We r
 
 ## Approach
 
-| Topics                             | Category | Key Idea                                                                       | Time Complexity | Space Complexity |
-| ---------------------------------- | -------- | ------------------------------------------------------------------------------ | --------------- | ---------------- |
-| Array, Two Pointers, Binary Search | In-place | Use left/right pointers to find a pair that sums to `target` in a sorted array | O(n)            | O(1)             |
+| Topics                             | Category | Key Idea                                                                                                     | Time Complexity | Space Complexity |
+| ---------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ | --------------- | ---------------- |
+| Array, Two Pointers, Binary Search | In-place | Use left/right pointers from start and end to leverage the sorted array, adjusting pointers based on the sum | O(n)            | O(1)             |
 
-- Pointers:
-    - `i` (left pointer): Starts at index 0, moves rightward to increase total `sum`.
-    - `j` (right pointer): Starts at `numbers.length - 1`, moves leftward to decrease total `sum`.
+1. Initialize two pointers: `i = 0` (left) and `j = numbers.length - 1` (right)
+2. Loop while `i < j`
+3. Calculate `sum = numbers[i] + numbers[j]`
+4. If `sum == target` → return `[i + 1, j + 1]` (1-indexed)
+5. If `sum < target` → move `i` right to increase `sum`
+6. If `sum > target` → move `j` left to decrease `sum`
+7. Repeat until a solution is found (guaranteed by problem)
 
-- Loop Condition: while `i < j` — _Search until the two pointers converge_.
+### Complexity
 
-- Steps:
-    1. Calculate the current `sum`.
-    2. If the `sum` equals `target`, return `[i + 1, j + 1]` (1-indexed requirement).
-    3. If the `sum` is less than `target`, move `i` to increase the `sum`.
-    4. If the `sum` is greater than `target`, move `j` to reduce the `sum`.
+1. **Time Complexity:** O(n)
+    - Each element is visited at most once by either pointer.
+    - n = `numbers.length`
+
+2. **Space Complexity:** O(1)
+    - constant space, only two pointers used
 
 ## Notes
 
