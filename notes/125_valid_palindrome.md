@@ -9,23 +9,23 @@ Given a string `s`, return `true` _if it is a **palindrome**, or `false` otherwi
 
 **Example:**
 
-```
+```java
 Input: s = "A man, a plan, a canal: Panama"
 Output: true
-Explanation: "amanaplanacanalpanama" is a palindrome.
+// Explanation: "amanaplanacanalpanama" is a palindrome.
 ```
 
-```
+```java
 Input: s = "race a car"
 Output: false
-Explanation: "raceacar" is not a palindrome.
+// Explanation: "raceacar" is not a palindrome.
 ```
 
-```
+```java
 Input: s = " "
 Output: true
-Explanation: s is an empty string "" after removing non-alphanumeric characters.
-Since an empty string reads the same forward and backward, it is a palindrome.
+// Explanation: s is an empty string "" after removing non-alphanumeric characters.
+// Since an empty string reads the same forward and backward, it is a palindrome.
 ```
 
 **Constraints:**
@@ -35,23 +35,55 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 ## Approach
 
-| Topics               | Category       | Key Idea                                                                                 | Time Complexity | Space Complexity |
-| -------------------- | -------------- | ---------------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Two Pointers, String | In-place Check | Use left/right pointers to check palindrome, skipping non-alphanumeric and ignoring case | O(n)            | O(1)             |
+| Topics               | Category       | Key Idea                                                                                                                | Time Complexity | Space Complexity |
+| -------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| Two Pointers, String | In-place Check | Use left/right pointers from start and end to skip non-alphanumeric characters and compare remaining chats in lowercase | O(n)            | O(1)             |
 
-- Pointers:
-    - `i` (left pointer): Starts at the beginning of the string.
-    - `j` (right pointer): Starts at the end of the string.
+1. Initialize two pointers: `i = 0` (left) and `j = s.length - 1` (right)
+2. Skip non-alphanumeric characters at both ends
+3. Compare `s[i]` and `s[j]` in lowercase
+4. If mismatch → return false
+5. Move pointers inward until they meet
+6. If loop completes → return true
 
-- Loop Condition: While `i < j` - _continue until pointers meet or cross._
+### Complexity
 
-- Steps:
-    1. Skip non-alphanumeric characters at `i` and `j`.
-    2. Compare characters case-insensitively.
-    3. If mismatch occurs, return `false`, or move `i` and `j` inward otherwise.
+n = `s.length`
+
+1. **Time Complexity:** O(n)
+    - Traverse array `s`: O(n)
+    - `charCodeAt()`, `toLowerCase()`: O(1)
+
+2. **Space Complexity:** O(1)
+    - constant space, only two pointers used
 
 ## Notes
 
-- Before comparing, skip non-alphanumeric characters need `i < j` to prevent pointers from crossing.
-- In-place is more **space-efficient** than creating a new filtered string first.
-- Empty string or string with only non-alphanumeric characters is considered a palindrome.
+`isAlphanumeric` Implementations:
+
+1. `charCodeAt` Version
+
+    ```js
+    function isAlphanumeric(char) {
+        const code = char.charCodeAt(0);
+
+        return (
+            (code >= 48 && code <= 57) || //0-9
+            (code >= 65 && code <= 90) || //A-Z
+            (code >= 97 && code <= 122) //a-z
+        );
+    }
+    ```
+
+2. Regex Version
+
+    ```js
+    function isAlphanumeric(char) {
+        return /^[a-z0-9]$/i.test(char);
+    }
+    ```
+
+| Method     | Readability | Performance        |
+| ---------- | ----------- | ------------------ |
+| Regex      | High ✅     | Slightly slower    |
+| charCodeAt | Medium      | Slightly faster ✅ |

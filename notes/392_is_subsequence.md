@@ -9,12 +9,12 @@ A **subsequence** of a string is a new string that is formed from the original s
 
 **Example:**
 
-```
+```java
 Input: s = "abc", t = "ahbgdc"
 Output: true
 ```
 
-```
+```java
 Input: s = "axc", t = "ahbgdc"
 Output: false
 ```
@@ -29,26 +29,30 @@ Output: false
 
 ## Approach
 
-| Topics                                    | Category       | Key Idea                                                    | Time Complexity | Space Complexity |
-| ----------------------------------------- | -------------- | ----------------------------------------------------------- | --------------- | ---------------- |
-| Two Pointers, String, Dynamic Programming | In-place Check | Use two pointers to to check if `s` is a subsequence of `t` | O(n)            | O(1)             |
+| Topics                                    | Category       | Key Idea                                                                      | Time Complexity | Space Complexity |
+| ----------------------------------------- | -------------- | ----------------------------------------------------------------------------- | --------------- | ---------------- |
+| Two Pointers, String, Dynamic Programming | In-place Check | Use two pointers to iterate through `s` and `t` and match characters in order | O(n)            | O(1)             |
 
-- Pointers:
-    - `i`: Points to current character in `s`. Moves right when a match is found.
-    - `j`: Points to current character in `t`. Always moves right.
+1. Initialize two pointers: `i = 0` for `s` and `j = 0` for `t`
+2. Loop through `t` using pointer `j`
+3. If `s[i] == t[j]`, move pointer `i` forward － _character matched_
+4. Always move pointer `j` forward
+5. After the loop, if `i == s.length`, return true if all chars in s matched, else false
 
-- Loop Condition: While `i < s.length && j < t.length` — _traverse `t` until all characters in `s`are matched or `t` ends_.
+### Complexity
 
-- Steps:
-    1. If `s[i]` is equal to `t[j]`, increment `i`.
-    2. Increment `j` in each iteration.
-    3. After the loop, return `i == s.length` to determine if `s` is a subsequence.
+1. **Time Complexity:** O(n)
+    - Traverse array `t`
+    - n = `t.length`
+
+2. **Space Complexity:** O(1)
+    - constant space, only two pointers used
 
 ## Notes
 
 - Simplifying the final check to return `i == s.length` avoids an unnecessary if statement:
 
-    ```
+    ```js
     if (i < s.length) {
         return false;
     }
