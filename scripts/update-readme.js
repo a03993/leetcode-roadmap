@@ -11,16 +11,18 @@ const codeFiles = fs
     .sort();
 
 let table = `| No. | Problem | Code | Note |\n|-----|---------|------|------|\n`;
+let processedFilesCount = 0;
 
 codeFiles.forEach((file) => {
     const fileName = path.parse(file).name;
-    const match = fileName.match(/^(\d+)_([\w\-\(\)]+)$/);
+    const match = fileName.match(/^(\d+)_(\w+)$/);
 
     if (!match) {
         console.warn(`Filename "${file}" does not match "NNN_problem_name.js" format`);
         return;
     }
 
+    processedFilesCount++;
     const [_, num, problemSlug] = match;
 
     const minorWords = [
@@ -42,20 +44,28 @@ codeFiles.forEach((file) => {
         "of",
     ];
 
-    const title = problemSlug
-        .split("_")
-        .map((s, index) => {
-            if (s == s.toUpperCase()) {
-                return s;
-            }
+    const titleMap = {
+        sqrt_x: "Sqrt(x)",
+        two_sum_II_input_array_is_sorted: "Two Sum II - Input Array Is Sorted",
+        pow_x_n: "Pow(x, n)",
+    };
 
-            if (index != 0 && minorWords.includes(s.toLowerCase())) {
-                return s.toLowerCase();
-            }
+    const title =
+        titleMap[problemSlug] ||
+        problemSlug
+            .split("_")
+            .map((s, index) => {
+                if (s == s.toUpperCase()) {
+                    return s;
+                }
 
-            return s.charAt(0).toUpperCase() + s.slice(1);
-        })
-        .join(" ");
+                if (index != 0 && minorWords.includes(s.toLowerCase())) {
+                    return s.toLowerCase();
+                }
+
+                return s.charAt(0).toUpperCase() + s.slice(1);
+            })
+            .join(" ");
 
     const codeLink = `[Link](codes/${file})`;
     const noteFile = `${num}_${problemSlug}.md`;
@@ -65,6 +75,11 @@ codeFiles.forEach((file) => {
 
     table += `| ${parseInt(num, 10)} | ${title} | ${codeLink} | ${noteLink} |\n`;
 });
+
+if (processedFilesCount == 0) {
+    console.warn("Warning: No files were processed. README.md was not updated.");
+    return;
+}
 
 const readmeContent = `# LeetCode Roadmap
 
