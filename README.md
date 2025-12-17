@@ -32,6 +32,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 160 | Intersection of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
 | 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_-_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_-_input_array_is_sorted.md) |
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
+| 172 | Factorial Trailing Zeroes | [Link](codes/172_factorial_trailing_zeroes.js) | [Link](notes/172_factorial_trailing_zeroes.md) |
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
 | 202 | Happy Number | [Link](codes/202_happy_number.js) | [Link](notes/202_happy_number.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
