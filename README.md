@@ -17,10 +17,11 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 28 | Find the Index of the First Occurrence in a String | [Link](codes/028_find_the_index_of_the_first_occurrence_in_a_string.js) | [Link](notes/028_find_the_index_of_the_first_occurrence_in_a_string.md) |
 | 45 | Jump Game II | [Link](codes/045_jump_game_II.js) | [Link](notes/045_jump_game_II.md) |
 | 49 | Group Anagrams | [Link](codes/049_group_anagrams.js) | [Link](notes/049_group_anagrams.md) |
+| 50 | Pow(x, n) | [Link](codes/050_pow_x_n.js) | [Link](notes/050_pow_x_n.md) |
 | 55 | Jump Game | [Link](codes/055_jump_game.js) | [Link](notes/055_jump_game.md) |
 | 58 | Length of Last Word | [Link](codes/058_length_of_last_word.js) | [Link](notes/058_length_of_last_word.md) |
 | 66 | Plus One | [Link](codes/066_plus_one.js) | [Link](notes/066_plus_one.md) |
-| 69 | Sqrt(x) | [Link](codes/069_sqrt(x).js) | [Link](notes/069_sqrt(x).md) |
+| 69 | Sqrt(x) | [Link](codes/069_sqrt_x.js) | [Link](notes/069_sqrt_x.md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
 | 88 | Merge Sorted Array | [Link](codes/088_merge_sorted_array.js) | [Link](notes/088_merge_sorted_array.md) |
 | 92 | Reverse Linked List II | [Link](codes/092_reverse_linked_list_II.js) | [Link](notes/092_reverse_linked_list_II.md) |
@@ -30,7 +31,7 @@ A roadmap of my LeetCode learning journey, tracking problems I've solved, my cod
 | 128 | Longest Consecutive Sequence | [Link](codes/128_longest_consecutive_sequence.js) | [Link](notes/128_longest_consecutive_sequence.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 160 | Intersection of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
-| 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_-_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_-_input_array_is_sorted.md) |
+| 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_input_array_is_sorted.md) |
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
 | 172 | Factorial Trailing Zeroes | [Link](codes/172_factorial_trailing_zeroes.js) | [Link](notes/172_factorial_trailing_zeroes.md) |
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
