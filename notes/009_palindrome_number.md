@@ -7,22 +7,22 @@ Given an integer `x`, return _`true` if `x` is a palindrome, and `false` otherwi
 
 **Example:**
 
-```
+```java
 Input: x = 121
 Output: true
-Explanation: 121 reads as 121 from left to right and from right to left.
+// Explanation: 121 reads as 121 from left to right and from right to left.
 ```
 
-```
+```java
 Input: x = -121
 Output: false
-Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+// Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
 ```
 
-```
+```java
 Input: x = 10
 Output: false
-Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+// Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 ```
 
 **Constraints:**
@@ -37,14 +37,23 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 | ------ | -------- | ------------------- | --------------- | ---------------- |
 | Math   | Number   | Reverse half number | O(n)            | O(1)             |
 
-- Initialization:
-    - `y`: stores the reversed half of the integer `x`.
+1. Initialize `y = 0` to stores the reversed half of the integer
+2. Update `y` by multiplying it by 10 and adding the last digit of `x` (`x % 10`)
+3. Update `x` by removing its digit using integer division (`Math.floor(x / 10)`)
+4. Stop when `x <= y` － meaning half of digits have been processed
+5. Return `x == y` or `x == Math.floor(y / 10)` for both even and odd digits
 
-- Loop Condition: `x > y`
+### Complexity
 
-- Steps:
-    1. Update `y` by multiplying the current `y` by 10 and adding _**the remainder when `x` is divided by 10** (the last digit of `x`)_.
-    2. Update `x` by dividing tje current `x` and taking the integer part - _remove the last digit_.
+1. **Time Complexity:** O(n)
+    - n = number of digits in `x`
+    - Reverse half of the number: O(n/2) → O(n)
+    - Comparison of the halves: O(1)
+
+    → Overall: O(n)
+
+2. **Space Complexity:** O(1)
+    - Only uses a few integer variables (`x`, `y`), no extra data structures
 
 ## Notes
 
