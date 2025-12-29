@@ -27,129 +27,61 @@ Output: 2
 
 - `0 <= x <= 2³¹ - 1`
 
-## Approach
+| Topics        | Key Idea                                                      | Time Complexity | Space Complexity |
+| ------------- | ------------------------------------------------------------- | --------------- | ---------------- |
+| Math          | Start form 0, keep incrementing until `(num+1)^2 > x`         | O(√x)           | O(1)             |
+| Binary Search | Use binary search to find the largest `mid` with `mid^2 <= x` | O(log x) ✅     | O(1)             |
 
-<table>
-	<thead>
-	<tr>
-		<th>Topics</th>
-		<th>Category</th>
-		<th>Key Idea</th>
-		<th>Time Complexity</th>
-		<th>Space Complexity</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td rowspan="2">Array, Binary Search</td>
-		<td rowspan="2">Calculation</td>
-		<td>Iterative check</td>
-		<td>O(√x)</td>
-		<td>O(1) </td>
-	</tr>
-	<tr>
-		<td>Binary search</td>
-		<td>O(log x) ✅</td>
-		<td>O(1)</td>
-	</tr>
-	</tbody>
-</table>
+1. Math
+    - Start with `num = 0`
+    - While `(num + 1) * (num + 1) <= x`, keep adding 1 to `num`
+    - When the loop stops, `num` is the integer square root of `x`
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Iterative check</summary>
+    Solution:
 
-1. Initialize `num = 0`.
-2. If `(num + 1) * (num + 1) <= x`, increment `num`.
+    ```js
+    var mySqrt = function (x) {
+        let num = 0;
 
-Solution:
+        while ((num + 1) * (num + 1) <= x) {
+            num++;
+        }
 
-```js
-var mySqrt = function (x) {
-    let num = 0;
+        return num;
+    };
+    ```
 
-    while ((num + 1) * (num + 1) <= x) {
-        num++;
-    }
+2. Binary Search
+    - Initialize `left = 0` and `right = x`
+    - While `left <= right`
+        - Const `mid = Math.floor((left + right) / 2)`
+        - If `mid * mid <= x`, move `left = mid + 1`
+        - Otherwise, move `right = mid - 1`
+    - At the end, `right` is the integer square root of `x`
 
-    return num;
-};
-```
+Solution: 👉 [code](../codes/069_sqrt_x.js)
 
 ![Demo](https://img.shields.io/badge/Demo-num_=_8-white?style=flat-square)
 
-```
-[start] → [num=0] → [check (num+1)^2 <= x?] → [num=num+1]
-                    | Yes                         |
-                    └─────────────────────────────┘
-                    |
-                    No
-                    ↓
-                [return num]
+| Step | Math       | Binary Search       |
+| ---- | ---------- | ------------------- |
+| 1    | num = 1    | left = 0, right = 3 |
+| 2    | num = 2    | left = 2, right = 3 |
+| 3    | return nun | left = 3, right = 3 |
+| 4    | -          | left = 3, right = 2 |
+| 5    | -          | return right        |
 
-[start] → [0] → [1^2 <= 8?] → [1] → [2^2 <= 8?] → [2] → [3^2 <= 8?] → [return 2]
-```
+**_Why Binary search is the better approach?_**
 
-### Complexity
+- Math: simple, just better for small `x`
+- Binary search: efficient, suitable for large `x`
 
-1. **Time Complexity:** O(√x)
-    - n = `sqrt(x)`
-    - Loop runs at most √x times
-
-2. **Space Complexity:** O(1)
-    - Only integer variable `num` used
-
-</details>
-
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Binary search</summary>
-
-1. Initialize `left = 0` and `right = x`
-2. Calculate `mid = Math.floor(left + right) / 2`, which represents the candidate integer square root
-3. If `mid * mid <= x`, this means `mid` could be the answer, but there might be a larger integer that also satisfies the condition. So move the lower bound up (`left = mid + 1`)
-4. If `mid * mid > x`, this means `mid` is too large to be the square root. Move the upper bound down (`right = mid - 1`)
-
-Solution: 👉 [code](<../codes/069_sqrt(x).js>)
-
-![Demo](https://img.shields.io/badge/Demo-num_=_8-white?style=flat-square)
-
-```
-[start] → [left=0, right=x] → [mid=(left+right)//2] → [mid^2 <= x?]
-                    | Yes                     | No
-                    ↓                         ↓
-        [left=mid+1]                  [right=mid-1]
-                    └───────────────┘
-                        |
-                        Repeat until left > right
-                        ↓
-                        [return right]
-
-[start] → [0,8] → mid=4 → 16>8 → right=3
-        → mid=1 → 1<=8 → left=2
-        → mid=2 → 4<=8 → left=3
-        → mid=3 → 9>8 → right=2 → return 2
-```
-
-### Complexity
-
-1. **Time Complexity:** O(log x)
-    - n = `x`
-    - Binary search halves search space each iteration
-
-2. **Space Complexity:** O(1)
-    - Only integer variables `left`, `right`, `mid` used
-
-</details>
-
-### Why Binary search is the better approach?
-
-- Iterative: simple, better for small `x`.
-- Binary search: efficient, suitable for large `x`.
-
-    | x         | Iterative √x | Binary Search log2(x) |
-    | --------- | ------------ | --------------------- |
-    | 16        | 4            | 4                     |
-    | 64        | 8            | 6                     |
-    | 100       | 10           | 7                     |
-    | 1,000     | 32           | 10                    |
-    | 10,000    | 100          | 14                    |
-    | 1,000,000 | 1000         | 20                    |
+| x         | Math (√x) | Binary Search (log₂x) |
+| --------- | --------- | --------------------- |
+| 8         | 2 ✅      | 3                     |
+| 16        | 4         | 4                     |
+| 64        | 8         | 6 ✅                  |
+| 100       | 10        | 7 ✅                  |
+| 1,000     | 32        | 10 ✅                 |
+| 10,000    | 100       | 14 ✅                 |
+| 1,000,000 | 1000      | 20 ✅                 |

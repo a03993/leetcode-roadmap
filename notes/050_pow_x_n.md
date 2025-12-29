@@ -31,32 +31,57 @@ Output: 0.25000
 - Either `x` is not zero or `n > 0`.
 - `-10⁴ <= xⁿ <= 10⁴`
 
-## Approach
+| Topics      | Key Idea                           | Time Complexity | Space Complexity |
+| ----------- | ---------------------------------- | --------------- | ---------------- |
+| Brute Force | Repeated multiplication            | O(n) - TLE ❌   | O(1)             |
+| Math        | Fast exponentiation using squaring | O(log n)        | O(1)             |
 
-| Topics          | Category      | Key Idea                                                                           | Time Complexity | Space Complexity |
-| --------------- | ------------- | ---------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Math, Recursion | Binary search | Use binary exponentiation (divide-and-conquer) to reduce number of multiplications | O(log n)        | O(1)             |
+1. Brute Force
 
-1. Initialize `num = n` and `result = 1`
-2. If `num < 0`, set `x = 1 / x` and `num = -num` to handle negative exponent
-3. If `num` is odd (`num % 2 != 0`), multiply `result` by `x`
-4. Square `x` → `x *= x`
-5. Divide `num` by 2 (floor division) → `num = Math.floor(num / 2)`
-6. Return `result`
+```js
+var myPow = function (x, n) {
+    if (n == 0 || x == 1) {
+        return 1;
+    }
 
-![Demo](https://img.shields.io/badge/Demo-x_=_2.00000,_n_=_10-white?style=flat-square)
+    if (n < 0) {
+        x = 1 / x;
+        n = -n;
+    }
 
-| Step | num | result | x     | next num |
-| ---- | --- | ------ | ----- | -------- |
-| 1    | 10  | 2      | 4     | 5        |
-| 2    | 5   | 4      | 16    | 2        |
-| 3    | 2   | 4      | 256   | 1        |
-| 4    | 1   | 1024   | 65536 | 0        |
+    let sum = x;
 
-### Complexity
+    while (n > 1) {
+        sum *= x;
+        n--;
+    }
 
-1. **Time Complexity:** O(log n)
-    - Each step halves `num`, so total steps ≈ log₂(n).
+    return sum;
+};
 
-2. **Space Complexity:** O(1)
-    - Only constant variables (`result`, `x`, `num`) are used.
+// Time Limit Exceeded: e.g., x = 2.00000, n = -2147483648
+```
+
+2. Math
+    - Handle negative exponent (`n < 0`)
+        - Set `x = 1 / x`
+        - Set `n = -n`
+    - Initialize `result = 1`
+    - While `n > 0`
+        - If `n` is odd, multiply `result` by `x`
+        - Square `x`
+        - Divide `n` by 2
+    - Return `result`
+
+    Solution: 👉 [code](../codes/050_pow_x_n.js)
+
+    ![Demo](https://img.shields.io/badge/Demo-x_=_2.00000,_n_=_10-white?style=flat-square)
+
+    | Step   | x     | n   | result   |
+    | ------ | ----- | --- | -------- |
+    | init   | 2     | 10  | 1        |
+    | 1      | 4     | 5   | 1        |
+    | 2      | 16    | 2   | 4        |
+    | 3      | 256   | 1   | 4        |
+    | 4      | 65536 | 0   | 1024     |
+    | return | -     | -   | **1024** |

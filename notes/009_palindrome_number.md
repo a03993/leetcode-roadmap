@@ -31,32 +31,44 @@ Output: false
 
 **Follow up:** Could you solve it without converting the integer to a string?
 
-## Approach
+| Topics | Key Idea                                                       | Time Complexity | Space Complexity |
+| ------ | -------------------------------------------------------------- | --------------- | ---------------- |
+| Array  | Convert number to string, use two pointers to check palindrome | O(n)            | O(n)             |
+| Math   | Reverse half of the integer and compare with the other half    | O(n)            | O(1) ✅          |
 
-| Topics | Category | Key Idea            | Time Complexity | Space Complexity |
-| ------ | -------- | ------------------- | --------------- | ---------------- |
-| Math   | Number   | Reverse half number | O(n)            | O(1)             |
+1. Array
+    - Turn the integer `x` into a string using `String(x)`
+    - Set two pointers: `i = 0`, `j = str.length - 1`
+    - While `i < j`, compare `str[i]` and `str[j]`
+        - Return `false` if they are different
+        - Return `true` if the loop finishes
 
-1. Initialize `y = 0` to stores the reversed half of the integer
-2. Update `y` by multiplying it by 10 and adding the last digit of `x` (`x % 10`)
-3. Update `x` by removing its digit using integer division (`Math.floor(x / 10)`)
-4. Stop when `x <= y` － meaning half of digits have been processed
-5. Return `x == y` or `x == Math.floor(y / 10)` for both even and odd digits
+    Solution:
 
-### Complexity
+    ```js
+    var isPalindrome = function (x) {
+        const str = String(x);
 
-1. **Time Complexity:** O(n)
-    - n = number of digits in `x`
-    - Reverse half of the number: O(n/2) → O(n)
-    - Comparison of the halves: O(1)
+        let i = 0;
+        let j = str.length - 1;
 
-    → Overall: O(n)
+        while (i < j) {
+            if (str[i] != str[j]) {
+                return false;
+            }
 
-2. **Space Complexity:** O(1)
-    - Only uses a few integer variables (`x`, `y`), no extra data structures
+            i++;
+            j--;
+        }
 
-## Notes
+        return true;
+    };
+    ```
 
-- 0 is a palindrome.
-- Negative number are **never** a palindrome.
-- If `x` has an odd number of digit, compare `x` with `y` after removing its last digit(i.e., `x == Math.floor(y / 10)`).
+2. Math
+    - If x is navigate or ends with 0 (**but not 0 itself**), return `false` right away
+    - Initialize `y = 0` to store the reversed half of `x`
+    - While `x > y` (stop when `x <= y`, meaning we’ve processed half the digits)
+        - add the last digit of `x` to `y`
+        - remove the last digit from `x`
+    - Return `x == y` or `x == Math.floor(y / 10)` for both even and odd digits

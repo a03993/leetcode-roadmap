@@ -32,27 +32,43 @@ Output: 0
 
 **Follow up:** Could you write a solution that works in logarithmic time complexity?
 
-## Approach
+| Topics         | Key Idea                                                            | Time Complexity | Space Complexity |
+| -------------- | ------------------------------------------------------------------- | --------------- | ---------------- |
+| Brute Force ❌ | Compute `n!` and count trailing zeros                               | O(n)            | O(1)             |
+| Math           | Count how many 5s appear when multiplying all numbers from 1 to `n` | O(log n)        | O(1)             |
 
-| Topics | Category | Key Idea                   | Time Complexity | Space Complexity |
-| ------ | -------- | -------------------------- | --------------- | ---------------- |
-| Math   | Number   | Count factors of 5 in `n!` | O(log₅ n)       | O(1)             |
+1. Brute Force
+    - JS can’t handle huge factorials exactly because it uses 64-bit floating point numbers. So calculating `n!` directly will give wrong results for big `n`.
 
-1. Initialize `count = 0`
-2. Divide `n` by 5 using integer division: `n = Math.floor(n / 5)`
-3. Add `n` to `count` － this counts the number of 5's contributed by multiples of 5, 25, 125, ...
+    ```js
+    var trailingZeroes = function (n) {
+        let sum = n;
+        let count = 0;
 
-### Complexity
+        while (n > 1) {
+            const next = n - 1;
+            sum *= next;
+            n--;
+        }
 
-1. **Time Complexity:** O(log₅ n)
-    - Loop runs while `n > 0`
-    - Each iteration: `n = Math.floor(n / 5)` → n shrinks by factor of 5
+        while (sum % 10 == 0 && sum != 0) {
+            count++;
+            sum = Math.floor(sum / 10);
+        }
 
-2. **Space Complexity:** O(1)
-    - Only integer variables used, no extra storage
+        return count;
+    };
 
-### Why this works?
+    // // Wrong Answer: e.g., 30! = 2.652528598121911e+32
+    ```
 
-- Each trailing zero in `n!` comes from a factor 10 → 2 \* 5
-- 2’s are abundant, so the number of 5’s determines trailing zeros
-- By summing `floor(n/5)` + `floor(n/25)` +` floor(n/125)` + …, we count all factors of 5
+2. Math
+    - Initialize `count = 0`
+    - While `n > 0`
+        - Divide `n` by 5
+        - Add the n to `count`
+    - Return `count`
+
+    Solution: 👉 [code](../codes/172_factorial_trailing_zeroes.js)
+    - Each trailing zero comes from a pair of 2 and 5
+    - There are always more 2s than 5s in `n!`, so **counting the number of 5s is enough**

@@ -39,26 +39,12 @@ Output: [1,0]
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
-## Approach
-
-| Topics      | Category             | Key Idea                               | Time Complexity | Space Complexity |
-| ----------- | -------------------- | -------------------------------------- | --------------- | ---------------- |
-| Array, Math | In-place Calculation | Traverse from last digit, handle carry | O(n)            | O(1)             |
+| Topics      | Key Idea                               | Time Complexity | Space Complexity |
+| ----------- | -------------------------------------- | --------------- | ---------------- |
+| Array, Math | Traverse from last digit, handle carry | O(n)            | O(1)             |
 
 1. Traverse the array from the last digit to the first
-2. If `digits[i] < 9`, increment `digits[i]` by 1 and **return immediately** since no carry is needed
-3. If `digits[i] = 9`, set `digits[i]` to 0 and continue to the next digit to propagate the carry
-4. If loop finishes without returning means **all digits are 9**, insert 1 at the beginning using `digits.unshift(1)`
-
-### Complexity
-
-1. **Time Complexity:** O(n)
-    - n = `digits.length`
-    - Traverse the array from last digit to first: O(n)
-    - Carry propagation handled in the loop: O(n) in worst case
-
-    → Overall: O(n)
-
-2. **Space Complexity:** O(1)
-    - In-place modification of the input array
-    - Only `unshift(1)` creates a single extra element in worst case, still considered O(1) extra space
+    - If `digits[i] < 9`, increment `digits[i]` by 1 and **return immediately** since no carry is needed
+    - If `digits[i] = 9`, set `digits[i]` to 0 and continue to the next digit to propagate the carry
+2. If loop finishes without returning means **all digits are 9**, insert 1 at the beginning using `digits.unshift(1)`
+3. Return `digits`
