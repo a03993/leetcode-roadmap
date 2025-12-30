@@ -1,6 +1,6 @@
 # 28 Find the Index of the First Occurrence in a String
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given two strings `needle` and `haystack`, return the index of the first occurrence of `needle` in `haystack`, or `-1` if `needle` is not part of `haystack`.

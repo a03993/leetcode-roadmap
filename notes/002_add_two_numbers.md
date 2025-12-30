@@ -1,7 +1,7 @@
 # 2 Add Two Numbers
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 

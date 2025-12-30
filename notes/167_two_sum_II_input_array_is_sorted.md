@@ -1,7 +1,7 @@
 # 167 Two Sum II - Input Array Is Sorted
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 Given a **1-indexed** array of integers `numbers` that is already **_sorted in non-decreasing order_**, find two numbers such that they add up to a specific `target` number. Let these two numbers be `numbers[index₁]` and `numbers[index₂]` where `1 <= index₁ < index₂ <= numbers.length`.
 

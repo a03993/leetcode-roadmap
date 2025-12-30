@@ -1,7 +1,7 @@
 # 55 Jump Game
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 You are given an integer array `nums`. You are initially positioned at the array's **first index**, and each element in the array represents your maximum jump length at that position.
 

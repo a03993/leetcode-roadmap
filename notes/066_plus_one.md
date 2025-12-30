@@ -1,6 +1,6 @@
 # 66 Plus One
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `iᵗʰ` digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.

@@ -1,6 +1,6 @@
 # 69 Sqrt(x)
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given a non-negative integer `x`, return _the square root of `x` rounded down to the nearest integer_. The returned integer should be **non-negative** as well.

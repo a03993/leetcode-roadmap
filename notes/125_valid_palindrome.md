@@ -1,6 +1,6 @@
 # 125 Valid Palindrome
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 A phrase is a **palindrome** if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.

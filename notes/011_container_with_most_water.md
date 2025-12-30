@@ -1,7 +1,7 @@
 # 11 Container With Most Water
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 You are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `iᵗʰ` line are `(i, 0)` and `(i, height[i])`.
 

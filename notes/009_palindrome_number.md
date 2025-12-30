@@ -1,6 +1,6 @@
 # 009 Palindrome Number
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given an integer `x`, return _`true` if `x` is a palindrome, and `false` otherwise_.

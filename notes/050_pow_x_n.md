@@ -1,7 +1,7 @@
 # 50 Pow(x, n)
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 Implement pow(x, n), which calculates `x` raised to the power `n` (i.e., `xⁿ`).
 

@@ -1,7 +1,7 @@
 # 149 Max Points on a Line
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Hard](https://img.shields.io/badge/Hard-ff2d20)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Hard](https://img.shields.io/badge/Hard-ff2d20?style=flat-square)
 
 Given an array of `points` where `points[i] = [xᵢ, yᵢ]` represents a point on the **X-Y** plane, return _the maximum number of points that lie on the same straight line_.
 

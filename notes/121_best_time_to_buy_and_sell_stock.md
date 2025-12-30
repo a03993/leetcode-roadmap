@@ -1,6 +1,6 @@
 # 121 Best Time to Buy and Sell Stock
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 You are given an array `prices` where `prices[i]` is the price of a given stock on the `iᵗʰ` day.

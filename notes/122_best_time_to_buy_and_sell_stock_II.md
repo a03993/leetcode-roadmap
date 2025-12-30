@@ -1,7 +1,7 @@
 # 122 Best Time to Buy and Sell Stock II
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 You are given an integer array `prices` where `prices[i]` is the price of a given stock on the `iᵗʰ` day.
 

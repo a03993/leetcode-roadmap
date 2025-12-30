@@ -1,7 +1,7 @@
 # 45 Jump Game II
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 You are given a **0-indexed** array of integers `nums` of length `n`. You are initially positioned at index 0.
 

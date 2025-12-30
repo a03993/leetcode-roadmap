@@ -1,6 +1,6 @@
 # 141 Linked List Cycle
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given `head`, the head of a linked list, determine if the linked list has a cycle in it.

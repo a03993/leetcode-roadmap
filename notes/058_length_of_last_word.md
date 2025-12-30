@@ -1,6 +1,6 @@
 # 58 Length of Last Word
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Given a string `s` consisting of words and spaces, return _the length of the **last** word in the string_.

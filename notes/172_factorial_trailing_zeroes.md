@@ -1,7 +1,7 @@
 # 172 Factorial Trailing Zeroes
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
-![Medium](https://img.shields.io/badge/Medium-ffb800)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
+![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
 Given an integer `n`, return _the number of trailing zeroes in `n!`_.
 

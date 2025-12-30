@@ -1,6 +1,6 @@
 # 14 Longest Common Prefix
 
-![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644)
+![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Easy](https://img.shields.io/badge/Easy-1cb8b8)
 
 Write a function to find the longest common prefix string amongst an array of strings.
