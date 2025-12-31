@@ -26,36 +26,10 @@ Output: [5]
 
 **Follow up:** Could you do it in one pass?
 
-## Approach
+**Note:**
 
-| Topics      | Category          | Key Idea                                                | Time Complexity | Space Complexity |
-| ----------- | ----------------- | ------------------------------------------------------- | --------------- | ---------------- |
-| Linked List | In-place Reversal | Using dummy node and prev/curr pointers reverse sublist | O(n)            | O(1)             |
+| Topic       | Time Complexity | Space Complexity |
+| ----------- | --------------- | ---------------- |
+| Linked List | O(n)            | O(1)             |
 
-- Initialization:
-    - `dummy`: a new `ListNode(0, head)` to simplify building the resulting list.
-    - `leftPrev`: points to the node **before the left node**.
-    - `leftNode`: points to the node at position `left`.
-
-- Pointers:
-    - `prev`: Points to the previous node in the reversal, initially `null`.
-    - `curr`: Points to the current node being reversed.
-    - `temp`: Temporarily stores the next node to maintain the list connection.
-
-- Loop Condition: from `left` to `right`.
-
-- Steps:
-    1. Store `curr.next` in `temp` to not lose track of the next node.
-    2. Point `curr.next` to `prev` to reverse the link.
-    3. Move `prev` to `curr` to advance the previous pointer.
-    4. Move `curr` to `temp` to process the next node.
-
-- After the loop:
-    1. Connects `leftPrev.next` to the new head of the reversed segment.
-    2. Connects `leftNode.next` to the node after the reversed segment.
-
-## Notes
-
-- `left` and `right` mean the node **position**, not value.
-- If `left` same with `right`, no reversal is needed.
-- Use a **dummy node** to handle cases when `left = 1`.
+用迭代方式反轉鏈表的部分區間，先找到反轉前的前一個節點，局部反轉後重新連接前後鏈表。

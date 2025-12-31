@@ -32,13 +32,14 @@ Output: 0
 
 **Follow up:** Could you write a solution that works in logarithmic time complexity?
 
-| Topics         | Key Idea                                                            | Time Complexity | Space Complexity |
-| -------------- | ------------------------------------------------------------------- | --------------- | ---------------- |
-| Brute Force ❌ | Compute `n!` and count trailing zeros                               | O(n)            | O(1)             |
-| Math           | Count how many 5s appear when multiplying all numbers from 1 to `n` | O(log n)        | O(1)             |
+| Topic          | Time Complexity | Space Complexity |
+| -------------- | --------------- | ---------------- |
+| Brute Force ❌ | O(n)            | O(1)             |
+| Math           | O(log n)        | O(1)             |
 
 1. Brute Force
-    - JS can’t handle huge factorials exactly because it uses 64-bit floating point numbers. So calculating `n!` directly will give wrong results for big `n`.
+
+    直接計算 `n!` 會很快溢位，尤其 n 超過 20 以上就會超出 JS 的安全整數範圍，甚至更小的 n 也可能溢位。
 
     ```js
     var trailingZeroes = function (n) {
@@ -63,12 +64,7 @@ Output: 0
     ```
 
 2. Math
-    - Initialize `count = 0`
-    - While `n > 0`
-        - Divide `n` by 5
-        - Add the n to `count`
-    - Return `count`
+
+    尾隨零來源於乘積中 2\*5 配對，因為 2 的數量比 5 多，所以只需統計 `n!` 中有多少個 5 的倍數。
 
     Solution: 👉 [code](../codes/172_factorial_trailing_zeroes.js)
-    - Each trailing zero comes from a pair of 2 and 5
-    - There are always more 2s than 5s in `n!`, so **counting the number of 5s is enough**

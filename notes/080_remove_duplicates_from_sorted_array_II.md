@@ -31,18 +31,18 @@ If all assertions pass, then your solution will be **accepted**.
 
 **Example:**
 
-```
+```java
 Input: nums = [1,1,1,2,2,3]
 Output: 5, nums = [1,1,2,2,3,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
-```
+```java
 Input: nums = [0,0,1,1,1,1,2,3,3]
 Output: 7, nums = [0,0,1,1,2,3,3,_,_]
-Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
 **Constraints:**
@@ -51,24 +51,15 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - `-10⁴ <= nums[i] <= 10⁴`
 - `nums` is sorted in **non-decreasing** order.
 
-## Approach
+**Note:**
 
-| Topics              | Category       | Key Idea                                               | Time Complexity | Space Complexity |
-| ------------------- | -------------- | ------------------------------------------------------ | --------------- | ---------------- |
-| Array, Two Pointers | In-place Write | Use read/write pointers to keep at most two duplicates | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-- Pointers:
-    - `i` (read pointer): Scans the array from index 1 to find elements to keep.
-    - `k` (write pointer): Position to place the the next valid element, keeping at most two duplicates.
+用指標 `k` 指向下一個寫入位置，遍歷 `nums` 時只要當前元素跟兩個前面的不一樣，就放到 `k` 位置，`k` 往前移。這樣就能保留最多兩個重複元素，最後 `k` 就是新長度，原陣列也被更新好。
 
-- Traverse the array once.
-
-- Steps:
-    1. If `k < 2` (**the first two elements are always kept**), write `nums[i]` to `nums[k]`.
-    2. Otherwise, write `nums[i]` to `nums[k]` only if `nums[i]` is not equal to `nums[k - 2]`, ensuring at most two duplicates remain.
-    3. Increment `k` whenever an element is written.
-
-#### 🚀 Demonstration: `nums = [1,1,1,2,2,3]`
+![Demo](https://img.shields.io/badge/Demo-nums_=_[1,_1,_1,_2,_2,_3]-white?style=flat-square)
 
 ```
 Initial:
@@ -106,8 +97,3 @@ i → [1] [1] [1] [2] [2] [3]
 Final:
 k = 5, array = [1,1,2,2,3,_]
 ```
-
-## Notes
-
-- `k < 2` ensures the first two numbers are always kept and works **even if the array has 0 or 1 element**.
-- Because the array is sorted, comparing the current number with the element at `k - 2` is **enough to decide whether to place it**, ensuring at most two duplicates.

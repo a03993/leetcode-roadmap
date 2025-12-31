@@ -24,26 +24,10 @@ Output: false
 
 **Follow up:** What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
-## Approach
+**Note:**
 
-| Topics                      | Category | Key Idea                                              | Time Complexity | Space Complexity |
-| --------------------------- | -------- | ----------------------------------------------------- | --------------- | ---------------- |
-| Hash Table, String, Sorting | Hash Map | Count characters in s and match against t using a map | O(n)            | O(n)             |
+| Topic      | Time Complexity | Space Complexity |
+| ---------- | --------------- | ---------------- |
+| Hash Table | O(n)            | O(n)             |
 
-1. If the lengths of `s` and `t` are different, return false.
-2. Create a map to count the frequency of each character in `s`.
-3. Loop through each character in `t`:
-    - If the character is not in the map, return false.
-    - Otherwise, decrement its count. If count becomes 0, remove it from the map.
-4. Return true if the map is empty — _all characters match_; otherwise, return false.
-
-### Complexity
-
-n = `s.length` = `t.length`
-
-1. **Time Complexity**: O(n)
-    - Traverse strings `s` and `t`: O(n)
-    - Map operations (`get`, `set`, `has`, `delete`): O(1) each
-
-2. **Space Complexity**: O(n)
-    - Store character counts from `s` in a Map
+先檢查兩字串長度，如果不一樣直接 return `false`。使用 Map 記錄 `s` 中每個字母出現次數，然後遍歷 `t` 減少對應字母的數量。若數量減到 0 就刪除該字母。最後檢查 Map 是否為空，空表示兩字串字母及數量完全一致。

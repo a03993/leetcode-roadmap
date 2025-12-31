@@ -11,26 +11,26 @@ The final sorted array should not be returned by the function, but instead be _s
 
 **Example:**
 
-```
+```java
 Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 Output: [1,2,2,3,5,6]
-Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
-The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+// Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+// The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 ```
 
-```
+```java
 Input: nums1 = [1], m = 1, nums2 = [], n = 0
 Output: [1]
-Explanation: The arrays we are merging are [1] and [].
-The result of the merge is [1].
+// Explanation: The arrays we are merging are [1] and [].
+// The result of the merge is [1].
 ```
 
-```
+```java
 Input: nums1 = [0], m = 0, nums2 = [1], n = 1
 Output: [1]
-Explanation: The arrays we are merging are [] and [1].
-The result of the merge is [1].
-Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+// Explanation: The arrays we are merging are [] and [1].
+// The result of the merge is [1].
+// Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 ```
 
 **Constraints:**
@@ -43,53 +43,35 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 **Follow up:** Can you come up with an algorithm that runs in `O(m + n)` time?
 
-## Approach
+**Note:**
 
-| Topics                       | Category       | Key Idea                                              | Time Complexity | Space Complexity |
-| ---------------------------- | -------------- | ----------------------------------------------------- | --------------- | ---------------- |
-| Array, Two Pointers, Sorting | In-place Merge | Use read/write pointers to merge `nums2` into `nums1` | O(m + n)        | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(m + n)        | O(1)             |
 
-- Pointers:
-    - `i` (read pointer): Last element in `nums1`.
-    - `j` (read pointer): Last element in `nums2`.
-    - `k` (write pointer): Last position in the merged `nums1`.
+用三個指標從後往前比大小，`i` 指向 `nums1` 元素，`j` 指向 `nums2` 元素, `k` 指向寫入位置。每次都比較兩數的大小，較大的放入 `k` 位置，再往前移動指標。直到 `j < 0` 代表所有 `nums2` 都已經遍歷完並合併至 `nums1`，`nums1` 就是最後答案。
 
-- Loop Condition: While `j >= 0` — _as long as there are elements in `nums2` to merge in `nums1`._
+⚠️ 在**從後往前合併**時，一定要用 `nums1[i] > nums2[j]` 比較，不能反過來寫成 `nums2[j] > nums1[i]`，否則可能會出現無窮迴圈：
 
-- Steps:
-    1. If `nums1[i] > nums2[j]`, write `nums1[i]` to `nums1[k]` and decrement `i`, write `nums2[j]` to `nums1[k]` and decrement `j` otherwise.
-    2. Decrement `k` each iteration.
+```js
+// Time Limit Exceeded
 
-## Notes
+let i = m - 1;
+let j = n - 1;
+let k = m + n - 1;
 
-- Filling from the back prevents overwriting elements in `nums1` that have not yet been compared.
-- Always compare `nums1[i] > nums2[j]`, **not the other way around**!
-    - Ensures that when `i < 0`, remaining elements in `nums2` are safely copied to the front of `nums1`.
-    - Reversing the comparison (`nums2[j] > nums1[i]`) can lead to `undefined` comparisons and may cause infinite loops or timeout:
+while (j >= 0) {
+    if (nums2[j] > nums1[i]) {
+        nums1[k] = nums2[j];
+        j--;
+    } else {
+        nums1[k] = nums1[i];
+        i--;
+    }
+    k--;
+}
+```
 
-        ```
-        let i = m - 1;
-        let j = n - 1;
-        let k = m + n - 1;
-
-        while (j >= 0) {
-            if (nums2[j] > nums1[i]) {
-                nums1[k] = nums2[j];
-                j--;
-            } else {
-                nums1[k] = nums1[i];
-                i--;
-            }
-            k--;
-        }
-        ```
-
-        <span style="color: red; font-weight: bold">❌ Error: Time Limit Exceeded</span>
-        - <span style="color: red;">When `i = -1`, `nums[i]` is `undefined`.</span>
-        - <span style="color: red;">`nums2[j] > nums1[i]` → `false`.</span>
-        - <span style="color: red;">Enter `else` → decrement `i` → `i` becomes `-2`, `-3`...</span>
-        - <span style="color: red;">`j` is always the same → infinite loops → timeout.</span>
-
-- Edge cases:
-    - If `n = 0`: `nums2` is empty → `nums1` stays unchanged.
-    - If `m = 0`: `nums1` is empty → copy all elements from `nums2`.
+- 當 `i < 0`，`nums1[i]` 變成 `undefined`
+- 比較 `nums2[j] > nums1[i]` → 變成 `false`
+- 永遠走到 else，`i` 一直減，`j` 永遠不減 → 無窮迴圈 → 超時

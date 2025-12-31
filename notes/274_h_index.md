@@ -3,9 +3,9 @@
 ![Top Interview 150](https://img.shields.io/badge/Top_Interview_150-6CC644?style=flat-square)
 ![Medium](https://img.shields.io/badge/Medium-ffb800?style=flat-square)
 
-Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index.
+Given an array of integers `citations` where `citations[i]` is the number of citations a researcher received for their `iᵗʰ` paper, return _the researcher's h-index_.
 
-According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.
+According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of `h` such that the given researcher has published at least `h` papers that have each been cited at least `h` times.
 
 **Example:**
 
@@ -27,56 +27,56 @@ Output: 1
 - `1 <= n <= 5000`
 - `0 <= citations[i] <= 1000`
 
-| Topics          | Key Idea                                                 | Time Complexity | Space Complexity |
-| --------------- | -------------------------------------------------------- | --------------- | ---------------- |
-| Brute Force     | Count how many papers have ≥ h for each h                | O(n²)           | O(1)             |
-| Sort + One Pass | Sort papers high → low, check where citations < position | O(n log n)      | O(1)             |
-| Bucket Count    | (loading...)                                             | O(n) ✅         | O(n)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Brute Force  | O(n²)           | O(1)             |
+| Sort         | O(n log n)      | O(1)             |
+| Bucket Count | O(n) ✅         | O(n)             |
 
 1. Brute Force
 
-外層迴圈從可能的最大 i 值（陣列長度）開始往下檢查，每次用內層迴圈統計陣列中 ≥ 當前 i 值的論文數量，若滿足條件就回傳這個 i。
+    外層迴圈從 `citations` 最後一項遍歷到第一項，內層回圈計算有多少篇論文的引用數 ≥ 當前的 index 值，若符合則 `count` 加 1。如果 `count` ≥ `citations` 的最後一項位置，代表找到了最大的值。
 
-```js
-var hIndex = function (citations) {
-    for (let i = citations.length; i >= 0; i--) {
-        let count = 0;
+    ```js
+    var hIndex = function (citations) {
+        for (let i = citations.length; i >= 0; i--) {
+            let count = 0;
 
-        for (let c of citations) {
-            if (c >= i) {
-                count++;
+            for (let c of citations) {
+                if (c >= i) {
+                    count++;
+                }
+            }
+
+            if (count >= i) {
+                return i;
             }
         }
 
-        if (count >= i) {
-            return i;
+        return 0;
+    };
+    ```
+
+2. Sort
+
+    先把 `citations` 從大到小排序，從 `citations` 最後一項遍歷到第一項，依序檢查第 `i` 篇論文的引用是否 ≥ `i + 1`。當發現引用數小於 `i + 1`，就代表最大的 H 就是 i。遍歷完 `citations` 都沒遇到，就返回論文總數。比暴力法直觀又高效。
+
+    ```js
+    var hIndex = function (citations) {
+        citations.sort((a, b) => b - a);
+
+        for (let i = 0; i < citations.length; i++) {
+            if (citations[i] < i + 1) {
+                return i;
+            }
         }
-    }
 
-    return 0;
-};
-```
-
-2. Sort + One Pass
-
-對 citations 陣列降冪排序後，從第 0 項開始遍歷，每次檢查當前引用數是否小於 i + 1。若小於，回傳 i 作為 H-Index；若掃描完整個陣列仍符合條件，回傳陣列長度。
-
-```js
-var hIndex = function (citations) {
-    citations.sort((a, b) => b - a);
-
-    for (let i = 0; i < citations.length; i++) {
-        if (citations[i] < i + 1) {
-            return i;
-        }
-    }
-
-    return citations.length;
-};
-```
+        return citations.length;
+    };
+    ```
 
 3. Bucket Count
 
-先遍歷 citations，將每篇論文依照引用數分配到桶中（引用數 ≥ len 統一放在 len）。接著從最大可能的 i（len）往下累加桶內數量，total 代表目前引用數 ≥ i 的論文數。當 total ≥ i 時，該 i 即為 H-Index。
+    用一個長度為 `citations.length + 1` 的陣列當計數桶，把每篇論文的引用數歸到對應桶（大於 `n` 的就放到最後一格）。遍歷 `citations`，當累加數 ≥ 當前 index，就找到了最大的 H 值。完全不用排序，效率更高。
 
-Solution: 👉 [code](../codes/274_h_index.js)
+    Solution: 👉 [code](../codes/274_h_index.js)

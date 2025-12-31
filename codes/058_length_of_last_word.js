@@ -3,17 +3,22 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s) {
-    let length = 0;
-    let started = false;
+    let len = 0;
+    let start = false;
 
     for (let i = s.length - 1; i >= 0; i--) {
-        if (s[i] != " ") {
-            length += 1;
-            started = true;
-        } else if (started) {
-            break;
+        if (s[i] !== " ") {
+            start = true;
+        }
+
+        if (start) {
+            if (s[i] === " ") {
+                return len;
+            } else {
+                len++;
+            }
         }
     }
 
-    return length;
+    return len;
 };

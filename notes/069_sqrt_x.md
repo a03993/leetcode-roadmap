@@ -27,17 +27,14 @@ Output: 2
 
 - `0 <= x <= 2³¹ - 1`
 
-| Topics        | Key Idea                                                      | Time Complexity | Space Complexity |
-| ------------- | ------------------------------------------------------------- | --------------- | ---------------- |
-| Math          | Start form 0, keep incrementing until `(num+1)^2 > x`         | O(√x)           | O(1)             |
-| Binary Search | Use binary search to find the largest `mid` with `mid^2 <= x` | O(log x) ✅     | O(1)             |
+| Topic         | Time Complexity | Space Complexity |
+| ------------- | --------------- | ---------------- |
+| Brute Force   | O(√x)           | O(1)             |
+| Binary Search | O(log x) ✅     | O(1)             |
 
-1. Math
-    - Start with `num = 0`
-    - While `(num + 1) * (num + 1) <= x`, keep adding 1 to `num`
-    - When the loop stops, `num` is the integer square root of `x`
+1. Brute Force
 
-    Solution:
+    從 0 開始逐一嘗試平方，找到小於等於 x 的最大整數平方根。
 
     ```js
     var mySqrt = function (x) {
@@ -52,12 +49,8 @@ Output: 2
     ```
 
 2. Binary Search
-    - Initialize `left = 0` and `right = x`
-    - While `left <= right`
-        - Const `mid = Math.floor((left + right) / 2)`
-        - If `mid * mid <= x`, move `left = mid + 1`
-        - Otherwise, move `right = mid - 1`
-    - At the end, `right` is the integer square root of `x`
+
+    用二分搜尋找出平方小於等於 x 的最大整數，縮小範圍直到 left > right，最後返回 right。
 
 Solution: 👉 [code](../codes/069_sqrt_x.js)
 

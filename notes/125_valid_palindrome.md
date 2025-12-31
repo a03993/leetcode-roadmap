@@ -33,11 +33,11 @@ Output: true
 - `1 <= s.length <= 2 * 10⁵`
 - `s` consists only of printable ASCII characters.
 
-## Approach
+**Note:**
 
-| Topics               | Category       | Key Idea                                                                                                                | Time Complexity | Space Complexity |
-| -------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Two Pointers, String | In-place Check | Use left/right pointers from start and end to skip non-alphanumeric characters and compare remaining chats in lowercase | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
 1. Initialize two pointers: `i = 0` (left) and `j = s.length - 1` (right)
 2. Skip non-alphanumeric characters at both ends
@@ -46,16 +46,7 @@ Output: true
 5. Move pointers inward until they meet
 6. If loop completes → return true
 
-### Complexity
-
-n = `s.length`
-
-1. **Time Complexity:** O(n)
-    - Traverse array `s`: O(n)
-    - `charCodeAt()`, `toLowerCase()`: O(1)
-
-2. **Space Complexity:** O(1)
-    - constant space, only two pointers used
+左右雙指標忽略非字母數字字符，比較字母大小寫無關，檢查整個字串是否對稱。
 
 ## Notes
 

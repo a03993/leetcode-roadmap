@@ -28,27 +28,12 @@ Output: false
 - `-10⁹ <= nums[i] <= 10⁹`
 - `0 <= k <= 10⁵`
 
-## Approach
+**Note:**
 
-| Topics                            | Category    | Key Idea                                                                           | Time Complexity | Space Complexity |
-| --------------------------------- | ----------- | ---------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Array, Hash Table, Sliding Window | Calculation | Track last seen index of each number to detect nearby duplicates within k distance | O(n)            | O(n)             |
+| Topic    | Time Complexity | Space Complexity |
+| -------- | --------------- | ---------------- |
+| Hash Map | O(n)            | O(n)             |
 
 ![TODO](https://img.shields.io/badge/TODO-Sliding_Window_+_Set-orange?style=flat-square)
 
-1. Create a map to store the latest index of each number.
-2. Loop through each number in the array:
-    - If the number exists in the map and the difference between current index and stored index ≤ k, return true.
-    - Otherwise, update the map with the current index for this number.
-3. After the loop, return false — _no nearby duplicates found_.
-
-### Complexity
-
-n = `nums.length`
-
-1. **Time Complexity:** O(n)
-    - Traverse array `nums`: O(n)
-    - Map operations (`get`, `set`, `has`): O(1) each
-
-2. **Space Complexity:** O(n)
-    - Store the last index of each number in a Map
+用 hash table 記錄每個數字最近出現的位置，遇到相同數字且索引差 ≤ k 就回傳 true，否則遍歷完成回傳 false。

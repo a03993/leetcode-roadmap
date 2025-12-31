@@ -34,26 +34,10 @@ Output: true
 - `t.length == s.length`
 - `s` and `t` consist of any valid ascii character.
 
-## Approach
+**Note:**
 
-| Topics             | Category | Key Idea                                                            | Time Complexity | Space Complexity |
-| ------------------ | -------- | ------------------------------------------------------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Use two maps to ensure characters map one-to-one in both directions | O(n)            | O(n)             |
+| Topic      | Time Complexity | Space Complexity |
+| ---------- | --------------- | ---------------- |
+| Hash Table | O(n)            | O(n)             |
 
-1. Create two maps to map characters from `s` to `t` and from `t` to `s`.
-2. Loop through each character in both strings.
-3. For each pair of characters:
-    - If a character from `s` has not been mapped yet, map it to the corresponding character in `t`; do the same for the character from `t`.
-    - If any mapping conflicts with existing ones, return false.
-4. After the loop, return true — _all characters follow a consistent one-to-one mapping_.
-
-### Complexity
-
-n = `s.length` = `t.length`
-
-1. **Time Complexity**: O(n)
-    - Traverse strings `s` and `t` → O(n)
-    - Map operations (`get`, `set`, `has`): O(1) each
-
-2. **Space Complexity**: O(n)
-    - Two Maps (`sMap` and `tMap`): O(n)
+用雙向 hash table 確保每個字符的映射是一對一對應，如果遇到不一致就返回 false，否則返回 true。

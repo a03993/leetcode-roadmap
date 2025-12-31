@@ -14,13 +14,13 @@ Return _the minimum number of jumps to reach index `n - 1`_. The test cases are 
 
 **Example:**
 
-```
+```java
 Input: nums = [2,3,1,1,4]
 Output: 2
-Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+// Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
 ```
 
-```
+```java
 Input: nums = [2,3,0,1,4]
 Output: 2
 ```
@@ -31,35 +31,20 @@ Output: 2
 - `0 <= nums[i] <= 1000`
 - It's guaranteed that you can reach `nums[n - 1]`.
 
-## Approach
+**Note:**
 
-| Topics                             | Category             | Key Idea                  | Time Complexity | Space Complexity |
-| ---------------------------------- | -------------------- | ------------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming, Greedy | In-place Calculation | Track reach and nextReach | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Initialization:
-    - `jumps`: Counts the number of jumps made.
-    - `currentReach`: The farthest index reachable **with the current jump**.
-    - `farthest`: The farthest index reachable **within the current jump range**.
+遍歷 `nums`，用 `reach` 記錄目前跳躍能到的位置，用 `nextReach` 記下一步能跳到的最遠位置。每到達 `reach` 就增加一次跳躍，並更新 `reach` 到 `nextReach`，這樣能在最少步數下到達最後一格。
 
-- Traverse the array once.
+![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_3,_1,_1,_4]-white?style=flat-square)
 
-- Steps:
-    1. Update `farthest` using `max(farthest, i + nums[i])` to track the farthest reachable index from the current range.
-    2. When `i` reach `currentReach`:
-        - Increment `jumps`
-        - Update `currentReach` to `farthest`.
-
-#### 🚀 Demonstration: `nums = [2,3,1,1,4]` ✅ result: 2
-
-| Index `i` | `nums[i]` | farthest                | currentReach | jumps |
-| --------- | --------- | ----------------------- | ------------ | ----- |
-| 0         | 2         | 0 → 2 (`max(0, 0 + 2)`) | 0 → 2        | 0 → 1 |
-| 1         | 3         | 2 → 4 (`max(2, 1 + 3)`) | 2            | 1     |
-| 2         | 1         | 4 (`max(4, 2 + 1)`)     | 2 → 4        | 1 → 2 |
-| 3         | 1         | 4 (`max(4, 3 + 1)`)     | 4            | 2     |
-
-## Notes
-
-- The test cases are guaranteed to be reachable.
-- When the index reaches `currentReach`, it means the current jump's range is fully used, so a new jump is required, and `currentReach` must be updated to the farthest reachable index.
+| i    | nextReach | reach | jumps |
+| ---- | --------- | ----- | ----- |
+| init | 0         | 0     | 0     |
+| 0    | 2         | 2     | 1     |
+| 1    | 4         | 2     | 1     |
+| 2    | 4         | 4     | 2     |
+| 3    | 4         | 4     | 2     |

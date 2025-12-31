@@ -7,21 +7,21 @@ Given an integer array `nums`, rotate the array to the right by `k` steps, where
 
 **Example:**
 
-```
+```java
 Input: nums = [1,2,3,4,5,6,7], k = 3
 Output: [5,6,7,1,2,3,4]
-Explanation:
-rotate 1 steps to the right: [7,1,2,3,4,5,6]
-rotate 2 steps to the right: [6,7,1,2,3,4,5]
-rotate 3 steps to the right: [5,6,7,1,2,3,4]
+// Explanation:
+// rotate 1 steps to the right: [7,1,2,3,4,5,6]
+// rotate 2 steps to the right: [6,7,1,2,3,4,5]
+// rotate 3 steps to the right: [5,6,7,1,2,3,4]
 ```
 
-```
+```java
 Input: nums = [-1,-100,3,99], k = 2
 Output: [3,99,-1,-100]
-Explanation:
-rotate 1 steps to the right: [99,-1,-100,3]
-rotate 2 steps to the right: [3,99,-1,-100]
+// Explanation:
+// rotate 1 steps to the right: [99,-1,-100,3]
+// rotate 2 steps to the right: [3,99,-1,-100]
 ```
 
 **Constraints:**
@@ -35,129 +35,83 @@ rotate 2 steps to the right: [3,99,-1,-100]
 - Try to come up with as many solutions as you can. There are at least **three** different ways to solve this problem.
 - Could you do it in-place with `O(1)` extra space?
 
-## Approach
+**Note:**
 
-<table>
-  <thead>
-    <tr>
-      <th>Topics</th>
-      <th>Category</th>
-      <th>Key Idea</th>
-      <th>Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">Array, Math, Two Pointers</td>
-      <td>Temporary Array</td>
-      <td>Slice & Concat</td>
-      <td>O(n)</td>
-      <td>O(n)</td>
-    </tr>
-    <tr>
-      <td>In-place Replacement</td>
-      <td>Cyclic Replacement</td>
-      <td>O(n)</td>
-      <td>O(1)✅ </td>
-    </tr>
-    <tr>
-      <td>In-place Reverse</td>
-      <td>Three Reversals</td>
-      <td>O(n)</td>
-      <td>O(1)✅ </td>
-    </tr>
+| Topic              | Time Complexity | Space Complexity |
+| ------------------ | --------------- | ---------------- |
+| Slice + Concat     | O(n)            | O(n)             |
+| Cyclic Replacement | O(n)            | O(1)✅           |
+| Triple Reverse     | O(n)            | O(1)✅           |
 
-  </tbody>
-</table>
+1. Slice + Concat
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Temporary Array</summary>
+    先對 `k` 做取餘數處理，確保不超過 `nums` 的長度。把 `nums` 最後 `k` 個元素切出來放前面，剩下的接在後面，然後再把結果覆蓋回原陣列。邏輯簡單，容易理解，但**額外產生了一個暫存陣列 `temp`**。
 
-- Take the remainder of `k` to **avoid exceeding the array length**.
-- Slice the last `k` elements.
-- Concatenate the rest to form the rotated array.
-- Overwrite `nums` with the new order.
+    ```js
+    var rotate = function (nums, k) {
+        k = k % nums.length;
 
-### Code Skeleton
+        const temp = nums.slice(-k).concat(nums.slice(0, nums.length - k));
 
-```
-k = k % nums.length;
+        for (let i = 0; i < nums.length; i++) {
+            nums[i] = temp[i];
+        }
+    };
+    ```
 
-const temp = nums.slice(-k).concat(nums.slice(0, nums.length - k));
+2. Cyclic Replacement
 
-for (let i = 0; i < nums.length; i++) {
-    nums[i] = temp[i];
-}
-```
+    用循環替換的方式，把每個元素移到它最終的位置，每次先用 `prev` 暫存下一個要覆寫的值，在沿著 `(current + k) % n` 往下換，直到回到起點，就代表這一圈完成。為了避免有元素沒被處理，用 `count` 來確保總共移動了 `n` 次。
 
-</details>
+    💡 因為旋轉 `nums.length` 次等於沒動，旋轉 `nums.length + 1` 次等於旋轉 1 次，所以實際只需要做 `k % nums.length` 次旋轉，因此先把 `k` 壓到最小是效能與正確性的關鍵 (`k = k % nums.length`)。
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">In-place Replacement</summary>
+    ```js
+    var rotate = function (nums, k) {
+        k = k % nums.length;
 
-- Initialize `count = 0` to track how many elements have been rotated.
-- Loop through the array starting from index 0:
-    1. Set `current = i` and `prev = nums[i]`.
-    2. Use a `do-while` loop to process the current cycle:
-        - Calculate the new position: `next = (current + k) % n`.
-        - Place `prev` at `nums[next]`
-        - Save `temp` (the original `nums[next]` value) as the new `prev`.
-        - Move `current` to `next`.
-        - Increment `count`.
-    3. Continue the `do-while` loop until `current` returns to the starting index (`i`) → one cycle complete.
-- If `count < nums.length`, move to the next unprocessed index and start a new cycle.
+        let count = 0;
 
-### Code Skeleton
+        for (let i = 0; count < nums.length; i++) {
+            let current = i;
+            let prev = nums[i];
 
-```
-const n = nums.length;
-k = k % n;
+            do {
+                const next = (current + k) % nums.length;
+                const temp = nums[next];
 
-let count = 0;
+                nums[next] = prev;
+                prev = temp;
+                current = next;
+                count++;
+            } while (current !== i);
+        }
+    };
+    ```
 
-for (let i = 0; count < n; i++) {
-    let current = i;
-    let prev = nums[i];
+    ![Demo](https://img.shields.io/badge/Demo-nums_=_[1,_2,_3,_4,_5,_6,_7],_k_=_3-white?style=flat-square)
 
-    do {
-        const next = (current + k) % n;
-        const temp = nums[next];
+    | Iteration | current | prev | next | nums            |
+    | --------- | ------- | ---- | ---- | --------------- |
+    | 1         | 0       | 1    | 3    | [1,2,3,1,5,6,7] |
+    | 2         | 3       | 4    | 5    | [1,2,3,1,5,6,4] |
+    | 3         | 6       | 7    | 2    | [1,2,7,1,5,6,4] |
+    | 4         | 2       | 3    | 4    | [1,2,7,1,5,3,4] |
+    | 5         | 5       | 6    | 1    | [1,6,7,1,5,3,4] |
+    | 6         | 1       | 2    | 4    | [1,6,7,1,2,3,4] |
+    | 7         | 4       | 5    | 0    | [5,6,7,1,2,3,4] |
 
-        nums[next] = prev;
-        prev = temp;
-        current = next;
-        count++;
-    } while (current !== i);
-}
-```
+3. Triple Reverse
 
-### Flow
+    先把整個 `nums` 翻轉一次，接著翻轉前 `k` 個元素，再翻轉剩下的 `n - k` 個元素。這樣就能把陣列右旋 `k` 步，完全不需要額外陣列，邏輯簡單又高效。
 
-| Iteration | current | next | prev | nums            | count |
-| --------- | ------- | ---- | ---- | --------------- | ----- |
-| 1         | 0       | 3    | 1    | [1,2,3,1,5,6,7] | 1     |
-| 2         | 3       | 6    | 4    | [1,2,3,1,5,6,4] | 2     |
-| 3         | 6       | 2    | 7    | [1,2,7,1,5,6,4] | 3     |
-| 4         | 2       | 5    | 3    | [1,2,7,1,5,3,4] | 4     |
-| 5         | 5       | 1    | 6    | [1,6,7,1,5,3,4] | 5     |
-| 6         | 1       | 4    | 2    | [1,6,7,1,2,3,4] | 6     |
-| 7         | 4       | 0    | 5    | [5,6,7,1,2,3,4] | 7     |
+    💡 因為旋轉 `nums.length` 次等於沒動，旋轉 `nums.length + 1` 次等於旋轉 1 次，所以實際只需要做 `k % nums.length` 次旋轉，因此先把 `k` 壓到最小是效能與正確性的關鍵 (`k = k % nums.length`)。
 
-</details>
+    Solution: 👉 [code](../codes/189_rotate_array.js)
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">In-place Reverse</summary>
+    ![Demo](https://img.shields.io/badge/Demo-nums_=_[1,_2,_3,_4,_5,_6,_7],_k_=_3-white?style=flat-square)
 
-- **Create a helper function** to reverse a subarray.
-- Reverse entire array.
-- Reverse the first `k` element. (from start to `k - 1`)
-- Reverse the remaining element form index `k` to the end.
-
-</details>
-
-## Notes
-
-- Always do `k = k % nums.length` to handle cases where `k` is larger than the array length.
-- For large arrays (length up to 10⁵) — **In-place** methods are more efficient.
-- Using `Array.prototype.reverse()` alone can only reverse entire array, so a helper function is needed to reverse subarrays in the **In-place Reverse** method.
+    | function                            | nums            | start | end | result          |
+    | ----------------------------------- | --------------- | ----- | --- | --------------- |
+    | `reverse(nums, 0, nums.length - 1)` | [1,2,3,4,5,6,7] | 0     | 6   | [7,6,5,4,3,2,1] |
+    | `reverse(nums, 0, k - 1)`           | [7,6,5,4,3,2,1] | 0     | 2   | [5,6,7,4,3,2,1] |
+    | `reverse(nums, k, nums.length - 1)` | [5,6,7,4,3,2,1] | 3     | 6   | [5,6,7,1,2,3,4] |

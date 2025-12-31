@@ -27,27 +27,10 @@ Output: []
 - `1 <= Node.val <= 50`
 - `0 <= val <= 50`
 
-## Approach
+**Note:**
 
-| Topics                 | Category         | Key Idea                                                 | Time Complexity | Space Complexity |
-| ---------------------- | ---------------- | -------------------------------------------------------- | --------------- | ---------------- |
-| Linked List, Recursion | In-place Removal | Use dummy node and prev/curr pointers to remove elements | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-- Initialization:
-    - `dummy`: A new node pointing to `head` to simplify deletion.
-
-- Pointers:
-    - `prev`: Points to the node before the current node, used to update `next` pointers for deletion.
-    - `curr`: Points to the current node being checked for deletion.
-
-- Loop Condition: While `curr` is exist.
-
-- Steps:
-    1. Store `curr.next` in a temporary variable `temp` to preserve the next node.
-    2. If `curr.val == val`, remove `curr` by setting `prev.next = temp`; otherwise, move `prev` to `curr`.
-    3. Move `curr` to `temp`.
-
-## Notes
-
-- The original head node may have `val`, so use a dummy node to ensure consistent deletion logic.
-- Move `prev` only when `curr` is not removed, because `prev` should not advanced if a node is deleted.
+用 dummy node + two pointers 遍歷，遇到目標值就刪掉，最後返回新的 head。

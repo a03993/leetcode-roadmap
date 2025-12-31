@@ -9,15 +9,15 @@ If there is no common prefix, return an empty string `""`.
 
 **Example:**
 
-```
+```java
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
 ```
 
-```
+```java
 Input: strs = ["dog","racecar","car"]
 Output: ""
-Explanation: There is no common prefix among the input strings.
+// Explanation: There is no common prefix among the input strings.
 ```
 
 **Constraints:**
@@ -26,25 +26,10 @@ Explanation: There is no common prefix among the input strings.
 - `0 <= strs[i].length <= 200`
 - `strs[i]` consists of only lowercase English letters if it is non-empty.
 
-## Approach
+**Note:**
 
-| Topics              | Category   | Key Idea                         | Time Complexity | Space Complexity |
-| ------------------- | ---------- | -------------------------------- | --------------- | ---------------- |
-| Array, String, Trie | Comparison | Compare all strings by character | O(m\*n)         | O(1)             |
+| Topic       | Time Complexity | Space Complexity |
+| ----------- | --------------- | ---------------- |
+| Brute Force | O(m\*n)         | O(1)             |
 
-- Initialization:
-    - `prefix` to accumulate the common characters.
-
-- Loop Condition:
-    1. Iterate over each character index `i` of the **first string**.
-    2. At each position compare against all other strings.
-
-- Steps:
-    1. Read `char` from `strs[0][i]`.
-    2. Compare `char` with `strs[j][i]` for every other string.
-    3. If any mismatch occurs, return `prefix` **immediately**.
-    4. If all match, append `char` to `prefix`.
-
-## Notes
-
-- The loop stops as soon as **a mismatch appears** — _no need to check further_.
+從第一個 str 開始，一個字母一個字母比對其他 str 同位置的字符。只要遇到不一樣的，就回傳目前累積的 `prefix`。比完整個字串都沒差異，最後回傳整個第一個字串就是最大前綴。

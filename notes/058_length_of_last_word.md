@@ -9,22 +9,22 @@ A **word** is a maximal substring consisting of non-space characters only.
 
 **Example:**
 
-```
+```java
 Input: s = "Hello World"
 Output: 5
-Explanation: The last word is "World" with length 5.
+// Explanation: The last word is "World" with length 5.
 ```
 
-```
+```java
 Input: s = " fly me to the moon "
 Output: 4
-Explanation: The last word is "moon" with length 4.
+// Explanation: The last word is "moon" with length 4.
 ```
 
-```
+```java
 Input: s = "luffy is still joyboy"
 Output: 6
-Explanation: The last word is "joyboy" with length 6.
+// Explanation: The last word is "joyboy" with length 6.
 ```
 
 **Constraints:**
@@ -33,22 +33,10 @@ Explanation: The last word is "joyboy" with length 6.
 - `s` consists of only English letters and spaces `' '`.
 - There will be at least one word in `s`.
 
-## Approach
+**Note:**
 
-| Topics | Category    | Key Idea                   | Time Complexity | Space Complexity |
-| ------ | ----------- | -------------------------- | --------------- | ---------------- |
-| String | Calculation | Traverse from end to start | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-- Initialize:
-    - `length` to count the length of the last word.
-    - `started` to track if we have started counting the last word.
-
-- Traverse the string from the end (`i = s.length - 1`) to the start.
-
-- Steps:
-    1. If current character is **not** a space, increment `length` and set `started = true`.
-    2. If current character **is a space and started is true** - _means we finished counting the last word_, break the loop.
-
-## Notes
-
-- Using `started` avoids counting spaces after the last word.
+從 `s` 的最後一個字元往前遍歷，先跳過空格，遇到第一個非空格字元就開始計算 `len`，直到遇到空格為止。

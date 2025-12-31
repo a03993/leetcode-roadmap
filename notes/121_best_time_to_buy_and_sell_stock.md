@@ -11,17 +11,17 @@ Return _the maximum profit you can achieve from this transaction._ If you cannot
 
 **Example:**
 
-```
+```java
 Input: prices = [7,1,5,3,6,4]
 Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 ```
 
-```
+```java
 Input: prices = [7,6,4,3,1]
 Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
+// Explanation: In this case, no transactions are done and the max profit = 0.
 ```
 
 **Constraints:**
@@ -29,33 +29,10 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 - `1 <= prices.length <= 10⁵`
 - `0 <= prices[i] <= 10⁴`
 
-## Approach
+**Note:**
 
-| Topics                     | Category             | Key Idea                     | Time Complexity | Space Complexity |
-| -------------------------- | -------------------- | ---------------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming | In-place Calculation | Track min price & max profit | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Traverse the array once.
-- Track the **min price** using `Math.min()` and update it if `prices[i]` is lower.
-- Track the **max profit** using `Math.max()` abd update it if `prices[i] - min` is higher.
-
-## Notes
-
-Manual `if/else` approach:
-
-```
-let profit = 0;
-let min = prices[0];
-
-for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < min) {
-        min = prices[i];
-    } else if (profit < prices[i] - min) {
-        profit = prices[i] - min;
-    }
-};
-
-return profit;
-```
-
-- Using `Math.min`, `Math.max` can simplify the code.
+遍歷 `prices`，用一個 `min` 記錄目前看過的最低價格。每一天都試著用當天價格減掉最低價，更新能拿到的最大利潤。

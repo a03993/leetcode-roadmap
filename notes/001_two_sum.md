@@ -36,81 +36,34 @@ Output: [0,1]
 
 **Follow-up:** Can you come up with an algorithm that is less than `O(n²)` time complexity?
 
-## Approach
+**Note:**
 
-| Topics            | Category | Key Idea                                                                | Time Complexity | Space Complexity |
-| ----------------- | -------- | ----------------------------------------------------------------------- | --------------- | ---------------- |
-| Array, Hash Table | Hash Map | Use a map to find complement while iterating, return indices when found | O(n)            | O(n)             |
-
-1. Create map to store the index of each number.
-2. Loop through each number in the array.
-3. For each number, calculate its complement with the target.
-4. If the complement is exists in the map, return the indices of the complement and current number.
-5. Otherwise, store the current number and its index in the map.
-
-⭐ _It's important to use `Map.prototype.has()` for the check to correctly handle cases where a value's index might be `0`._
-
-### Complexity
-
-n = `nums.length`
-
-1. **Time Complexity:** O(n)
-    - Traverse array `nums`: O(n)
-    - Map operations (`get`, `set`, `has`): O(1) each
-
-2. **Space Complexity:** O(n)
-    - Store indices from `nums` in a Map: O(n)
-
-## Follow-up: Comparing O(n²) vs O(n) Approaches
-
-| Approach    | Time Complexity | Space Complexity |
+| Topic       | Time Complexity | Space Complexity |
 | ----------- | --------------- | ---------------- |
 | Brute Force | O(n²)           | O(1) ✅          |
-| Hash Map    | O(n) ✅         | O(n)             |
+| Hash Table  | O(n) ✅         | O(n)             |
 
-![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_7,_11,_15],_target_=_9-white?style=flat-square)
+兩者相比，Hash Table 用空間換時間，相較於 Brute Force 是最優解：
 
-1. **Brute Force:** Total of **6** comparisons (`n * (n - 1) / 2`)
+1.  Brute Force
 
-    Solution:
+    用雙迴圈遍歷 `nums` 所有 (`i`, `j`) 組合（且 `j > i` 避免重複），找到 `nums[i] + nums[j] === target` 就 return 這兩個元素的 index。
 
     ```js
     var twoSum = function (nums, target) {
         for (let i = 0; i < nums.length; i++) {
             for (let j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
+                if (nums[i] + nums[j] === target) {
                     return [i, j];
                 }
             }
         }
+        // 題目通常保證一定有解；若沒保證，可回傳 [] 或 null
     };
     ```
 
-    Output:
+2.  Hash Table
 
-    ```java
-    Check pair: [2, 7]
-    Check pair: [2, 11]
-    Check pair: [2, 15]
-    Check pair: [11, 7]
-    Check pair: [11, 15]
-    Check pair: [7, 15]
-    Found: [2, 3]
-    ```
-
-2. **Hash Map:** Only **3** operations needed — _clearly faster than brute force!_
+    遍歷 `nums` 並用 Map 記錄「看過的數值 → index」。對每個 `nums[i]` 計算補數 `complement = target - nums[i]`，如果補數已經在 Map 裡，代表之前出現過能配對的值，直接回傳 `[補數的 index, i]`。
 
     Solution: 👉 [code](../codes/001_two_sum.js)
-
-    Output:
-
-    ```java
-    Store in map: 2 → 0
-    Store in map: 11 → 1
-    Store in map: 7 → 2
-    Found: [2, 3]
-    ```
-
-### Why Hash Map is the better approach?
-
-The Hash Map approach reduces time complexity from `O(n²)` to `O(n)` by storing and looking up values efficiently. Brute force uses less space, but Hash Map trades a small amount of extra memory for a significant speedup, making it the preferred choice for larger inputs.

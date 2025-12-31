@@ -39,30 +39,10 @@ Output: [1,2]
 - `-1000 <= target <= 1000`
 - The tests are generated such that there is **exactly one solution**.
 
-## Approach
+**Note:**
 
-| Topics                             | Category | Key Idea                                                                                                     | Time Complexity | Space Complexity |
-| ---------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ | --------------- | ---------------- |
-| Array, Two Pointers, Binary Search | In-place | Use left/right pointers from start and end to leverage the sorted array, adjusting pointers based on the sum | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-1. Initialize two pointers: `i = 0` (left) and `j = numbers.length - 1` (right)
-2. Loop while `i < j`
-3. Calculate `sum = numbers[i] + numbers[j]`
-4. If `sum == target` → return `[i + 1, j + 1]` (1-indexed)
-5. If `sum < target` → move `i` right to increase `sum`
-6. If `sum > target` → move `j` left to decrease `sum`
-7. Repeat until a solution is found (guaranteed by problem)
-
-### Complexity
-
-1. **Time Complexity:** O(n)
-    - Each element is visited at most once by either pointer.
-    - n = `numbers.length`
-
-2. **Space Complexity:** O(1)
-    - constant space, only two pointers used
-
-## Notes
-
-- Array is **sorted**, using Two Pointers is the optimal approach.
-- Only **constant extra space** is allowed, so Map is **unnecessary**.
+左右 pointers 從兩端逼近，根據加總與目標比較調整指標，找到和為目標的兩個元素。

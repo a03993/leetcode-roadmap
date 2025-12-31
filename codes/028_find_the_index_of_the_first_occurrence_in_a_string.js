@@ -23,5 +23,6 @@ var strStr = function (haystack, needle) {
             start++;
         }
     }
+
     return -1;
 };

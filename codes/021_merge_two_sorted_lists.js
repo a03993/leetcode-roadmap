@@ -24,6 +24,7 @@ var mergeTwoLists = function (list1, list2) {
             curr.next = p1;
             p1 = p1.next;
         }
+
         curr = curr.next;
     }
 

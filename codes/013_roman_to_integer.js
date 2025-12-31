@@ -12,14 +12,15 @@ var romanToInt = function (s) {
         D: 500,
         M: 1000,
     };
+
     let sum = 0;
 
     for (let i = 0; i < s.length; i++) {
         const curr = map[s[i]];
-        const prev = i > 0 ? map[s[i - 1]] : 0;
+        const next = map[s[i + 1]];
 
-        if (prev < curr) {
-            sum += curr - prev * 2;
+        if (curr < next) {
+            sum -= curr;
         } else {
             sum += curr;
         }

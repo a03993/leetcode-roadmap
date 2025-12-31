@@ -31,47 +31,42 @@ Output: 0.25000
 - Either `x` is not zero or `n > 0`.
 - `-10⁴ <= xⁿ <= 10⁴`
 
-| Topics      | Key Idea                           | Time Complexity | Space Complexity |
-| ----------- | ---------------------------------- | --------------- | ---------------- |
-| Brute Force | Repeated multiplication            | O(n) - TLE ❌   | O(1)             |
-| Math        | Fast exponentiation using squaring | O(log n)        | O(1)             |
+| Topic                 | Time Complexity | Space Complexity |
+| --------------------- | --------------- | ---------------- |
+| Brute Force           | O(n) - TLE ❌   | O(1)             |
+| Binary Exponentiation | O(log n)        | O(1)             |
 
 1. Brute Force
 
-```js
-var myPow = function (x, n) {
-    if (n == 0 || x == 1) {
-        return 1;
-    }
+    先處理特殊情況，像 0 次方或底數是 1。負指數就把底數取倒數。然後直接用迴圈把底數乘自己 n 次，最後得到結果。寫法簡單，但當 n 很大時會很慢。
 
-    if (n < 0) {
-        x = 1 / x;
-        n = -n;
-    }
+    ```js
+    var myPow = function (x, n) {
+        if (n == 0 || x == 1) {
+            return 1;
+        }
 
-    let sum = x;
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        }
 
-    while (n > 1) {
-        sum *= x;
-        n--;
-    }
+        let sum = x;
 
-    return sum;
-};
+        while (n > 1) {
+            sum *= x;
+            n--;
+        }
 
-// Time Limit Exceeded: e.g., x = 2.00000, n = -2147483648
-```
+        return sum;
+    };
 
-2. Math
-    - Handle negative exponent (`n < 0`)
-        - Set `x = 1 / x`
-        - Set `n = -n`
-    - Initialize `result = 1`
-    - While `n > 0`
-        - If `n` is odd, multiply `result` by `x`
-        - Square `x`
-        - Divide `n` by 2
-    - Return `result`
+    // Time Limit Exceeded: e.g., x = 2.00000, n = -2147483648
+    ```
+
+2. Binary Exponentiation
+
+    如果指數是負的，先把底數取倒數再轉成正指數。用平方加倍的方法，每次把指數二分，指數為奇數就把當前底數乘到結果上。
 
     Solution: 👉 [code](../codes/050_pow_x_n.js)
 

@@ -30,19 +30,13 @@ Output: 3
 - `0 <= nums.length <= 10⁵`
 - `-10⁹ <= nums[i] <= 10⁹`
 
-## Approach
+**Note:**
 
-| Topics                        | Category | Key Idea                                                                                      | Time Complexity | Space Complexity |
-| ----------------------------- | -------- | --------------------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Array, Hash Table, Union Find | Hash Set | Use a Set to store numbers; only start counting sequence from numbers that are sequence heads | O(n)            | O(n)             |
+| Topic    | Time Complexity | Space Complexity |
+| -------- | --------------- | ---------------- |
+| Hash Set | O(n)            | O(n)             |
 
-1. Put all numbers from the array into a Set for `O(1)` lookups.
-2. Initialize `maxLength = 0`.
-3. Loop through each number in the Set:
-    - If `num - 1` is not in the Set, treat `num` as the sequence start.
-    - Count consecutive numbers (`num`, `num + 1`, `num + 2`...) until the sequence ends.
-    - Update `maxLength` if the current sequence is longer.
-4. After the loop, return `maxLength` as the length of the longest consecutive sequence.
+利用 Set 快速查找序列起點，從每個起點往右擴展計算連續序列長度，更新最大值。
 
 ![Demo](https://img.shields.io/badge/Demo-nums_=_[100,_4,_200,_1,_3,_2]-white?style=flat-square)
 
@@ -54,17 +48,3 @@ Output: 3
 | 1   | ✅    | 1 → 2 → 3 → 4 | 4       | 1 → 4     |
 | 3   | -     | -             | -       | 4         |
 | 2   | -     | -             | -       | 4         |
-
-### Complexity
-
-n = `nums.length`
-
-1. **Time Complexity:** O(n)
-    - Traverse the Set: O(n)
-    - For each sequence starting number, iterate in the `while` loop: O(n)
-    - `Set.has()`: O(1)
-    - `Math.max()`: O(1)
-
-2. **Space Complexity:** O(n)
-    - Store all numbers from `nums` in the Set: O(n)
-    - Variables `maxLength`, `currNum`, `currLength`: O(1)

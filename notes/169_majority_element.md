@@ -9,12 +9,12 @@ The majority element is the element that appears more than `⌊n / 2⌋` times. 
 
 **Example:**
 
-```
+```java
 Input: nums = [3,2,3]
 Output: 3
 ```
 
-```
+```java
 Input: nums = [2,2,1,1,1,2,2]
 Output: 2
 ```
@@ -28,71 +28,29 @@ Output: 2
 
 **Follow-up:** Could you solve the problem in linear time and in `O(1)` space?
 
-## Approach
+**Note**
 
-<table>
-  <thead>
-    <tr>
-      <th>Topics</th>
-      <th>Category</th>
-      <th>Key Idea</th>
-      <th>Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2">Array, Hash Table, Divide and Conquer, Sorting, Counting</td>
-      <td>Sorting</td>
-      <td>Sort and return middle</td>
-      <td>O(n log n)</td>
-      <td>O(1)</td>
-    </tr>
-    <tr>
-      <td>In-place Voting</td>
-      <td>Boyer-Moore</td>
-      <td>O(n) ✅</td>
-      <td>O(1)</td>
-    </tr>
-  </tbody>
-</table>
+| Topic       | Time Complexity | Space Complexity |
+| ----------- | --------------- | ---------------- |
+| Sort        | O(log n)        | O(1)             |
+| Boyer-Moore | O(n) ✅         | O(1)             |
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Sorting</summary>
+1. Sort
 
-- Sort the array using `Array.prototype.sort()`.
-- After sorting, the majority element always occupies the middle position, which can be found using `Math.floor()`.
+佔多數的元素出現次數超過一半，中間位置的元素一定是多數元素，所以可以先將 `nums` 排序後，取中間項直接回傳即可。寫法簡單，但排序會花時間。
 
-- Code Skeleton:
+```js
+var majorityElement = function (nums) {
+    nums.sort();
 
-```
-nums.sort((a, b) => a - b);
-return nums[Math.floor(nums.length / 2)];
+    const i = Math.floor(nums.length / 2);
+
+    return nums[i];
+};
 ```
 
-</details>
+2. Boyer-Moore
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Boyer-Moore</summary>
+用 `candidate` 當作當前的多數元素，`count` 計算其出現次數。若遇到相同就 +1，不同就 -1，`count` 變 0 時將 `candidate` 更換成當前項目。遍歷完 `nums`，最後的 `candidate` 就是多數元素。
 
-- Initialization:
-    - `candidate`: The current candidate element.
-    - `count`: The vote count for the candidate.
-
-- Traverse the array once.
-
-- Steps:
-    1. If `count == 0`, update `candidate` to `nums[i]`.
-    2. If the current element equals `candidate`, increment `count`; otherwise, decrement `count`.
-
-</details>
-
-## Notes
-
-- **Sort** is simple and intuitive, but time complexity is `O(n log n)` due to sorting. Therefore, **Boyer-Moore** is the preferred approach.
-    - **Sort:**
-        - **The majority element always occupies the middle position** after sorting, regardless of other elements.
-
-    - **Boyer-Moore:**
-        - Whenever `count` drops to 0, the previous candidate has been **balanced out** by other elements.
-        - Since the majority element appears more than n/2 times, the final `candidate` after traversal is guaranteed to be the majority element.
+Solution: 👉 [code](../codes/169_majority_element.js)

@@ -27,26 +27,13 @@ Output: false
 
 **Follow up:** Suppose there are lots of incoming `s`, say `s1, s2, ..., sk` where `k >= 10⁹`, and you want to check one by one to see if `t` has its subsequence. In this scenario, how would you change your code?
 
-## Approach
+**Note:**
 
-| Topics                                    | Category       | Key Idea                                                                      | Time Complexity | Space Complexity |
-| ----------------------------------------- | -------------- | ----------------------------------------------------------------------------- | --------------- | ---------------- |
-| Two Pointers, String, Dynamic Programming | In-place Check | Use two pointers to iterate through `s` and `t` and match characters in order | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-1. Initialize two pointers: `i = 0` for `s` and `j = 0` for `t`
-2. Loop through `t` using pointer `j`
-3. If `s[i] == t[j]`, move pointer `i` forward － _character matched_
-4. Always move pointer `j` forward
-5. After the loop, if `i == s.length`, return true if all chars in s matched, else false
-
-### Complexity
-
-1. **Time Complexity:** O(n)
-    - Traverse array `t`
-    - n = `t.length`
-
-2. **Space Complexity:** O(1)
-    - constant space, only two pointers used
+使用兩個指標 `i` 指向字串 `s`，`j` 指向字串 `t`。當 `s[i]` 等於 `t[j]` 時，`i` 前進一位。遍歷結束後，如果 `i` 已經等於 `s` 的長度，表示 `s` 的所有字元都依序出現在 `t` 中，是 `t` 的子序列。
 
 ## Notes
 

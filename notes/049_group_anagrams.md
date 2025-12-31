@@ -32,27 +32,10 @@ Output: [["a"]]
 - `0 <= strs[i].length <= 100`
 - `strs[i]` consists of lowercase English letters.
 
-## Approach
+**Note:**
 
-| Topics                             | Category       | Key Idea                               | Time Complexity | Space Complexity |
-| ---------------------------------- | -------------- | -------------------------------------- | --------------- | ---------------- |
-| Array, Hash Table, String, Sorting | Hash Map, Sort | Sort strings and group by key in a map | O(m\*n log n)   | O(m\*n)          |
+| Topic             | Time Complexity | Space Complexity |
+| ----------------- | --------------- | ---------------- |
+| Hash Table + Sort | O(m\*n log n)   | O(m\*n)          |
 
-1. Create a map to store the index of each anagram group.
-2. Loop through each string, sort its letters to form a key.
-3. If the key exists in the map, push the string to the corresponding group; if not, create a new group and store its index in the map.
-4. After the loop, return the array of grouped anagrams.
-
-### Complexity
-
-m = `strs.length`, n = length of each string in `strs`
-
-1. **Time Complexity:** O(m \* n log n)
-    - Traverse `strs`: O(m)
-    - For each string, compute sorted `key` (`split` + `sort` + `join`): O(n log n)
-    - Map operations (`get`, `set`, `has`) and array `push`: O(1)
-
-2. **Space Complexity:** O(m \* n)
-    - Sorted `key` (`split` + `sort` + `join`): O(m \* n)
-    - Map stores up to `m` keys, each key up to length `n`: O(m \* n)
-    - Array `groups` also store all strings: O(m \* n)
+對每個字串將字母排序後作為 key，如果 Map 已經存在這個 key，就把字串加入對應的 arr 中；否則建立新 arr。

@@ -3,13 +3,14 @@
  * @return {boolean}
  */
 var canJump = function (nums) {
-    let farthest = 0;
+    let reachMax = 0;
 
     for (let i = 0; i < nums.length; i++) {
-        if (i > farthest) {
+        if (i > reachMax) {
             return false;
         }
-        farthest = Math.max(farthest, i + nums[i]);
+
+        reachMax = Math.max(reachMax, nums[i] + i);
     }
 
     return true;

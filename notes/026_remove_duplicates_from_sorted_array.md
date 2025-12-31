@@ -29,18 +29,18 @@ If all assertions pass, then your solution will be **accepted**.
 
 **Example:**
 
-```
+```java
 Input: nums = [1,1,2]
 Output: 2, nums = [1,2,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
-```
+```java
 Input: nums = [0,0,1,1,1,2,2,3,3,4]
 Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
 **Constraints:**
@@ -49,25 +49,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - `-100 <= nums[i] <= 100`
 - `nums` is sorted in **non-decreasing** order.
 
-## Approach
+**Note:**
 
-| Topics              | Category       | Key Idea                                        | Time Complexity | Space Complexity |
-| ------------------- | -------------- | ----------------------------------------------- | --------------- | ---------------- |
-| Array, Two Pointers | In-place Write | Use read/write pointers to overwrite duplicates | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-- Pointers:
-    - `i` (read pointer): Scans the array from index 1 to find unique elements.
-    - `k` (write pointer): Position to place the next unique element, initially `1`.
-
-- Traverse the array once.
-
-- Steps:
-    1. If `nums[i]` is not equal to `nums[k - 1]`, write it to `nums[k]` and increment `k`.
-
-## Notes
-
-- Always compare the current read element (`nums[i]`) with the last unique element (`nums[k - 1]`), **not** with the next write position (`nums[k]`).
-    - Ensure the last unique element is never overwritten.
-    - Skips all repeated elements.
-    - Never misses any new elements.
-- Since the array is sorted, **duplicates are always consecutive**. When `nums[i]` is not equal to `nums[k - 1]`, it's a new unique element.
+用一個指標 `k` 指向下一個要寫入的位置，遍歷 `nums` 遇到跟前一項不一樣的元素就放到 `k` 位置，再把 `k` 往前移。最後 `k` 就會是移除指定直後的新長度，原陣列也被更新好了。

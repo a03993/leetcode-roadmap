@@ -30,32 +30,13 @@ Output: 1
 - `2 <= n <= 10⁵`
 - `0 <= height[i] <= 10⁴`
 
-## Approach
+**Note:**
 
-| Topics                      | Category | Key Idea                                                                                                        | Time Complexity | Space Complexity |
-| --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
-| Array, Two Pointers, Greedy | In-place | Use left/right pointers at the start and end, always move the shorter height toward the center to find max area |
-| O(n)                        | O(1)     |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-1. Initially two pointers: `i = 0` (left) and `j = height.length - 1` (right)
-2. Create `area = (j - i) * Math.min(height[i], height[j])`
-3. Update `maxArea = Math.max(maxArea, area)`
-4. Move the pointer pointing to the **shorter height** － _because only moving the short side can potentially increase the area_
-5. Repeat until `i >= j`
-6. Repeat `maxArea`
-
-### Complexity
-
-n = `height.length`
-
-1. **Time Complexity:** O(n)
-    - Traverse array `height`: O(n)
-    - Math operations (`min`, `max`): O(1)
-
-2. **Space Complexity:** O(1)
-    - constant space, only two pointers used
-
-## Notes
+左右各放一個指針，每次算當前能裝的水量並更新最大值。因為水量受較短邊限制，所以只移動比較矮的那一邊，嘗試找到更高的牆。一路夾到中間，就能找到最大面積。
 
 ![Demo](https://img.shields.io/badge/Demo-heights_=_[1,_8,_6,_2,_5,_4,_8,_3,_7]-white?style=flat-square)
 

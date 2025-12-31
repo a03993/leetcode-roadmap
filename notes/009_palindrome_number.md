@@ -31,19 +31,16 @@ Output: false
 
 **Follow up:** Could you solve it without converting the integer to a string?
 
-| Topics | Key Idea                                                       | Time Complexity | Space Complexity |
-| ------ | -------------------------------------------------------------- | --------------- | ---------------- |
-| Array  | Convert number to string, use two pointers to check palindrome | O(n)            | O(n)             |
-| Math   | Reverse half of the integer and compare with the other half    | O(n)            | O(1) ✅          |
+**Note:**
 
-1. Array
-    - Turn the integer `x` into a string using `String(x)`
-    - Set two pointers: `i = 0`, `j = str.length - 1`
-    - While `i < j`, compare `str[i]` and `str[j]`
-        - Return `false` if they are different
-        - Return `true` if the loop finishes
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(n)             |
+| Math         | O(log n) ✅     | O(1) ✅          |
 
-    Solution:
+1. Two Pointers
+
+    把整數 `x` 轉成字串，用 Two Pointers 從頭尾往中間比對，只要任一對字符不相等就不是回文，全部相等就是回文。
 
     ```js
     var isPalindrome = function (x) {
@@ -53,7 +50,7 @@ Output: false
         let j = str.length - 1;
 
         while (i < j) {
-            if (str[i] != str[j]) {
+            if (str[i] !== str[j]) {
                 return false;
             }
 
@@ -66,9 +63,7 @@ Output: false
     ```
 
 2. Math
-    - If x is navigate or ends with 0 (**but not 0 itself**), return `false` right away
-    - Initialize `y = 0` to store the reversed half of `x`
-    - While `x > y` (stop when `x <= y`, meaning we’ve processed half the digits)
-        - add the last digit of `x` to `y`
-        - remove the last digit from `x`
-    - Return `x == y` or `x == Math.floor(y / 10)` for both even and odd digits
+
+    把整數 `x` 的「後半段」反轉成 `y`，同時不斷把 `x` 去掉尾數。當 `x <= y` 時代表已處理到一半，接著比較 `x === y` (偶數位) 和 `x === Math.floor(y / 10)` (奇數位)
+
+    Solution: 👉 [code](../codes/009_palindrome_number.js)

@@ -4,15 +4,15 @@
  */
 var jump = function (nums) {
     let jumps = 0;
-    let currentReach = 0;
-    let farthest = 0;
+    let reach = 0;
+    let nextReach = 0;
 
     for (let i = 0; i < nums.length - 1; i++) {
-        farthest = Math.max(farthest, i + nums[i]);
+        nextReach = Math.max(nextReach, nums[i] + i);
 
-        if (i == currentReach) {
+        if (i === reach) {
             jumps++;
-            currentReach = farthest;
+            reach = nextReach;
         }
     }
 

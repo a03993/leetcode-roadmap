@@ -9,16 +9,16 @@ Return `true` _if you can reach the last index, or `false` otherwise._
 
 **Example:**
 
-```
+```java
 Input: nums = [2,3,1,1,4]
 Output: true
-Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+// Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 ```
 
-```
+```java
 Input: nums = [3,2,1,0,4]
 Output: false
-Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+// Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
 ```
 
 **Constraints:**
@@ -26,43 +26,32 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 - `1 <= nums.length <= 10⁴`
 - `0 <= nums[i] <= 10⁵`
 
-## Approach
+**Note:**
 
-| Topics                             | Category             | Key Idea             | Time Complexity | Space Complexity |
-| ---------------------------------- | -------------------- | -------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming, Greedy | In-place Calculation | Accumulate Max Reach | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Initialization:
-    1. `farthest`: The farthest index that can be reached so far.
+遍歷 `nums`，用 `reachMax` 記錄目前能跳到的最遠位置。每個位置如果超過這個最遠點，就代表無法到終點，直接回傳 `false`。遍歷完 `nums` 就代表可以跳到最後一格。
 
-- Traverse the array once.
+![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_3,_1,_1,_4]-white?style=flat-square)
 
-- Steps:
-    1. If `i > farthest`, return `false` — **we cannot reach this position**.
-    2. Update `farthest` by `Math.max(farthest, i + nums[i])`.
+| i    | reachMax |
+| ---- | -------- |
+| init | 0        |
+| 0    | 2        |
+| 1    | 4        |
+| 2    | 4        |
+| 3    | 4        |
+| 4    | 8        |
 
-#### 🚀 Demonstration: `nums = [2,3,1,1,4]` ✅ result: true (The loop completes)
+![Demo](https://img.shields.io/badge/Demo-nums_=_[3,_2,_1,_0,_4]-white?style=flat-square)
 
-| Index `i` | `nums[i]` | `farthest`              |
-| --------- | --------- | ----------------------- |
-| 0         | 2         | 0 → 2 (`max(0, 0 + 2)`) |
-| 1         | 3         | 2 → 4 (`max(2, 1 + 3)`) |
-| 2         | 1         | 4 (`max(4, 2 + 1)`)     |
-| 3         | 1         | 4 (`max(4, 3 + 1)`)     |
-| 4         | 4         | 4 → 8 (`max(4, 4 + 4)`) |
-
-#### 🚀 Demonstration: `nums = [3,2,1,0,4]` ❌ result: false (Index `i` exceeds `reach`)
-
-| Index `i` | `nums[i]` | `farthest`                            |
-| --------- | --------- | ------------------------------------- |
-| 0         | 3         | 0 → 3 (`max(0, 0 + 3)`)               |
-| 1         | 2         | 3 (`max(3, 1 + 2)`)                   |
-| 2         | 1         | 3 (`max(3, 2 + 1)`)                   |
-| 3         | 0         | 3 (`max(3, 3 + 0)`)                   |
-| 4         | 4         | 3 (`i > farthest` return immediately) |
-
-## Notes
-
-- When the array length is 1, the last index is trivially reachable, regardless of the value (e.g., `[0]`).
-- Some elements may be 0 (e.g., `nums = [0,2,3]` or `nums = [1,0,1,0]`), so we must check `i > farthest` and return `false` if true.
-- Same logic as [122 Best Time to Buy and Sell Stock II](./122_best_time_to_buy_and_sell_stock_II.md), **greedily** accumulate the farthest reachable index instead of simulating each jump.
+| i    | reachMax                    |
+| ---- | --------------------------- |
+| init | 0                           |
+| 0    | 3                           |
+| 1    | 3                           |
+| 2    | 3                           |
+| 3    | 3                           |
+| 4    | `i > reachMax` return false |

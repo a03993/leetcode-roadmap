@@ -11,22 +11,22 @@ Return `true` _if there is a cycle in the linked list._ Otherwise, return `false
 
 **Example:**
 
-```
+```java
 Input: head = [3,2,0,-4], pos = 1
 Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+// Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 ```
 
-```
+```java
 Input: head = [1,2], pos = 0
 Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+// Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
 ```
 
-```
+```java
 Input: head = [1], pos = -1
 Output: false
-Explanation: There is no cycle in the linked list.
+// Explanation: There is no cycle in the linked list.
 ```
 
 **Constraints:**
@@ -37,49 +37,16 @@ Explanation: There is no cycle in the linked list.
 
 **Follow up:** Can you solve it using `O(1)` (i.e. constant) memory?
 
-## Approach
+**Note:**
 
-<table>
-  <thead>
-    <tr>
-      <th>Topics</th>
-      <th>Category</th>
-      <th>Key Idea</th>
-      <th>Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2">Hash Table, Linked List, Two Pointers</td>
-      <td>Hash Set</td>
-      <td>Track Visited Nodes</td>
-      <td>O(n)</td>
-      <td>O(n)</td>
-    </tr>
-    <tr>
-      <td>In-place Traversal</td>
-      <td>Two Pointers (Slow & Fast)</td>
-      <td>O(n)</td>
-      <td>O(1) ✅</td>
-    </tr>
-  </tbody>
-</table>
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Hash Set     | O(n)            | O(n)             |
+| Two Pointers | O(n)            | O(1) ✅          |
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Hash Set</summary>
+1. Hash Set
 
-- Initialization:
-    - `curr`: Points to current node, initially `head`.
-    - `passedNode`: A `Set` to store visited nodes.
-
-- Loop Condition: While `curr` is not `null`.
-
-- Steps:
-    1. If `passedNode.has(curr)` return `true`.
-    2. Add `curr` to `passedNode`.
-    3. Move `curr` one step forward.
-    4. If loop ends return `false`.
+    遍歷 linked list，將訪問過的 node 加入 Set，若再次遇到已訪問 node 則存在環。
 
     ```
     [head] → [node1] → [node2] → [node3] → [node4]
@@ -87,37 +54,22 @@ Explanation: There is no cycle in the linked list.
                     └───────── (back to node2) ← cycle
     ```
 
-- Code Skeleton:
+    ```js
+    let curr = head;
+    let passedNode = new Set();
 
-```
-let curr = head;
-let passedNode = new Set();
+    while (curr) {
+        if (passedNode.has(curr)) return true;
+        passedNode.add(curr);
+        curr = curr.next;
+    }
 
-while (curr) {
-    if (passedNode.has(curr)) return true;
-    passedNode.add(curr);
-    curr = curr.next;
-}
+    return false;
+    ```
 
-return false;
-```
+2. Two Pointers
 
-</details>
-
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">In-place Traversal</summary>
-
-- Pointers:
-    - `slow` (slow pointer): Moves one step at a time.
-    - `fast` (fast pointer): Moves two steps at a time.
-
-- Loop Condition: While `fast` and `fast.next` are not `null`.
-
-- Steps:
-    1. Move `slow` one step forward.
-    2. Move `fast` two step forward.
-    3. If `slow == fast` return true.
-    4. If loop ends return `false`.
+    用指標 fast & slow pointers 遍歷 linked list，fast pointer 走兩步、slow pointer 走一步，若相遇表示存在環，否則無環。
 
     ```
     slow → [head] → [node1] → [node2] → [node3] → [node4]
@@ -125,15 +77,3 @@ return false;
                                                      ↑
                                                    cycle
     ```
-
-</details>
-
-## Notes
-
-- The `Set` method uses `O(n)` because every visited node is stored. To optimize space to `O(1)`, use the **fast & slow pointer method** instead.
-
-- **`Set`:**
-    - Stores **node references** (not values), so `has()` can detect if the same node object has been visited.
-- **Fast & slow pointer:**
-    - Make sure to check both `fast` and `fast.next` in the loop condition to avoid null pointer errors.
-    - If there is a cycle, `slow` and `fast` pointers will eventually meet.

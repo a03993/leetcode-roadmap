@@ -27,22 +27,22 @@ Given a roman numeral, convert it to an integer.
 
 **Example:**
 
-```
+```java
 Input: s = "III"
 Output: 3
-Explanation: III = 3.
+// Explanation: III = 3.
 ```
 
-```
+```java
 Input: s = "LVIII"
 Output: 58
-Explanation: L = 50, V= 5, III = 3.
+// Explanation: L = 50, V= 5, III = 3.
 ```
 
-```
+```java
 Input: s = "MCMXCIV"
 Output: 1994
-Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+// Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 ```
 
 **Constraints:**
@@ -51,91 +51,70 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 - `s` contains only the characters `('I', 'V', 'X', 'L', 'C', 'D', 'M')`.
 - It is **guaranteed** that s is a valid roman numeral in the range `[1, 3999]`.
 
-## Approach
+**Note:**
 
-| Topics                   | Category    | Key Idea                 | Time Complexity | Space Complexity |
-| ------------------------ | ----------- | ------------------------ | --------------- | ---------------- |
-| Hash Table, Math, String | Calculation | handle subtraction logic | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Initialize:
-    - `map` to store the mapping from Roman symbols to integer values.
-    - `sum` to store the final integer result.
+1. Greedy
 
-- Traverse the string once, character by character.
+    從左到右遍歷 `s`，遇到小數字在大數字前面（例如 IV、IX）就減去，否則就加上。
+    - 這種寫法可以避免把非法輸入（例如 IM）誤判為減法
 
-- Steps:
-    1. Add current character's value to `sum`.
-    2. If the previous character exists and is smaller than current, subtract **twice** the previous value.
+    ```js
+    var romanToInt = function (s) {
+        let sum = 0;
 
-## Notes
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === "I") {
+                if (s[i + 1] === "V" || s[i + 1] === "X") {
+                    sum -= 1;
+                } else {
+                    sum += 1;
+                }
+            }
 
-- Only `I`, `X`, and `C` can precede **specific** larger numerals to indicate subtraction.
-- Invalid examples: `IL`, `IC`, `ID`, `IM`.
+            if (s[i] === "V") {
+                sum += 5;
+            }
 
-| Smaller before Larger | Meaning                |
-| --------------------- | ---------------------- |
-| `I` before `V` or `X` | 4 (`IV`), 9 (`IX`)     |
-| `X` before `L` or `C` | 40 (`XL`), 90 (`XC`)   |
-| `C` before `D` or `M` | 400 (`CD`), 900 (`CM`) |
+            if (s[i] === "X") {
+                if (s[i + 1] === "L" || s[i + 1] === "C") {
+                    sum -= 10;
+                } else {
+                    sum += 10;
+                }
+            }
 
-Because Roman numerals follow **these strict subtraction rules above**, we don’t need a separate if block for every symbol:
+            if (s[i] === "L") {
+                sum += 50;
+            }
 
-```
-let sum = 0;
+            if (s[i] === "C") {
+                if (s[i + 1] === "D" || s[i + 1] === "M") {
+                    sum -= 100;
+                } else {
+                    sum += 100;
+                }
+            }
 
-for (let i = 0; i < s.length; i++) {
-    if (s[i] == "I") {
-        sum += 1;
-    }
+            if (s[i] === "D") {
+                sum += 500;
+            }
 
-    if (s[i] == "V") {
-        sum += 5;
-
-        if (s[i - 1] == "I") {
-            sum -= 2;
+            if (s[i] === "M") {
+                sum += 1000;
+            }
         }
-    }
 
-    if (s[i] == "X") {
-        sum += 10;
+        return sum;
+    };
+    ```
 
-        if (s[i - 1] == "I") {
-            sum -= 2;
-        }
-    }
+2. Greedy + Hash Table
 
-    if (s[i] == "L") {
-        sum += 50;
+    先用一個 map 記每個羅馬字母對應的數值，從左到右遍歷 `s`。若 `curr` 小於 `next`，代表形成減法對（例如 IV、IX），扣掉 `curr`；否則就加上 `curr`，最後累加得到整數。
+    - 題目保證輸入是合法羅馬數字，因此 `curr < next` 的情況可直接視為合法減法表示
 
-        if (s[i - 1] == "X") {
-            sum -= 20;
-        }
-    }
-
-    if (s[i] == "C") {
-        sum += 100;
-
-        if (s[i - 1] == "X") {
-            sum -= 20;
-        }
-    }
-
-    if (s[i] == "D") {
-        sum += 500;
-
-        if (s[i - 1] == "C") {
-            sum -= 200;
-        }
-    }
-
-    if (s[i] == "M") {
-        sum += 1000;
-
-        if (s[i - 1] == "C") {
-            sum -= 200;
-        }
-    }
-}
-
-return sum;
-```
+        Solution: 👉 [code](../codes/013_roman_to_integer.js)

@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-    if (s.length != t.length) {
+    if (s.length !== t.length) {
         return false;
     }
 
@@ -18,7 +18,7 @@ var isAnagram = function (s, t) {
         if (map.has(char)) {
             const count = map.get(char) - 1;
 
-            if (count == 0) {
+            if (count === 0) {
                 map.delete(char);
             } else {
                 map.set(char, count);
@@ -26,5 +26,5 @@ var isAnagram = function (s, t) {
         }
     }
 
-    return map.size == 0;
+    return map.size === 0;
 };

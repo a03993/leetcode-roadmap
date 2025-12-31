@@ -4,21 +4,29 @@
  * @return {boolean}
  */
 var canConstruct = function (ransomNote, magazine) {
-    const count = new Array(26).fill(0);
+    const map = new Map();
 
-    for (let char of magazine) {
-        const i = char.charCodeAt(0) - 97;
-        count[i] += 1;
-    }
+    for (let i = 0; i < ransomNote.length; i++) {
+        const char = ransomNote[i];
 
-    for (let char of ransomNote) {
-        const i = char.charCodeAt(0) - 97;
-        count[i] -= 1;
-
-        if (count[i] < 0) {
-            return false;
+        if (map.has(char)) {
+            map.set(char, map.get(char) + 1);
+        } else {
+            map.set(char, 1);
         }
     }
 
-    return true;
+    for (let i = 0; i < magazine.length; i++) {
+        const char = magazine[i];
+
+        if (map.has(char)) {
+            map.set(char, map.get(char) - 1);
+        }
+
+        if (map.get(char) === 0) {
+            map.delete(char);
+        }
+    }
+
+    return map.size === 0;
 };

@@ -33,19 +33,19 @@ If all assertions pass, then your solution will be **accepted**.
 
 **Example:**
 
-```
+```java
 Input: nums = [3,2,2,3], val = 3
 Output: 2, nums = [2,2,_,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 2.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
-```
+```java
 Input: nums = [0,1,2,2,3,0,4,2], val = 2
 Output: 5, nums = [0,1,4,0,3,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
-Note that the five elements can be returned in any order.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+// Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+// Note that the five elements can be returned in any order.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
 **Constraints:**
@@ -54,23 +54,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - `0 <= nums[i] <= 50`
 - `0 <= val <= 100`
 
-## Approach
+**Note:**
 
-| Topics              | Category       | Key Idea                                                         | Time Complexity | Space Complexity |
-| ------------------- | -------------- | ---------------------------------------------------------------- | --------------- | ---------------- |
-| Array, Two Pointers | In-place Write | Use read/write pointers to overwrite the elements equal to `val` | O(n)            | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n)            | O(1)             |
 
-- Pointers:
-    - `i` (read pointer): Scans the array to find elements to keep.
-    - `k` (write pointer): Position to place the next element not equal to `val`, also represents the new length of the array.
-
-- Traverse the array once.
-
-- Steps:
-    1. If `nums[i]` is not equal to `val`, write it to `nums[k]`.
-    2. Increment `k`.
-
-## Notes
-
-- `k` serves two purposes: it **represents the new length of the array** and also **marks the next write position for valid elements**.
-- When `i` is equal to `k` (initially both `0`), the assignment `nums[k] = nums[i]` becomes a **no-op**, but it doesn’t affect correctness — _simplifies implementation_.
+用一個指標 `k` 指向下一個要寫入的位置，遍歷 `nums`時遇到不等於 `val` 的元素就將該項覆寫到 `k` 位置，再把 `k` 往前移。最後 `k` 就會是移除指定直後的新長度，原陣列也被更新好了。
