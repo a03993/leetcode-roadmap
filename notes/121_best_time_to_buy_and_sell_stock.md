@@ -11,17 +11,17 @@ Return _the maximum profit you can achieve from this transaction._ If you cannot
 
 **Example:**
 
-```
+```java
 Input: prices = [7,1,5,3,6,4]
 Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 ```
 
-```
+```java
 Input: prices = [7,6,4,3,1]
 Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
+// Explanation: In this case, no transactions are done and the max profit = 0.
 ```
 
 **Constraints:**
@@ -29,15 +29,13 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 - `1 <= prices.length <= 10⁵`
 - `0 <= prices[i] <= 10⁴`
 
-## Approach
+**Note:**
 
-| Topics                     | Category             | Key Idea                     | Time Complexity | Space Complexity |
-| -------------------------- | -------------------- | ---------------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming | In-place Calculation | Track min price & max profit | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Traverse the array once.
-- Track the **min price** using `Math.min()` and update it if `prices[i]` is lower.
-- Track the **max profit** using `Math.max()` abd update it if `prices[i] - min` is higher.
+遍歷股價，用一個變數記錄目前最低價格，計算每一天以最低價格買入、當天賣出的最大利潤，最後得到整體最大利潤。
 
 ## Notes
 

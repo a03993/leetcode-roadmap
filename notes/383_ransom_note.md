@@ -29,107 +29,50 @@ Output: true
 - `1 <= ransomNote.length, magazine.length <= 10⁵`
 - `ransomNote` and `magazine` consist of lowercase English letters.
 
-## Approach
+**Note:**
 
-<table>
-    <thead>
-        <tr>
-            <th>Topics</th>
-            <th>Category</th>
-            <th>Key Idea</th>
-            <th>Time Complexity</th>
-            <th>Space Complexity</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2">Hash Table, String, Counting</td>
-            <td>Array</td>
-            <td>Count letters in magazine and check if ransomNote can be formed</td>
-            <td>O(m+n)</td>
-            <td>O(1) ✅</td>
-        </tr>
-        <tr>
-            <td>Hash Map</td>
-            <td>Count letters in ransomNote and subtract using magazine letters, return true if all matched</td>
-            <td>O(m+n)</td>
-            <td>O(n)</td>
-        </tr>
-    </tbody>
-</table>
+| Topic    | Time Complexity | Space Complexity |
+| -------- | --------------- | ---------------- |
+| Array    | O(m+n)          | O(1) ✅          |
+| Hash Map | O(m+n)          | O(n)             |
 
-#### Array
+1. Array
 
-1. Create an array of size 26 to count letter frequencies from `magazine`.
-2. Loop through each character in `magazine` and increment its corresponding count.
-3. Loop through each character in `ransomNote`:
-    - Decrement the corresponding count.
-    - If the count becomes negative, return false.
-4. Return true —_ all letters in `ransomNote` can be constructed from `magazine`_.
+    用固定長度陣列統計 magazine 的字母數量，遍歷 ransomNote 扣除數量，不足即無法構造，全部扣完即能構造。
 
-👉 [code](../codes/383_ransom_note.js)
+    👉 [code](../codes/383_ransom_note.js)
 
-#### Hash Map
+2. Hash Map
 
-1. Create a map to count the frequency of each character in `ransomNote`.
-2. Loop through each character in `magazine`:
-    - If the character exists in the map, decrement its count.
-    - Remove the character from the map if its count reaches 0.
-    - Optionally, return true immediately if the map is empty.
-3. Return true if the map is empty after the loop; otherwise, return false.
+    用 Hash map 統計 ransomNote 需要的字符數，遍歷 magazine 消耗字符，全部消耗完表示可以構造。
 
-```js
-var canConstruct = function (ransomNote, magazine) {
-    const map = new Map();
+    ```js
+    var canConstruct = function (ransomNote, magazine) {
+        const map = new Map();
 
-    for (let char of ransomNote) {
-        map.set(char, (map.get(char) || 0) + 1);
-    }
+        for (let char of ransomNote) {
+            map.set(char, (map.get(char) || 0) + 1);
+        }
 
-    for (let char of magazine) {
-        if (map.has(char)) {
-            const count = map.get(char) - 1;
+        for (let char of magazine) {
+            if (map.has(char)) {
+                const count = map.get(char) - 1;
 
-            if (count == 0) {
-                map.delete(char);
-            } else {
-                map.set(char, count);
-            }
+                if (count == 0) {
+                    map.delete(char);
+                } else {
+                    map.set(char, count);
+                }
 
-            if (map.size == 0) {
-                return true;
+                if (map.size == 0) {
+                    return true;
+                }
             }
         }
-    }
 
-    return map.size == 0;
-};
-```
-
-### Complexity
-
-#### Array
-
-m = `magazine.length`, n = `ransomNote.length`
-
-1. **Time Complexity**: O(m+n)
-    - Traverse `magazine`: O(m)
-    - Traverse `ransomNote`: O(n)
-
-2. **Space Complexity**: O(1)
-    - Fixed-size array `count[26]` for letters a-z
-
-#### Hash Map
-
-m = `magazine.length`, n = `ransomNote.length`
-
-1. **Time Complexity**: O(m+n)
-    - Traverse `magazine`: O(m)
-    - Traverse `ransomNote`: O(n)
-    - Map operations (`get`, `set`, `has`, `delete`) : O(1) each
-
-2. **Space Complexity**: O(n)
-    - Store character counts from `ransomNote` in a Map
+        return map.size == 0;
+    };
+    ```
 
 ### Why Array is the better approach?
 

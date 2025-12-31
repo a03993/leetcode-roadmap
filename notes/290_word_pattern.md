@@ -38,29 +38,10 @@ Output: false
 - `s` **does not contain** any leading or trailing spaces.
 - All the words in `s` are separated by a **single space**.
 
-## Approach
+**Note:**
 
-| Topics             | Category | Key Idea                                                            | Time Complexity | Space Complexity |
-| ------------------ | -------- | ------------------------------------------------------------------- | --------------- | ---------------- |
-| Hash Table, String | Hash Map | Use two maps to ensure one-to-one mapping between pattern and words | O(n)            | O(n)             |
+| Topic    | Time Complexity | Space Complexity |
+| -------- | --------------- | ---------------- |
+| Hash Map | O(n)            | O(n)             |
 
-1. Split `s` into `words`.
-2. Check if the length of `pattern` and `words`; if not, return false.
-3. Create two maps to track mappings from `pattern` to `words` and from `words` to `pattern`.
-4. Loop through each index:
-    - If a pattern character or word has not been mapped yet, add the mapping.
-    - If the existing mapping conflicts, return false.
-5. Return true — _pattern matches the words_.
-
-### Complexity
-
-n = `pattern.length` = `words.length`
-
-1. **Time Complexity**: O(n)
-    - Split string `s` into `words`: O(n)
-    - Traverse `pattern` and `words`: O(n)
-    - Map operations (`get`, `set`, `has`): O(1) each
-
-2. **Space Complexity**: O(n)
-    - Store the split string `s` into array `words`: O(n)
-    - Two Maps (`patternMap` and `wordMap`): O(n)
+建立 pattern ↔ words 的雙向映射，檢查是否一對一對應，違反即返回 false，全部一致即返回 true。

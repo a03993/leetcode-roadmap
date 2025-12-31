@@ -11,7 +11,12 @@ var majorityElement = function (nums) {
             candidate = nums[i];
         }
 
-        count += candidate == nums[i] ? 1 : -1;
+        if (candidate == nums[i]) {
+            count++;
+        } else {
+            count--;
+        }
     }
+
     return candidate;
 };

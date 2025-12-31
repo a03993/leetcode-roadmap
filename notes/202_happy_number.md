@@ -34,34 +34,12 @@ Output: false
 
 - `1 <= n <= 2³¹ - 1`
 
-## Approach
+**Note:**
 
-<table>
-    <thead>
-        <tr>
-            <th>Topics</th>
-            <th>Category</th>
-            <th>Key Idea</th>
-            <th>Time Complexity</th>
-            <th>Space Complexity</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2">Hash Table, Math, Two Pointers</td>
-            <td>Hash Set</td>
-            <td>Use a set to detect cycles in sum-of-squares sequence</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-        </tr>
-        <tr>
-            <td>Two Pointers</td>
-            <td>Detect cycle using slow/fast pointers on sum-of-squares sequence</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-        </tr>
-    </tbody>
-</table>
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Hash Set     | O(1)            | O(1)             |
+| Two Pointers | O(1)            | O(1)             |
 
 If the number is happy, the sequence eventually reaches 1:
 
@@ -75,21 +53,11 @@ Otherwise, it falls into a cycle without reaching 1:
 2 → 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 → ...
 ```
 
-#### Hash Set
-
-1. Create a set to keep track of numbers that have already been encountered.
-2. While `n` does not reach 1 and is not in the set:
-    - Add `n` to the set.
-    - Calculate the sum of squares of its digit and update `n`.
-3. Return true if `n` reaches 1 — _the number is happy_; otherwise, return false.
+1. Hash Set
 
 👉 [code](../codes/202_happy_number.js)
 
-#### Two Pointers
-
-1. Create a helper function to calculate the next number by summing the squares of its digit.
-2. Use slow and fast pointers to detect a cycle.
-3. Return true if fast pointer reaches 1; otherwise, return false.
+2. Two Pointers
 
 <div style="display:flex; justify-content:center; gap:2rem; margin-top:3rem">
 
@@ -143,27 +111,9 @@ var isHappy = function (n) {
 };
 ```
 
-### Complexity
+### Set vs Two Pointers
 
-#### Two Pointer
-
-- **Time Complexity:** O(1)
-    - Each step computes sum-of-squares of digits: O(log n)
-    - Sequence converges to a number ≤ 243: O(1)
-
-- **Space Complexity:** O(1) － Only two pointers (`slow` and `fast`)
-
-#### Hash Set
-
-- **Time Complexity**: O(1)
-    - Same reasoning as the two-pointer approach.
-
-- **Space Complexity**: O(1)
-    - Maximum 243 numbers stored in the Set: O(1)
-
-### Set vs Two Pointer
-
-| Approach    | Advantages                         | Disadvantages                      |
-| ----------- | ---------------------------------- | ---------------------------------- |
-| Set         | Simple, easy to read and maintain  | Slightly more memory               |
-| Two Pointer | Minimal memory, stable performance | Slightly harder to read/understand |
+| Approach     | Advantages                         | Disadvantages                      |
+| ------------ | ---------------------------------- | ---------------------------------- |
+| Set          | Simple, easy to read and maintain  | Slightly more memory               |
+| Two Pointers | Minimal memory, stable performance | Slightly harder to read/understand |

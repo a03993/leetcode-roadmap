@@ -37,16 +37,15 @@ Constraints:
 - `1 <= prices.length <= 3 * 10⁴`
 - `0 <= prices[i] <= 10⁴`
 
-## Approach
+**Note:**
 
-| Topics                             | Category | Key Idea                             | Time Complexity | Space Complexity |
-| ---------------------------------- | -------- | ------------------------------------ | --------------- | ---------------- |
-| Array, Dynamic Programming, Greedy | Greedy   | Accumulate profit on all price rises | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Traverse the array once.
-- For each consecutive pair of days, if the price increases (`prices[i] < prices[i + 1]`), add the difference to `profit`.
+遍歷股價，只要明天比今天貴就賺取差價，累加所有上漲段，得到最大收益。
 
-#### 🚀 Demonstration: `prices = [7,1,5,3,6,4]`
+![Demo](https://img.shields.io/badge/Demo-prices_=_[7,_1,_5,_3,_6,_4]-white?style=flat-square)
 
 | Index (Day) | Price | Price Diff | Profit |
 | ----------- | ----- | ---------- | ------ |
@@ -55,9 +54,3 @@ Constraints:
 | 2           | 5     | 3 - 5 = -2 | 4      |
 | 3           | 3     | 6 - 3 = 3  | 4 → 7  |
 | 4           | 6     | 4 - 6 = -2 | 7      |
-
-## Notes
-
-- **No need to track buy or sell days**.
-- Summing all positive differences between consecutive days captures every profitable transaction, which **guarantees the maximum total profit**. (累加正差值 = 最大利潤)
-- Same logic as [055 Jump Game](./055_jump_game.md), **greedily** make optimal local choices to reach the global optimum.

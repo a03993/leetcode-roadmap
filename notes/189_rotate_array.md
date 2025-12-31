@@ -35,104 +35,53 @@ rotate 2 steps to the right: [3,99,-1,-100]
 - Try to come up with as many solutions as you can. There are at least **three** different ways to solve this problem.
 - Could you do it in-place with `O(1)` extra space?
 
-## Approach
+**Note:**
 
-<table>
-  <thead>
-    <tr>
-      <th>Topics</th>
-      <th>Category</th>
-      <th>Key Idea</th>
-      <th>Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">Array, Math, Two Pointers</td>
-      <td>Temporary Array</td>
-      <td>Slice & Concat</td>
-      <td>O(n)</td>
-      <td>O(n)</td>
-    </tr>
-    <tr>
-      <td>In-place Replacement</td>
-      <td>Cyclic Replacement</td>
-      <td>O(n)</td>
-      <td>O(1)✅ </td>
-    </tr>
-    <tr>
-      <td>In-place Reverse</td>
-      <td>Three Reversals</td>
-      <td>O(n)</td>
-      <td>O(1)✅ </td>
-    </tr>
+| Topic              | Time Complexity | Space Complexity |
+| ------------------ | --------------- | ---------------- |
+| Slice + Concat     | O(n)            | O(n)             |
+| Cyclic Replacement | O(n)            | O(1)✅           |
+| Three Reversals    | O(n)            | O(1)✅           |
 
-  </tbody>
-</table>
+1. Slice + Concat
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">Temporary Array</summary>
+```js
+var rotate = function (nums, k) {
+    k = k % nums.length;
 
-- Take the remainder of `k` to **avoid exceeding the array length**.
-- Slice the last `k` elements.
-- Concatenate the rest to form the rotated array.
-- Overwrite `nums` with the new order.
+    const temp = nums.slice(-k).concat(nums.slice(0, nums.length - k));
 
-### Code Skeleton
-
-```
-k = k % nums.length;
-
-const temp = nums.slice(-k).concat(nums.slice(0, nums.length - k));
-
-for (let i = 0; i < nums.length; i++) {
-    nums[i] = temp[i];
-}
+    for (let i = 0; i < nums.length; i++) {
+        nums[i] = temp[i];
+    }
+};
 ```
 
-</details>
+2. Cyclic Replacement
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">In-place Replacement</summary>
+```js
+var rotate = function (nums, k) {
+    const n = nums.length;
+    k = k % n;
 
-- Initialize `count = 0` to track how many elements have been rotated.
-- Loop through the array starting from index 0:
-    1. Set `current = i` and `prev = nums[i]`.
-    2. Use a `do-while` loop to process the current cycle:
-        - Calculate the new position: `next = (current + k) % n`.
-        - Place `prev` at `nums[next]`
-        - Save `temp` (the original `nums[next]` value) as the new `prev`.
-        - Move `current` to `next`.
-        - Increment `count`.
-    3. Continue the `do-while` loop until `current` returns to the starting index (`i`) → one cycle complete.
-- If `count < nums.length`, move to the next unprocessed index and start a new cycle.
+    let count = 0;
 
-### Code Skeleton
+    for (let i = 0; count < n; i++) {
+        let current = i;
+        let prev = nums[i];
 
+        do {
+            const next = (current + k) % n;
+            const temp = nums[next];
+
+            nums[next] = prev;
+            prev = temp;
+            current = next;
+            count++;
+        } while (current !== i);
+    }
+};
 ```
-const n = nums.length;
-k = k % n;
-
-let count = 0;
-
-for (let i = 0; count < n; i++) {
-    let current = i;
-    let prev = nums[i];
-
-    do {
-        const next = (current + k) % n;
-        const temp = nums[next];
-
-        nums[next] = prev;
-        prev = temp;
-        current = next;
-        count++;
-    } while (current !== i);
-}
-```
-
-### Flow
 
 | Iteration | current | next | prev | nums            | count |
 | --------- | ------- | ---- | ---- | --------------- | ----- |
@@ -144,20 +93,6 @@ for (let i = 0; count < n; i++) {
 | 6         | 1       | 4    | 2    | [1,6,7,1,2,3,4] | 6     |
 | 7         | 4       | 0    | 5    | [5,6,7,1,2,3,4] | 7     |
 
-</details>
+3. Three Reversals
 
-<details>
-<summary style="font-size: 1.25em; font-weight: bold">In-place Reverse</summary>
-
-- **Create a helper function** to reverse a subarray.
-- Reverse entire array.
-- Reverse the first `k` element. (from start to `k - 1`)
-- Reverse the remaining element form index `k` to the end.
-
-</details>
-
-## Notes
-
-- Always do `k = k % nums.length` to handle cases where `k` is larger than the array length.
-- For large arrays (length up to 10⁵) — **In-place** methods are more efficient.
-- Using `Array.prototype.reverse()` alone can only reverse entire array, so a helper function is needed to reverse subarrays in the **In-place Reverse** method.
+    Solution: 👉 [code](../codes/189_rotate_array.js)

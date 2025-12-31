@@ -11,17 +11,17 @@ Return _the head of the merged linked list_.
 
 **Example:**
 
-```
+```java
 Input: list1 = [1,2,4], list2 = [1,3,4]
 Output: [1,1,2,3,4,4]
 ```
 
-```
+```java
 Input: list1 = [], list2 = []
 Output: []
 ```
 
-```
+```java
 Input: list1 = [], list2 = [0]
 Output: [0]
 ```
@@ -32,28 +32,10 @@ Output: [0]
 - `-100 <= Node.val <= 100`
 - Both `list1` and `list2` are sorted in **non-decreasing** order.
 
-## Approach
+**Note:**
 
-| Topics                 | Category       | Key Idea                                                                 | Time Complexity | Space Complexity |
-| ---------------------- | -------------- | ------------------------------------------------------------------------ | --------------- | ---------------- |
-| Linked List, Recursion | In-place Merge | Use a dummy head and two pointers to merge lists, attach remaining nodes | O(n + m)        | O(1)             |
+| Topic        | Time Complexity | Space Complexity |
+| ------------ | --------------- | ---------------- |
+| Two Pointers | O(n + m)        | O(1)             |
 
-- Initialization:
-    - `dummyHead`: A sentinel node (`ListNode(0)`) that serves as the anchor for the final resulting list.
-
-- Traversal Nodes:
-    - `curr`: Current node in the resulting list, initially set to `dummyHead`.
-    - `p1`: Current node in the first list.
-    - `p2`: Current node in the second list.
-
-- Loop Condition: While both `p1` and `p2` exist.
-
-- Steps:
-    1. Compare `p1.val` and `p2.val` to decide which node will be assigned to `curr.next` and move that pointer forward.
-    2. Move `curr` forward.
-    3. After the loop, append any remaining nodes from `p1` or `p2` to `curr.next`.
-
-## Notes
-
-- Use a `dummyHead` as a sentinel to anchor the resulting list.
-- The loop condition should be `while (p1 && p2)`, not `while (p1 || p2)`, to avoid null pointer errors. And make sure to append remaining nodes after loop (`curr.next = p1 || p2`).
+使用 two pointers 迭代兩個 linked list，每次取比較小的節點接到 dummyHead，最後再接上剩餘節點，得到合併後的排序鏈表。

@@ -27,7 +27,7 @@ Output: 1
 - `1 <= n <= 5000`
 - `0 <= citations[i] <= 1000`
 
-| Topics          | Key Idea                                                 | Time Complexity | Space Complexity |
+| Topic           | Key Idea                                                 | Time Complexity | Space Complexity |
 | --------------- | -------------------------------------------------------- | --------------- | ---------------- |
 | Brute Force     | Count how many papers have ≥ h for each h                | O(n²)           | O(1)             |
 | Sort + One Pass | Sort papers high → low, check where citations < position | O(n log n)      | O(1)             |

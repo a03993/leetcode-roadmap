@@ -9,7 +9,7 @@ var longestCommonPrefix = function (strs) {
         const char = strs[0][i];
 
         for (let j = 0; j < strs.length; j++) {
-            if (strs[j][i] != char) {
+            if (strs[j][i] !== char) {
                 return prefix;
             }
         }

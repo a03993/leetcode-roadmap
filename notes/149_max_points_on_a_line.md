@@ -24,21 +24,14 @@ Output: 4
 - `-10⁴ <= xᵢ, yᵢ <= 10⁴`
 - All the `points` are **unique**.
 
-| Topics           | Key Idea                                                       | Time Complexity | Space Complexity |
-| ---------------- | -------------------------------------------------------------- | --------------- | ---------------- |
-| Brute Force      | Pick every three points and check if they lie on the same line | O(n³)           | O(1)             |
-| Math, Hash Table | FFix one point, count slopes to all other points               | O(n²) ✅        | O(n)             |
+| Topic            | Time Complexity | Space Complexity |
+| ---------------- | --------------- | ---------------- |
+| Brute Force      | O(n³)           | O(1)             |
+| Math, Hash Table | O(n²) ✅        | O(n)             |
 
 1. Brute Force
-    - If `points.length <= 2`, just return the length
-    - Initialize `maxCount = 0`
-    - Loop through every pair of points (`i`, `j`)
-        - Initialize `count = 2` (because `i` and `j` are already on the line)
-        - Check every other point `k`
-            - Use cross multiplication to check if `i`, `j`, `k` are collinear
-            - If yes, decrement `count`
-        - Update `maxCount = max(maxCount, count)`
-    - Return `maxCount`
+
+    遍歷每組兩點作為直線端點，檢查其他點是否共線，統計直線上最多點的數量。
 
     ```js
     var maxCount = function (points) {
@@ -70,25 +63,11 @@ Output: 4
     };
     ```
 
-    - Slope formula: `slope(i,j) = (y2 - y1) / (x2 - x1)`
-    - Collinear condition: `(y2 - y1) / (x2 - x1) = (y3 - y1) / (x3 - x1)`
-        - Use **multiplication** instead of division to **avoid division by zero** because if the line is vertical (`x2 - x1 = 0`) would crash division.
+    - 斜率公式: `slope(i,j) = (y2 - y1) / (x2 - x1)`
+    - 為避免除以零，使用 乘法 代替除法，因為當直線垂直 (`x2 - x1 = 0`) 時，除法會出錯: `(y2 - y1) / (x2 - x1) = (y3 - y1) / (x3 - x1)`
 
 2. Math + Hash Table
-    - Initialize `maxCount = 0`
-    - Loop through each point `i`
-        - Create a HashMap to store slopes
-        - Initialize `overlap = 0` for counts duplicates of point `i`
-        - Initialize `count = 0` for counts points with the same slope
-    - Loop through every other point `j`
-        - If `i` and `j` are the same point, decrement `overlap` and continue
-        - Otherwise
-            - Compute slope `(dy, dx)`
-            - Reduce `(dy, dx)` by `gcd` to get simplest form
-            - Store slope as key in HashMap
-            - Update `count` with the max frequency of this slope
-    - After checking all `j` for point `i`
-        - Update `maxCount = max(maxCount, count + overlap + 1)` - _`+1` is for the fixed point i itself_
-    - Return `maxCount`
+
+    以每個點為基準，用 Map 統計不同斜率的點數，化簡斜率避免浮點數誤差，加上重合點得到每條直線的最大點數。
 
     Solution: 👉 [code](../codes/149_max_points_on_a_line.js)

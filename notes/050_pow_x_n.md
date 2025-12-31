@@ -31,12 +31,14 @@ Output: 0.25000
 - Either `x` is not zero or `n > 0`.
 - `-10⁴ <= xⁿ <= 10⁴`
 
-| Topics      | Key Idea                           | Time Complexity | Space Complexity |
-| ----------- | ---------------------------------- | --------------- | ---------------- |
-| Brute Force | Repeated multiplication            | O(n) - TLE ❌   | O(1)             |
-| Math        | Fast exponentiation using squaring | O(log n)        | O(1)             |
+| Topic                 | Time Complexity | Space Complexity |
+| --------------------- | --------------- | ---------------- |
+| Brute Force           | O(n) - TLE ❌   | O(1)             |
+| Binary Exponentiation | O(log n)        | O(1)             |
 
 1. Brute Force
+
+透過迴圈把底數乘自身 n 次，負指數先轉為正數再取倒數，得到 `xⁿ`。
 
 ```js
 var myPow = function (x, n) {
@@ -62,16 +64,9 @@ var myPow = function (x, n) {
 // Time Limit Exceeded: e.g., x = 2.00000, n = -2147483648
 ```
 
-2. Math
-    - Handle negative exponent (`n < 0`)
-        - Set `x = 1 / x`
-        - Set `n = -n`
-    - Initialize `result = 1`
-    - While `n > 0`
-        - If `n` is odd, multiply `result` by `x`
-        - Square `x`
-        - Divide `n` by 2
-    - Return `result`
+2. Binary Exponentiation
+
+    將指數拆成二進位，每次平方底數並在指數為奇數時乘到結果，快速計算 xⁿ，負指數先取倒數。
 
     Solution: 👉 [code](../codes/050_pow_x_n.js)
 

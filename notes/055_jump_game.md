@@ -26,22 +26,15 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 - `1 <= nums.length <= 10⁴`
 - `0 <= nums[i] <= 10⁵`
 
-## Approach
+**Note:**
 
-| Topics                             | Category             | Key Idea             | Time Complexity | Space Complexity |
-| ---------------------------------- | -------------------- | -------------------- | --------------- | ---------------- |
-| Array, Dynamic Programming, Greedy | In-place Calculation | Accumulate Max Reach | O(n)            | O(1)             |
+| Topic  | Time Complexity | Space Complexity |
+| ------ | --------------- | ---------------- |
+| Greedy | O(n)            | O(1)             |
 
-- Initialization:
-    1. `farthest`: The farthest index that can be reached so far.
+遍歷陣列並維護可到達的最遠索引，若當前 index 超過最遠的 index 則表示無法到達，反之更新最遠的 index，完成遍歷即代表可到達終點。
 
-- Traverse the array once.
-
-- Steps:
-    1. If `i > farthest`, return `false` — **we cannot reach this position**.
-    2. Update `farthest` by `Math.max(farthest, i + nums[i])`.
-
-#### 🚀 Demonstration: `nums = [2,3,1,1,4]` ✅ result: true (The loop completes)
+![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_3,_1,_1,_4]-white?style=flat-square)
 
 | Index `i` | `nums[i]` | `farthest`              |
 | --------- | --------- | ----------------------- |
@@ -51,7 +44,7 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 | 3         | 1         | 4 (`max(4, 3 + 1)`)     |
 | 4         | 4         | 4 → 8 (`max(4, 4 + 4)`) |
 
-#### 🚀 Demonstration: `nums = [3,2,1,0,4]` ❌ result: false (Index `i` exceeds `reach`)
+![Demo](https://img.shields.io/badge/Demo-nums_=_[3,_2,_1,_0,_4]-white?style=flat-square)
 
 | Index `i` | `nums[i]` | `farthest`                            |
 | --------- | --------- | ------------------------------------- |
@@ -60,9 +53,3 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 | 2         | 1         | 3 (`max(3, 2 + 1)`)                   |
 | 3         | 0         | 3 (`max(3, 3 + 0)`)                   |
 | 4         | 4         | 3 (`i > farthest` return immediately) |
-
-## Notes
-
-- When the array length is 1, the last index is trivially reachable, regardless of the value (e.g., `[0]`).
-- Some elements may be 0 (e.g., `nums = [0,2,3]` or `nums = [1,0,1,0]`), so we must check `i > farthest` and return `false` if true.
-- Same logic as [122 Best Time to Buy and Sell Stock II](./122_best_time_to_buy_and_sell_stock_II.md), **greedily** accumulate the farthest reachable index instead of simulating each jump.

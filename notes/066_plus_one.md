@@ -39,12 +39,8 @@ Output: [1,0]
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
-| Topics      | Key Idea                               | Time Complexity | Space Complexity |
-| ----------- | -------------------------------------- | --------------- | ---------------- |
-| Array, Math | Traverse from last digit, handle carry | O(n)            | O(1)             |
+| Topic | Time Complexity | Space Complexity |
+| ----- | --------------- | ---------------- |
+|       | O(n)            | O(1)             |
 
-1. Traverse the array from the last digit to the first
-    - If `digits[i] < 9`, increment `digits[i]` by 1 and **return immediately** since no carry is needed
-    - If `digits[i] = 9`, set `digits[i]` to 0 and continue to the next digit to propagate the carry
-2. If loop finishes without returning means **all digits are 9**, insert 1 at the beginning using `digits.unshift(1)`
-3. Return `digits`
+從尾端開始加 1，處理進位，若最高位也進位則在前面插入 1，得到加 1 後的結果。
