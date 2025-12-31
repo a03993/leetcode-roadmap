@@ -22,6 +22,7 @@ function formatTitle(slug) {
         sqrt_x: "Sqrt(x)",
         two_sum_II_input_array_is_sorted: "Two Sum II - Input Array Is Sorted",
         pow_x_n: "Pow(x, n)",
+        h_index: "H-Index",
     };
 
     if (titleMap[slug]) {
