@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/15-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/42-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/16-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/43-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -18,4 +18,5 @@
 | 167 | Two Sum II - Input Array Is Sorted | [Link](../codes/167_two_sum_II_input_array_is_sorted.js) | [Link](../notes/167_two_sum_II_input_array_is_sorted.md) |
 | 172 | Factorial Trailing Zeroes | [Link](../codes/172_factorial_trailing_zeroes.js) | [Link](../notes/172_factorial_trailing_zeroes.md) |
 | 189 | Rotate Array | [Link](../codes/189_rotate_array.js) | [Link](../notes/189_rotate_array.md) |
+| 238 | Product of Array Except Self | [Link](../codes/238_product_of_array_except_self.js) | [Link](../notes/238_product_of_array_except_self.md) |
 | 274 | H-Index | [Link](../codes/274_h_index.js) | [Link](../notes/274_h_index.md) |
