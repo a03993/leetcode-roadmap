@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/17-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/44-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/18-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/45-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -29,6 +29,7 @@
 | 122 | Best Time to Buy and Sell Stock II | [Link](codes/122_best_time_to_buy_and_sell_stock_II.js) | [Link](notes/122_best_time_to_buy_and_sell_stock_II.md) |
 | 125 | Valid Palindrome | [Link](codes/125_valid_palindrome.js) | [Link](notes/125_valid_palindrome.md) |
 | 128 | Longest Consecutive Sequence | [Link](codes/128_longest_consecutive_sequence.js) | [Link](notes/128_longest_consecutive_sequence.md) |
+| 12 | Integer to Roman | [Link](codes/12_integer_to_roman.js) | [Link](notes/12_integer_to_roman.md) |
 | 134 | Gas Station | [Link](codes/134_gas_station.js) | [Link](notes/134_gas_station.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 149 | Max Points on a Line | [Link](codes/149_max_points_on_a_line.js) | [Link](notes/149_max_points_on_a_line.md) |
