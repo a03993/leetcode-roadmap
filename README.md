@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/18-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/45-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/19-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/46-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -33,6 +33,7 @@
 | 134 | Gas Station | [Link](codes/134_gas_station.js) | [Link](notes/134_gas_station.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 149 | Max Points on a Line | [Link](codes/149_max_points_on_a_line.js) | [Link](notes/149_max_points_on_a_line.md) |
+| 151 | Reverse Words in a String | [Link](codes/151_reverse_words_in_a_string.js) | [Link](notes/151_reverse_words_in_a_string.md) |
 | 160 | Intersection of Two Linked Lists | [Link](codes/160_intersection_of_two_linked_lists.js) | [Link](notes/160_intersection_of_two_linked_lists.md) |
 | 167 | Two Sum II - Input Array Is Sorted | [Link](codes/167_two_sum_II_input_array_is_sorted.js) | [Link](notes/167_two_sum_II_input_array_is_sorted.md) |
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
