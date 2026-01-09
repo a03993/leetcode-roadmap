@@ -1,10 +1,11 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/19-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/46-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/20-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/47-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
 | 2 | Add Two Numbers | [Link](../codes/002_add_two_numbers.js) | [Link](../notes/002_add_two_numbers.md) |
+| 6 | Zigzag Conversion | [Link](../codes/006_zigzag_conversion.js) | [Link](../notes/006_zigzag_conversion.md) |
 | 11 | Container with Most Water | [Link](../codes/011_container_with_most_water.js) | [Link](../notes/011_container_with_most_water.md) |
 | 15 | 3Sum | [Link](../codes/015_3Sum.js) | [Link](../notes/015_3Sum.md) |
 | 45 | Jump Game II | [Link](../codes/045_jump_game_II.js) | [Link](../notes/045_jump_game_II.md) |
