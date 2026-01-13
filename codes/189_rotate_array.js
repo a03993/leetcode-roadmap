@@ -6,9 +6,9 @@
 var rotate = function (nums, k) {
     k = k % nums.length;
 
-    function reverse(nums, start, end) {
-        while (start < end) {
-            [nums[start], nums[end]] = [nums[end], nums[start]];
+    function reverse(arr, start, end) {
+        while (end > start) {
+            [arr[start], arr[end]] = [arr[end], arr[start]];
             start++;
             end--;
         }

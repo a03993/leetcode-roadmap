@@ -30,27 +30,27 @@ Output: 2
 
 **Note**
 
-| Topic       | Time Complexity | Space Complexity |
+| Algorithm   | Time Complexity | Space Complexity |
 | ----------- | --------------- | ---------------- |
-| Sort        | O(log n)        | O(1)             |
+| Sort        | O(n log n)      | O(1)             |
 | Boyer-Moore | O(n) ✅         | O(1)             |
 
 1. Sort
 
-佔多數的元素出現次數超過一半，中間位置的元素一定是多數元素，所以可以先將 `nums` 排序後，取中間項直接回傳即可。寫法簡單，但排序會花時間。
+    用排序法，先把陣列 `nums` 排序，因為多數元素的出現次數一定會超過一半，所以排序後它一定會出現在中間位置。計算中間 index 後直接回傳即可。寫法簡單，但排序會花時間。
 
-```js
-var majorityElement = function (nums) {
-    nums.sort();
+    ```js
+    var majorityElement = function (nums) {
+        nums.sort();
 
-    const i = Math.floor(nums.length / 2);
+        const i = Math.floor(nums.length / 2);
 
-    return nums[i];
-};
-```
+        return nums[i];
+    };
+    ```
 
 2. Boyer-Moore
 
-用 `candidate` 當作當前的多數元素，`count` 計算其出現次數。若遇到相同就 +1，不同就 -1，`count` 變 0 時將 `candidate` 更換成當前項目。遍歷完 `nums`，最後的 `candidate` 就是多數元素。
+    用投票演算法，設置一個變數 `candidate` 當作當前的多數元素，`count` 計算其出現次數。若遇到相同就 +1，不同就 -1，`count` 變 0 時將 `candidate` 更換成當前項目。遍歷完 `nums`，最後的 `candidate` 就是多數元素。
 
-Solution: 👉 [code](../codes/169_majority_element.js)
+    Solution: 👉 [code](../codes/169_majority_element.js)

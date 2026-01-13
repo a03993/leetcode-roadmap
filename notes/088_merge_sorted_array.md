@@ -45,11 +45,11 @@ Output: [1]
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(m + n)        | O(1)             |
 
-用三個指標從後往前比大小，`i` 指向 `nums1` 元素，`j` 指向 `nums2` 元素, `k` 指向寫入位置。每次都比較兩數的大小，較大的放入 `k` 位置，再往前移動指標。直到 `j < 0` 代表所有 `nums2` 都已經遍歷完並合併至 `nums1`，`nums1` 就是最後答案。
+用三個指標 `i` 指向 `nums1` 元素，`j` 指向 `nums2` 元素, `k` 指向寫入位置。從後往前比較 `nums1[i]` 和 `nums2[j]`，把比較大的元素放入 `nums1[k]`，然後將對應的指標往前移。直到 `j < 0` 代表所有 `nums2` 都已經遍歷完並 in-place 到 `nums1`，`nums1` 就是最後答案。
 
 ⚠️ 在**從後往前合併**時，一定要用 `nums1[i] > nums2[j]` 比較，不能反過來寫成 `nums2[j] > nums1[i]`，否則可能會出現無窮迴圈：
 

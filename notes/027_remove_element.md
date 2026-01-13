@@ -56,8 +56,8 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 
-用一個指標 `k` 指向下一個要寫入的位置，遍歷 `nums`時遇到不等於 `val` 的元素就將該項覆寫到 `k` 位置，再把 `k` 往前移。最後 `k` 就會是移除指定直後的新長度，原陣列也被更新好了。
+用一個指標 `k` 指向下一個要寫入的位置，從頭遍歷陣列 `nums`，如果當前元素不等於 `val` 就將該項覆寫到 `nums[k]`，然後把 `k` 往後移一位。遍歷完整個陣列後，`k` 就是新陣列的長度，原陣列的前 `k` 個元素也是移除 `val` 的結果。
