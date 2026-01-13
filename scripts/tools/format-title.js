@@ -23,6 +23,7 @@ function formatTitle(slug) {
         two_sum_II_input_array_is_sorted: "Two Sum II - Input Array Is Sorted",
         pow_x_n: "Pow(x, n)",
         h_index: "H-Index",
+        insert_delete_getRandom_o_1: "Insert Delete GetRandom O(1)",
     };
 
     if (titleMap[slug]) {

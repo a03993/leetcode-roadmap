@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/20-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/47-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/48-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -24,3 +24,4 @@
 | 189 | Rotate Array | [Link](../codes/189_rotate_array.js) | [Link](../notes/189_rotate_array.md) |
 | 238 | Product of Array Except Self | [Link](../codes/238_product_of_array_except_self.js) | [Link](../notes/238_product_of_array_except_self.md) |
 | 274 | H-Index | [Link](../codes/274_h_index.js) | [Link](../notes/274_h_index.md) |
+| 380 | Insert Delete GetRandom O(1) | [Link](../codes/380_insert_delete_getRandom_o_1.js) | [Link](../notes/380_insert_delete_getRandom_o_1.md) |
