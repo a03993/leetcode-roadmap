@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/48-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/27-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/49-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -16,6 +16,7 @@
 | 26 | Remove Duplicates from Sorted Array | [Link](codes/026_remove_duplicates_from_sorted_array.js) | [Link](notes/026_remove_duplicates_from_sorted_array.md) |
 | 27 | Remove Element | [Link](codes/027_remove_element.js) | [Link](notes/027_remove_element.md) |
 | 28 | Find the Index of the First Occurrence in a String | [Link](codes/028_find_the_index_of_the_first_occurrence_in_a_string.js) | [Link](notes/028_find_the_index_of_the_first_occurrence_in_a_string.md) |
+| 35 | Search Insert Position | [Link](codes/035_search_insert_position.js) | [Link](notes/035_search_insert_position.md) |
 | 45 | Jump Game II | [Link](codes/045_jump_game_II.js) | [Link](notes/045_jump_game_II.md) |
 | 49 | Group Anagrams | [Link](codes/049_group_anagrams.js) | [Link](notes/049_group_anagrams.md) |
 | 50 | Pow(x, n) | [Link](codes/050_pow_x_n.js) | [Link](notes/050_pow_x_n.md) |

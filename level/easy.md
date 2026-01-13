@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/26-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/48-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/27-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/49-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -12,6 +12,7 @@
 | 26 | Remove Duplicates from Sorted Array | [Link](../codes/026_remove_duplicates_from_sorted_array.js) | [Link](../notes/026_remove_duplicates_from_sorted_array.md) |
 | 27 | Remove Element | [Link](../codes/027_remove_element.js) | [Link](../notes/027_remove_element.md) |
 | 28 | Find the Index of the First Occurrence in a String | [Link](../codes/028_find_the_index_of_the_first_occurrence_in_a_string.js) | [Link](../notes/028_find_the_index_of_the_first_occurrence_in_a_string.md) |
+| 35 | Search Insert Position | [Link](../codes/035_search_insert_position.js) | [Link](../notes/035_search_insert_position.md) |
 | 58 | Length of Last Word | [Link](../codes/058_length_of_last_word.js) | [Link](../notes/058_length_of_last_word.md) |
 | 66 | Plus One | [Link](../codes/066_plus_one.js) | [Link](../notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](../codes/069_sqrt_x.js) | [Link](../notes/069_sqrt_x.md) |
