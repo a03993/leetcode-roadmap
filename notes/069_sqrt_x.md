@@ -27,7 +27,9 @@ Output: 2
 
 - `0 <= x <= 2³¹ - 1`
 
-| Topic         | Time Complexity | Space Complexity |
+**Note:**
+
+| Algorithm     | Time Complexity | Space Complexity |
 | ------------- | --------------- | ---------------- |
 | Brute Force   | O(√x)           | O(1)             |
 | Binary Search | O(log x) ✅     | O(1)             |
@@ -50,24 +52,25 @@ Output: 2
 
 2. Binary Search
 
-    用二分搜尋找出平方小於等於 x 的最大整數，縮小範圍直到 left > right，最後返回 right。
+    用二分搜尋法，設定搜尋範圍 `left = 0`、`right = x`。每次取中間值 `mid`，如果 `mid * mid <= x`，代表平方根至少是 `mid`，把 `left` 移到 `mid + 1`；如果 `mid * mid > x`，平方根比 `mid` 小，把 `right` 移到 `mid - 1`。最後 return `right`。
 
-Solution: 👉 [code](../codes/069_sqrt_x.js)
-
-![Demo](https://img.shields.io/badge/Demo-num_=_8-white?style=flat-square)
-
-| Step | Math       | Binary Search       |
-| ---- | ---------- | ------------------- |
-| 1    | num = 1    | left = 0, right = 3 |
-| 2    | num = 2    | left = 2, right = 3 |
-| 3    | return nun | left = 3, right = 3 |
-| 4    | -          | left = 3, right = 2 |
-| 5    | -          | return right        |
+    Solution: 👉 [code](../codes/069_sqrt_x.js)
 
 **_Why Binary search is the better approach?_**
 
-- Math: simple, just better for small `x`
-- Binary search: efficient, suitable for large `x`
+![Demo](https://img.shields.io/badge/Demo-num_=_8-white?style=flat-square)
+
+| Step | Brute Force | Binary Search       |
+| ---- | ----------- | ------------------- |
+| init | num = 0     | left = 0, right = 8 |
+| 1    | num = 1     | left = 0, right = 3 |
+| 2    | num = 2     | left = 2, right = 3 |
+| 3    | return num  | left = 3, right = 3 |
+| 4    | -           | left = 3, right = 2 |
+| 5    | -           | return right        |
+
+- Brute Force: simple, just better for small `x`
+- Binary Search: efficient, suitable for large `x`
 
 | x         | Math (√x) | Binary Search (log₂x) |
 | --------- | --------- | --------------------- |

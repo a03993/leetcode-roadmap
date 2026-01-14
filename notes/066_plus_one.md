@@ -39,8 +39,10 @@ Output: [1,0]
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(n)            | O(1)             |
+**Note:**
 
-從 `digits` 最後一項開始往前加 1，如果該項的數字小於 9，直接加 1 然後 return `digits` 就好；如果是 9，將該項設為 0 並繼續往前處理。迴圈跑完還沒有 return 就表時前面要多一個進位，就在 `digits` 前插入 1。
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Array     | O(n)            | O(1)             |
+
+用從後向前處理進位法，從陣列 `digits` 最後一項開始往前遍歷，如果該項的數字小於 9，直接加 1 然後 return `digits`；如果是 9，設為 0 並繼續往前處理。如果迴圈遍歷完還沒有 return 就表時前面要多一個進位，就在 `digits` 前插入 1。

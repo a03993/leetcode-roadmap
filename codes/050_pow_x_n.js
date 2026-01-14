@@ -9,16 +9,16 @@ var myPow = function (x, n) {
         n = -n;
     }
 
-    let result = 1;
+    let sum = 1;
 
     while (n > 0) {
-        if (n % 2 != 0) {
-            result *= x;
+        if (n % 2 !== 0) {
+            sum *= x;
         }
 
         x *= x;
         n = Math.floor(n / 2);
     }
 
-    return result;
+    return sum;
 };
