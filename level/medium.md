@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/50-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/22-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/51-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -12,6 +12,7 @@
 | 49 | Group Anagrams | [Link](../codes/049_group_anagrams.js) | [Link](../notes/049_group_anagrams.md) |
 | 50 | Pow(x, n) | [Link](../codes/050_pow_x_n.js) | [Link](../notes/050_pow_x_n.md) |
 | 55 | Jump Game | [Link](../codes/055_jump_game.js) | [Link](../notes/055_jump_game.md) |
+| 71 | Simplify Path | [Link](../codes/071_simplify_path.js) | [Link](../notes/071_simplify_path.md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](../codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](../notes/080_remove_duplicates_from_sorted_array_II.md) |
 | 92 | Reverse Linked List II | [Link](../codes/092_reverse_linked_list_II.js) | [Link](../notes/092_reverse_linked_list_II.md) |
 | 122 | Best Time to Buy and Sell Stock II | [Link](../codes/122_best_time_to_buy_and_sell_stock_II.js) | [Link](../notes/122_best_time_to_buy_and_sell_stock_II.md) |

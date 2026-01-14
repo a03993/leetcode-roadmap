@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/21-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/50-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/22-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/51-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -25,6 +25,7 @@
 | 58 | Length of Last Word | [Link](codes/058_length_of_last_word.js) | [Link](notes/058_length_of_last_word.md) |
 | 66 | Plus One | [Link](codes/066_plus_one.js) | [Link](notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](codes/069_sqrt_x.js) | [Link](notes/069_sqrt_x.md) |
+| 71 | Simplify Path | [Link](codes/071_simplify_path.js) | [Link](notes/071_simplify_path.md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
 | 88 | Merge Sorted Array | [Link](codes/088_merge_sorted_array.js) | [Link](notes/088_merge_sorted_array.md) |
 | 92 | Reverse Linked List II | [Link](codes/092_reverse_linked_list_II.js) | [Link](notes/092_reverse_linked_list_II.md) |
