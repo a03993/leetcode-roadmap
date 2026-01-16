@@ -33,8 +33,8 @@ Output: [8,9,9,9,0,0,0,1]
 
 **Note:**
 
-| Topic       | Time Complexity | Space Complexity |
-| ----------- | --------------- | ---------------- |
-| Linked List | O(max(m, n))    | O(max(m, n))     |
+| Algorithm  | Time Complexity | Space Complexity |
+| ---------- | --------------- | ---------------- |
+| Simulation | O(max(m, n))    | O(max(m, n))     |
 
-把兩個 linked list 的數字從頭到尾一位一位相加，碰到超過 10 就進位。用一個 `dummy` 節點串起新的 linked list，最後就能得到加總後的結果。
+用 `dummyHead` 來建立最後要回傳的 linked list，並用 `carry` 紀錄進位。從 `l1` 和 `l2` 的 head 開始逐位相加。取出兩個 node 的值（不存在就當作是 0），加上 `carry` 得到 `sum`；新 node 的值是 `sum % 10`，新的 `carry` 是 `Math.floor(sum / 10)`；把新 node 接到 linked list 後面，然後指標往後移；重複直到 `l1`、`l2` 都走完且沒有進位為止，最後回傳 `dummyHead.next`。

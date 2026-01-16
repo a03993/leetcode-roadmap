@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/22-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/51-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/23-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/52-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -12,6 +12,7 @@
 | 13 | Roman to Integer | [Link](codes/013_roman_to_integer.js) | [Link](notes/013_roman_to_integer.md) |
 | 14 | Longest Common Prefix | [Link](codes/014_longest_common_prefix.js) | [Link](notes/014_longest_common_prefix.md) |
 | 15 | 3Sum | [Link](codes/015_3Sum.js) | [Link](notes/015_3Sum.md) |
+| 19 | Remove Nth Node from End of List | [Link](codes/019_remove_nth_node_from_end_of_list.js) | [Link](notes/019_remove_nth_node_from_end_of_list.md) |
 | 20 | Valid Parentheses | [Link](codes/020_valid_parentheses.js) | [Link](notes/020_valid_parentheses.md) |
 | 21 | Merge Two Sorted Lists | [Link](codes/021_merge_two_sorted_lists.js) | [Link](notes/021_merge_two_sorted_lists.md) |
 | 26 | Remove Duplicates from Sorted Array | [Link](codes/026_remove_duplicates_from_sorted_array.js) | [Link](notes/026_remove_duplicates_from_sorted_array.md) |

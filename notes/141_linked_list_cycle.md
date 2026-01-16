@@ -39,27 +39,24 @@ Output: false
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Hash Set     | O(n)            | O(n)             |
 | Two Pointers | O(n)            | O(1) ✅          |
 
 1. Hash Set
 
-    遍歷 linked list，將訪問過的 node 加入 Set，若再次遇到已訪問 node 則存在環。
-
-    ```
-    [head] → [node1] → [node2] → [node3] → [node4]
-                    ↑                       |
-                    └───────── (back to node2) ← cycle
-    ```
+    用 Hash Table 擦湊表，從 linked list 的 head 開始遍歷，每次檢查當前的 node `curr` 是否已經在 `passedNode` 集合中。如果已存在，代表 linked list 是一個循環，回傳 true；如果不存在，就把 `curr` 加入 `passedNode`，繼續往下遍歷。遍歷完代表 linked list 不是循環，回傳 false。
 
     ```js
     let curr = head;
-    let passedNode = new Set();
+    const passedNode = new Set();
 
     while (curr) {
-        if (passedNode.has(curr)) return true;
+        if (passedNode.has(curr)) {
+            return true;
+        }
+
         passedNode.add(curr);
         curr = curr.next;
     }
@@ -69,11 +66,15 @@ Output: false
 
 2. Two Pointers
 
-    用指標 fast & slow pointers 遍歷 linked list，fast pointer 走兩步、slow pointer 走一步，若相遇表示存在環，否則無環。
+    用快慢指針 `slow` 和 `fast` 從 linked list 的 head 開始。慢指針每次走一步，快指針每次走兩步；如果 linked list 是一個循環，快指針一定會追上慢指針，則回傳 true；如果快指針走到鏈表尾部 (null)，代表沒有巡環，回傳 false。這個方法不需要額外空間，空間複雜度是 O(1)，是判斷 linked list cycle 的最優解。
+
+    Solution: 👉 [code](../codes/141_linked_list_cycle.js)
+
+    ![Demo](https://img.shields.io/badge/Demo-head_=_[1,_2],_pos_=_0-white?style=flat-square)
 
     ```
-    slow → [head] → [node1] → [node2] → [node3] → [node4]
-    fast → [head] → [node2] → [node4] → [node2] → [node4]
-                                                     ↑
-                                                   cycle
+    slow → [1] → [2] → [1]
+    fast → [1] → [1] → [1]
+                        ↑
+                      cycle
     ```

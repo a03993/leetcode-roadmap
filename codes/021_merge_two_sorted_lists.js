@@ -13,22 +13,22 @@
 var mergeTwoLists = function (list1, list2) {
     const dummyHead = new ListNode(0);
     let curr = dummyHead;
-    let p1 = list1;
-    let p2 = list2;
+    let n1 = list1;
+    let n2 = list2;
 
-    while (p1 && p2) {
-        if (p1.val > p2.val) {
-            curr.next = p2;
-            p2 = p2.next;
+    while (n1 && n2) {
+        if (n1.val > n2.val) {
+            curr.next = n2;
+            n2 = n2.next;
         } else {
-            curr.next = p1;
-            p1 = p1.next;
+            curr.next = n1;
+            n1 = n1.next;
         }
 
         curr = curr.next;
     }
 
-    curr.next = p1 || p2;
+    curr.next = n1 || n2;
 
     return dummyHead.next;
 };

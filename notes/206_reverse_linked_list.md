@@ -22,4 +22,15 @@ Output: [5,4,3,2,1]
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 
-用 two pointers 逐步反轉 linked list 的指向，最後 prev 就是反轉後的頭節點。
+用 two pointers `prev` 和 `curr` 遍歷 linked list 逐步反轉，暫存 `curr.next` 避免丟失後續的 node，將 `curr.next` 指向 `prev` 將 node 反轉並移動 `prev` 和 `curr`，最後 `prev` 就是反轉後的 linked list。
+
+![Demo](https://img.shields.io/badge/Demo-head_=_[1,_2,_3,_4,_5]-white?style=flat-square)
+
+| step | prev                        | curr |
+| ---- | --------------------------- | ---- |
+| init | null                        | [1]  |
+| 1    | [1]                         | [2]  |
+| 2    | [2] → [1]                   | [3]  |
+| 3    | [3] → [2] → [1]             | [4]  |
+| 4    | [4] → [3] → [2] → [1]       | [5]  |
+| 5    | [5] → [4] → [3] → [2] → [1] | null |

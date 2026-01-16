@@ -34,8 +34,8 @@ Output: [0]
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n + m)        | O(1)             |
 
-用 two pointers 各自走在兩條已排序的 linked list 上，每次把比較小的節點接到 `curr` 後面。用 `dummy head` 讓串接過程更乾淨、不用特別處理第一個節點。等其中一條走完，直接把剩下的那條接上即可。
+建立一個虛擬的 head node `dummyHead`，用指標 `curr` 遍歷合併後的 linked list，遍歷 `list1` 和 `list2`，每次比較當前 node 的值，把較小的 node 接到 `curr.next`，然後對應指標往後移；遍歷完其中一條 linked list 後，把另一條 linked list 剩下的 node 直接接到 `curr.next`；最後回傳 `dummyHead.next`。
