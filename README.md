@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/28-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/23-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/52-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/24-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/54-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -28,6 +28,8 @@
 | 69 | Sqrt(x) | [Link](codes/069_sqrt_x.js) | [Link](notes/069_sqrt_x.md) |
 | 71 | Simplify Path | [Link](codes/071_simplify_path.js) | [Link](notes/071_simplify_path.md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
+| 82 | Remove Duplicates from Sorted List II | [Link](codes/082_remove_duplicates_from_sorted_list_II.js) | [Link](notes/082_remove_duplicates_from_sorted_list_II.md) |
+| 83 | Remove Duplicates from Sorted List | [Link](codes/083_remove_duplicates_from_sorted_list.js) | [Link](notes/083_remove_duplicates_from_sorted_list.md) |
 | 88 | Merge Sorted Array | [Link](codes/088_merge_sorted_array.js) | [Link](notes/088_merge_sorted_array.md) |
 | 92 | Reverse Linked List II | [Link](codes/092_reverse_linked_list_II.js) | [Link](notes/092_reverse_linked_list_II.md) |
 | 121 | Best Time to Buy and Sell Stock | [Link](codes/121_best_time_to_buy_and_sell_stock.js) | [Link](notes/121_best_time_to_buy_and_sell_stock.md) |
