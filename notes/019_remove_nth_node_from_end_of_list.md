@@ -33,14 +33,16 @@ Output: [1]
 
 **Note:**
 
-| Algorithm    | Time Complexity | Space Complexity |
-| ------------ | --------------- | ---------------- |
-| Reverse      | O(n)            | O(1)             |
-| Two Pointers | O(n) ✅         | O(1)             |
+| Algorithm                 | Time Complexity | Space Complexity |
+| ------------------------- | --------------- | ---------------- |
+| Reverse                   | O(n)            | O(1)             |
+| Linked List, Two Pointers | O(n) ✅         | O(1)             |
 
 1. Reverse
 
-    先定義一個 `reverse` 函式 (參考[206](../codes/206_reverse_linked_list.js)) 把 `head` 反轉，這樣原本**倒數第 n 個 node** 就變成**第 n 個 node**；接著用 `dummy` 指向 `head`，`curr` 指向 `dummy`，讓 `curr` 走 `n - 1` 步到**要刪除的 node 的前一個位置**，把 `curr.next` 指向 `curr.next.next`，就完成刪除；`dummy.next` 是反轉後的 head，最後把它反轉回來後回傳。
+    先定義一個 `reverse` 函式 (參考[206](../codes/206_reverse_linked_list.js))
+
+    先把 `head` 反轉，這樣原本**倒數第 n 個 node** 就變成**第 n 個 node**；用一個 dummy node 指向 `head`，`curr` 作為其指標，走 `n - 1` 步到**要刪除的 node 的前一個位置**，把 `curr.next` 指向 `curr.next.next` 完成刪除；最後反轉 `dummy.next` 後回傳。
 
     ```js
     var removeNthFromEnd = function (head, n) {
@@ -78,20 +80,22 @@ Output: [1]
 
 2. Two Pointers
 
-    用快慢指針，先建立一個 `dummy` 指向 `head`，並讓 `fast` 和 `slow` 都從 `dummy` 開始。先讓 `fast` 走 `n` 步，這樣 `fast` 和 `slow` 之間就隔了 `n` 個節點；接著同時移動 `fast` 和 `slow`，直到 `fast.next` 為 null，此時 `slow` 正好在**倒數第 n 個節點的前一個位置**；把 `slow.next` 指向 `slow.next.next`，就完成刪除。最後回傳 `dummy.next`。
+    用一個 dummy node 指向 `head`，用快慢指針 `fast`、`slow` 從 `dummy` 開始。
+
+    先遍歷 `n` 次讓快指針走 `n` 步，這樣快慢指針之間就會隔 `n` 個 node；移動快慢指針直到 `fast.next` 為 null，這樣慢指針就會在**倒數第 n 個節點的前一個位置**；最後把 `slow.next` 指向 `slow.next.next` 就可以完成刪除，回傳 `dummy.next` 就是我們要的**結果** linked list。
 
     Solution: 👉 [code](../codes/019_remove_nth_node_from_end_of_list.js)
 
     ![Demo](https://img.shields.io/badge/Demo-head_=_[1,_2,_3,_4,_5],_n_=_2-white?style=flat-square)
-    - 先讓 `fast` 走 `n` 步
+    - 快指針走 `n` 步，讓快慢指針之間隔 `n` 個 node:
 
         ```
         [dummy] → [1] → [2] → [3] → [4] → [5]
-        ↑             ↑
-        slow          fast
+           ↑             ↑
+          slow          fast
         ```
 
-    - 移動 `fast` 和 `slow`，直到 `fast.next` 為 null
+    - 移動快慢指針直到 `fast.next` 為 null，最後慢指針就會在**倒數第 n 個節點的前一個位置**:
 
         | step | fast | slow    |
         | ---- | ---- | ------- |
@@ -100,15 +104,13 @@ Output: [1]
         | 2    | [4]  | [2]     |
         | 3    | [5]  | [3]     |
 
-    - `slow` 正好在倒數第 n 個節點的前一個位置
-
         ```
         [dummy] → [1] → [2] → [3] → [4] → [5]
                                ↑           ↑
                               slow        fast
         ```
 
-    - 把 `slow.next` 指向 `slow.next.next`，就完成刪除
+    - 把 `slow.next` 指向 `slow.next.next` 完成刪除後回傳 `dummy.next`
 
 **Two Pointers v.s. Reverse:**
 

@@ -12,19 +12,14 @@
  */
 var removeElements = function (head, val) {
     const dummy = new ListNode(0, head);
-    let prev = dummy;
-    let curr = head;
+    let curr = dummy;
 
-    while (curr) {
-        const temp = curr.next;
-
-        if (curr.val == val) {
-            prev.next = temp;
+    while (curr.next) {
+        if (curr.next.val === val) {
+            curr.next = curr.next.next;
         } else {
-            prev = curr;
+            curr = curr.next;
         }
-
-        curr = temp;
     }
 
     return dummy.next;

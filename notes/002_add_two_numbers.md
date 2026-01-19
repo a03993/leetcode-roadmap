@@ -33,8 +33,12 @@ Output: [8,9,9,9,0,0,0,1]
 
 **Note:**
 
-| Algorithm  | Time Complexity | Space Complexity |
-| ---------- | --------------- | ---------------- |
-| Simulation | O(max(m, n))    | O(max(m, n))     |
+| Algorithm                 | Time Complexity | Space Complexity |
+| ------------------------- | --------------- | ---------------- |
+| Linked List, Two Pointers | O(max(m, n))    | O(max(m, n))     |
 
-用 `dummyHead` 來建立最後要回傳的 linked list，並用 `carry` 紀錄進位。從 `l1` 和 `l2` 的 head 開始逐位相加。取出兩個 node 的值（不存在就當作是 0），加上 `carry` 得到 `sum`；新 node 的值是 `sum % 10`，新的 `carry` 是 `Math.floor(sum / 10)`；把新 node 接到 linked list 後面，然後指標往後移；重複直到 `l1`、`l2` 都走完且沒有進位為止，最後回傳 `dummyHead.next`。
+使用 dummy node 作為**結果** linked list 的起點，用 `curr` 作為其指標；用 `l1`、`l2` 兩個指標分別處理 linked list，並用 `carry` 記錄進位。
+
+取出 `l1.val`、`l2.val` (若為 null 則視為 0) 加上 `carry` 計算 sum；更新 `carry` 為 `Math.floor(sum / 10)`；新 node 的值為 `sum % 10`，接到**結果** linked list 的後面，所有指標同步往後移。
+
+重複直到 `l1`、`l2` 都走完且沒有進位為止，最後回傳 `dummyHead.next`。

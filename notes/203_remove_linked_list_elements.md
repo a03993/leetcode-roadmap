@@ -6,17 +6,17 @@ Given the head of a linked list and an integer val, remove all the nodes of the 
 
 **Example:**
 
-```
+```java
 Input: head = [1,2,6,3,4,5,6], val = 6
 Output: [1,2,3,4,5]
 ```
 
-```
+```java
 Input: head = [], val = 1
 Output: []
 ```
 
-```
+```java
 Input: head = [7,7,7,7], val = 7
 Output: []
 ```
@@ -29,8 +29,8 @@ Output: []
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
-| ------------ | --------------- | ---------------- |
-| Two Pointers | O(n)            | O(1)             |
+| Topic       | Time Complexity | Space Complexity |
+| ----------- | --------------- | ---------------- |
+| Linked List | O(n)            | O(1)             |
 
-用 dummy node + two pointers 遍歷，遇到目標值就刪掉，最後返回新的 head。
+用一個 dummy node 指向 `head`，`curr` 作為其指標，檢查 `curr.next.val` 是否等於目標值 `val`，若相同就 `curr.next = curr.next.next` 跳過該 node；不同則將把 `curr` 往後走，最後回傳 `dummy.next`。

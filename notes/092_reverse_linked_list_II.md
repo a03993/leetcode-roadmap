@@ -28,48 +28,52 @@ Output: [5]
 
 **Note:**
 
-| Algorithm    | Time Complexity | Space Complexity |
-| ------------ | --------------- | ---------------- |
-| Two Pointers | O(n)            | O(1)             |
+| Algorithm                 | Time Complexity | Space Complexity |
+| ------------------------- | --------------- | ---------------- |
+| Linked List, Two Pointers | O(n)            | O(1)             |
 
-建立一個虛擬的 node `dummy` 並指向 `head`。遍歷 `left - 1` 次找到**反轉區間的前一個 node** `leftPrev`；從 `leftPrev.next` 開始，用三個指標 `curr`、`prev`、`temp` 反轉 `right - left + 1` 個 node；將區間內最後一個 node 連接到區間之後的 node `curr`，將 `leftPrev.next` 指向區間內第一個 node `prev`；最後回傳 `dummy.next`。
+用一個 dummy node 指向 `head`，`reversePrev` 作為其指標，遍歷 `left - 1` 次找到*反轉區間的**前一個** node*；從 `reversePrev.next` 開始，用三個指標 `curr`、`prev`、`temp` 反轉 `right - left + 1` 個 node，最後 `prev` 就是反轉區間；先將區間內最後一個 node 連接到區間之後的 node `curr`，再將將反轉區間的前一個 node 指向 `prev`；最後回傳 `dummy.next`。
 
 ![Demo](https://img.shields.io/badge/Demo-head_=_[1,_2,_3,_4,_5],_left_=_2,_right_=_4-white?style=flat-square)
 
-1. 遍歷 `left - 1` 次找到反轉區間的前一個 node `leftPrev`:
+1. 用一個 dummy node 指向 `head`，`reversePrev` 作為其指標，遍歷 `left - 1` 次找到*反轉區間的**前一個** node*:
 
     ```
-    [dummy] → [1] → [2] → [3] → [4] → [5]
-               ↑
-            leftPrev
+    [0] → [1] → [2] → [3] → [4] → [5]
+           ↑
+       reversePrev
     ```
 
-2. 接著從 `leftPrev.next` 開始，用三個指標 `curr`、`prev`、`temp` 反轉 `right - left + 1` 個 node:
+2. 從 `reversePrev.next` 開始，用三個指標 `curr`、`prev`、`temp` 反轉 `right - left + 1` 個 node，最後 `prev` 就是反轉區間: (反轉 linked list 可參考[code](../codes/206_reverse_linked_list.js))
 
-    | i    | prev            | curr |
-    | ---- | --------------- | ---- |
-    | init | null            | [2]  |
-    | 0    | [2] → null      | [3]  |
-    | 1    | [3] → [2]       | [4]  |
-    | 2    | [4] → [3] → [2] | [5]  |
+    ```
+    [0] → [1] → [2] → [3] → [4] → [5]
+                 ↑
+                curr
+    ```
 
-3. 將區間內最後一個 node 連接到區間之後的 node `curr`，將 `leftPrev.next` 指向區間內第一個 node `prev`:
+    | i    | prev      | curr         |
+    | ---- | --------- | ------------ |
+    | init | null      | [2, 3, 4, 5] |
+    | 0    | [2]       | [3, 4, 5]    |
+    | 1    | [3, 2]    | [4, 5]       |
+    | 2    | [4, 3, 2] | [5]          |
 
-    prev = [4] → [3] → [2]
+3. 先將區間內最後一個 node 連接到區間之後的 node `curr`，再將將反轉區間的前一個 node 指向 `prev`:
+
+    prev = [4, 3, 2]
     curr = [5]
 
-    <!-- TODO:確認流程！！！ -->
-
-    | step                        | linked list                           |
-    | --------------------------- | ------------------------------------- |
-    | init                        | [dummy] → [1] → [2] → [3] → [4] → [5] |
-    | `leftPrev.next.next = curr` | [dummy] → [1] → [2] → [5]             |
-    | `leftPrev.next = prev`      | [dummy] → [1] → [4] → [3] → [2] , [5] |
+    | step                           | dummy              |
+    | ------------------------------ | ------------------ |
+    | init                           | [0, 1, 2, 3, 4, 5] |
+    | `reversePrev.next.next = curr` | [0, 1, 2, 5]       |
+    | `reversePrev.next = prev`      | [0, 1, 4, 3, 2, 5] |
 
     ⚠️ 要注意順序不能返過來：
 
-    | i              | linked list                                  |
-    | -------------- | -------------------------------------------- |
-    | init           | [dummy] → [1] → [2] ← [3] ← [4] , [5]        |
-    | [1].next = [4] | [dummy] → **[1] → [4]** → [3] → [2] , [5]    |
-    | [4].next = [5] | [dummy] → [1] → **[4] → [5]** , [3] → [2] ❌ |
+    | i                              | dummy              |
+    | ------------------------------ | ------------------ |
+    | init                           | [0, 1, 2, 3, 4, 5] |
+    | `reversePrev.next = prev`      | [0, 1, 4, 3, 2]    |
+    | `reversePrev.next.next = curr` | [0, 1, 4, 3, 5] ❌ |

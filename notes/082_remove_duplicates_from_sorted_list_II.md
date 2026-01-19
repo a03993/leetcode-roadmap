@@ -29,7 +29,7 @@ Output: [2,3]
 | ----------- | --------------- | ---------------- |
 | Linked List | O(n)            | O(1)             |
 
-建立一個 dummy head，並用兩個指標 `prev` 和 `curr` 遍歷 linked list，內層迴圈把 `curr` 往後移動，直到遇到值不同的 node，這樣可以跳過所有重複節點；如果 `prev.next === curr`，代表沒有重複，`prev` 直接往後移；如果有重複，將 `prev.next` 指向 `curr.next`，刪掉所有重複的 node；然後 `curr` 繼續往後遍歷。最後返回 `dummy.next`。
+用一個 dummy node 指向 `head`，`prev`、`curr` 作為指標，內層迴圈把 `curr` 往後移動直到遇到值不同的 node，跳過所有重複的 node；如果 `prev.next === curr` 代表沒有重複，`prev` 往後移；如果有重複就將 `prev.next` 指向 `curr.next`，刪掉所有重複的 node；每一次 `curr` 都往後移動直到 `curr` 為 null 返回 `dummy.next`。
 
 ![Demo](https://img.shields.io/badge/Demo-head_=_[1,_2,_3,_3,_4,_4,_5]-white?style=flat-square)
 
