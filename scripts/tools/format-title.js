@@ -24,6 +24,7 @@ function formatTitle(slug) {
         pow_x_n: "Pow(x, n)",
         h_index: "H-Index",
         insert_delete_getRandom_o_1: "Insert Delete GetRandom O(1)",
+        three_sum: "3Sum",
     };
 
     if (titleMap[slug]) {

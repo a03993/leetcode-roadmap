@@ -7,7 +7,7 @@
 | 2 | Add Two Numbers | [Link](../codes/002_add_two_numbers.js) | [Link](../notes/002_add_two_numbers.md) |
 | 6 | Zigzag Conversion | [Link](../codes/006_zigzag_conversion.js) | [Link](../notes/006_zigzag_conversion.md) |
 | 11 | Container with Most Water | [Link](../codes/011_container_with_most_water.js) | [Link](../notes/011_container_with_most_water.md) |
-| 15 | 3Sum | [Link](../codes/015_3Sum.js) | [Link](../notes/015_3Sum.md) |
+| 15 | 3Sum | [Link](../codes/015_three_sum.js) | [Link](../notes/015_three_sum.md) |
 | 19 | Remove Nth Node from End of List | [Link](../codes/019_remove_nth_node_from_end_of_list.js) | [Link](../notes/019_remove_nth_node_from_end_of_list.md) |
 | 45 | Jump Game II | [Link](../codes/045_jump_game_II.js) | [Link](../notes/045_jump_game_II.md) |
 | 49 | Group Anagrams | [Link](../codes/049_group_anagrams.js) | [Link](../notes/049_group_anagrams.md) |
