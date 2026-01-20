@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/24-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/54-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/25-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/55-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -24,6 +24,7 @@
 | 50 | Pow(x, n) | [Link](codes/050_pow_x_n.js) | [Link](notes/050_pow_x_n.md) |
 | 55 | Jump Game | [Link](codes/055_jump_game.js) | [Link](notes/055_jump_game.md) |
 | 58 | Length of Last Word | [Link](codes/058_length_of_last_word.js) | [Link](notes/058_length_of_last_word.md) |
+| 61 | Rotate List | [Link](codes/061_rotate_list.js) | [Link](notes/061_rotate_list.md) |
 | 66 | Plus One | [Link](codes/066_plus_one.js) | [Link](notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](codes/069_sqrt_x.js) | [Link](notes/069_sqrt_x.md) |
 | 71 | Simplify Path | [Link](codes/071_simplify_path.js) | [Link](notes/071_simplify_path.md) |
