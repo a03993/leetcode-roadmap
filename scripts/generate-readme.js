@@ -12,13 +12,13 @@ const LINK = {
 };
 
 function main() {
-    const { table, count } = getTable(formatTitle, codesDir, notesDir);
+    const { table } = getTable(formatTitle, codesDir, notesDir);
 
     const level = getLevelCounts({ notesDir });
     const levelContent = `[![Easy](https://img.shields.io/badge/${level.Easy}-Easy-1cb8b8?style=flat-square)](${LINK.easy}) [![Medium](https://img.shields.io/badge/${level.Medium}-Medium-ffb800?style=flat-square)](${LINK.medium}) [![Hard](https://img.shields.io/badge/${level.Hard}-Hard-ff2d20?style=flat-square)](${LINK.hard}) [![Total](https://img.shields.io/badge/${level.Total}-Total-4c1?style=flat-square)](${LINK.total})`;
 
-    if (count == 0) {
-        console.warn("⚠️ No valid code files found.");
+    if (!table) {
+        console.warn("⚠️ Nothing in README.md");
         return;
     }
 
@@ -29,7 +29,7 @@ function main() {
 
         console.log("README.md ✅");
     } catch (err) {
-        console.error("❌ Failed to update README.md:", err);
+        console.error("❌ README.md:", err);
     }
 }
 

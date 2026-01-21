@@ -1,48 +1,51 @@
 const fs = require("fs");
 const path = require("path");
 
+const { parseFilename } = require("./parse-filename");
+
 function getTable(formatTitle, codesDir, notesDir) {
     const codeFiles = fs
         .readdirSync(codesDir)
         .filter((file) => file.endsWith(".js"))
         .sort();
 
-    if (codeFiles.length == 0) {
-        console.warn("⚠️ No code files found.");
-        return { table: "", count: 0 };
-    }
-
-    let table = "| No. | Problem | Code | Note |\n|-----|---------|------|------|\n";
-    let count = 0;
+    const rows = [];
 
     codeFiles.forEach((file) => {
         const fileName = path.parse(file).name;
-        const match = fileName.match(/^(\d+)_(\w+)$/);
+        const parsed = parseFilename(fileName);
 
-        if (!match) {
+        if (!parsed) {
             console.warn(`⚠️ Filename "${file}" does not match "NNN_problem_name.js" format`);
             return;
         }
 
-        const [_, num, slug] = match;
+        const { num, slug } = parsed;
         const title = formatTitle(slug);
+
         const codeLink = `[Link](codes/${file})`;
+        let noteLink = "";
 
         const noteFile = `${fileName}.md`;
         const notePath = path.join(notesDir, noteFile);
-        let noteLink = "";
 
         if (fs.existsSync(notePath)) {
             noteLink = `[Link](notes/${noteFile})`;
         } else {
-            console.warn(`⚠️ Note file for "${title}" not found or filename mismatch.`);
+            console.warn(`⚠️ ${noteFile} is not found.`);
         }
 
-        table += `| ${parseInt(num, 10)} | ${title} | ${codeLink} | ${noteLink} |\n`;
-        count++;
+        rows.push(`| ${parseInt(num, 10)} | ${title} | ${codeLink} | ${noteLink} |`);
     });
 
-    return { table, count };
+    if (rows.length === 0) {
+        return { table: "" };
+    }
+
+    const header = "| No. | Problem | Code | Note |\n|-----|---------|------|------|";
+    const table = `${header}\n${rows.join("\n")}\n`;
+
+    return { table };
 }
 
 module.exports = { getTable };
