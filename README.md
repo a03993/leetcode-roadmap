@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/27-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/57-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/28-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/58-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -53,6 +53,7 @@
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
 | 205 | Isomorphic Strings | [Link](codes/205_isomorphic_strings.js) | [Link](notes/205_isomorphic_strings.md) |
 | 206 | Reverse Linked List | [Link](codes/206_reverse_linked_list.js) | [Link](notes/206_reverse_linked_list.md) |
+| 209 | Minimum Size Subarray Sum | [Link](codes/209_minimum_size_subarray_sum.js) | [Link](notes/209_minimum_size_subarray_sum.md) |
 | 219 | Contains Duplicate II | [Link](codes/219_contains_duplicate_II.js) | [Link](notes/219_contains_duplicate_II.md) |
 | 238 | Product of Array Except Self | [Link](codes/238_product_of_array_except_self.js) | [Link](notes/238_product_of_array_except_self.md) |
 | 242 | Valid Anagram | [Link](codes/242_valid_anagram.js) | [Link](notes/242_valid_anagram.md) |
