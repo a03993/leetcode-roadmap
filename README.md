@@ -1,11 +1,12 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/28-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/58-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/59-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
 | 1 | Two Sum | [Link](codes/001_two_sum.js) | [Link](notes/001_two_sum.md) |
 | 2 | Add Two Numbers | [Link](codes/002_add_two_numbers.js) | [Link](notes/002_add_two_numbers.md) |
+| 3 | Longest Substring Without Repeating Characters | [Link](codes/003_longest_substring_without_repeating_characters.js) | [Link](notes/003_longest_substring_without_repeating_characters.md) |
 | 6 | Zigzag Conversion | [Link](codes/006_zigzag_conversion.js) | [Link](notes/006_zigzag_conversion.md) |
 | 9 | Palindrome Number | [Link](codes/009_palindrome_number.js) | [Link](notes/009_palindrome_number.md) |
 | 11 | Container with Most Water | [Link](codes/011_container_with_most_water.js) | [Link](notes/011_container_with_most_water.md) |
