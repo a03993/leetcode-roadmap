@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/59-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/60-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -56,6 +56,7 @@
 | 206 | Reverse Linked List | [Link](codes/206_reverse_linked_list.js) | [Link](notes/206_reverse_linked_list.md) |
 | 209 | Minimum Size Subarray Sum | [Link](codes/209_minimum_size_subarray_sum.js) | [Link](notes/209_minimum_size_subarray_sum.md) |
 | 219 | Contains Duplicate II | [Link](codes/219_contains_duplicate_II.js) | [Link](notes/219_contains_duplicate_II.md) |
+| 228 | Summary Ranges | [Link](codes/228_summary_ranges.js) | [Link](notes/228_summary_ranges.md) |
 | 238 | Product of Array Except Self | [Link](codes/238_product_of_array_except_self.js) | [Link](notes/238_product_of_array_except_self.md) |
 | 242 | Valid Anagram | [Link](codes/242_valid_anagram.js) | [Link](notes/242_valid_anagram.md) |
 | 274 | H-Index | [Link](codes/274_h_index.js) | [Link](notes/274_h_index.md) |

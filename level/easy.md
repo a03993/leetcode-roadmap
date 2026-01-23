@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/29-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/59-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/60-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -29,6 +29,7 @@
 | 205 | Isomorphic Strings | [Link](../codes/205_isomorphic_strings.js) | [Link](../notes/205_isomorphic_strings.md) |
 | 206 | Reverse Linked List | [Link](../codes/206_reverse_linked_list.js) | [Link](../notes/206_reverse_linked_list.md) |
 | 219 | Contains Duplicate II | [Link](../codes/219_contains_duplicate_II.js) | [Link](../notes/219_contains_duplicate_II.md) |
+| 228 | Summary Ranges | [Link](../codes/228_summary_ranges.js) | [Link](../notes/228_summary_ranges.md) |
 | 242 | Valid Anagram | [Link](../codes/242_valid_anagram.js) | [Link](../notes/242_valid_anagram.md) |
 | 290 | Word Pattern | [Link](../codes/290_word_pattern.js) | [Link](../notes/290_word_pattern.md) |
 | 383 | Ransom Note | [Link](../codes/383_ransom_note.js) | [Link](../notes/383_ransom_note.md) |
