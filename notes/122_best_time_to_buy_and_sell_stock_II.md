@@ -39,8 +39,8 @@ Constraints:
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(n)            | O(1)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Greedy    | O(n)            | O(1)             |
 
 遍歷 `prices`，只要今天比明天便宜，就把差價加進總利潤中，把所有上漲區間都計算進去，遍歷結束後的總理潤就是最大利潤，不用管實際買賣時點。

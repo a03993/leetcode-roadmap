@@ -40,7 +40,7 @@ Output: "example good a"
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(n)             |
 

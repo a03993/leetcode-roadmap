@@ -31,8 +31,10 @@ Output: 0
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(n)            | O(1)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Greedy    | O(n)            | O(1)             |
 
-遍歷 `prices`，用一個 `min` 記錄目前看過的最低價格。每一天都試著用當天價格減掉最低價，更新能拿到的最大利潤。
+用 `profit` 紀錄利潤，`min` 記錄目前為止看到的最低價格。
+
+遍歷 `prices`，更新 `min = Math.min(min, prices[i])`，這表示目前最便宜的買入價格，計算當前賣出價格可能的利潤 `prices[i] - min`，更新 `profit = Math.max(profit, prices[i] - min)`，最後回傳 `profit`，即為最大可得利潤。

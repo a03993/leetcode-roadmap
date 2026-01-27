@@ -7,16 +7,16 @@ var strStr = function (haystack, needle) {
     let start = 0;
 
     while (start <= haystack.length - needle.length) {
-        if (haystack[start] != needle[0]) {
+        if (haystack[start] !== needle[0]) {
             start++;
         } else {
-            let matched = 1;
+            let curr = 1;
 
-            while (matched < needle.length && haystack[start + matched] == needle[matched]) {
-                matched++;
+            while (curr < needle.length && haystack[start + curr] == needle[curr]) {
+                curr++;
             }
 
-            if (matched == needle.length) {
+            if (curr == needle.length) {
                 return start;
             }
 

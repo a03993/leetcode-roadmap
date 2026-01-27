@@ -28,10 +28,12 @@ RandomizedSet.prototype.remove = function (val) {
     }
 
     const idx = this.map.get(val);
-    const last = this.nums[this.nums.length - 1];
+    const lastElement = this.nums[this.nums.length - 1];
 
-    this.nums[idx] = last;
-    this.map.set(last, idx);
+    this.nums[idx] = lastElement;
+
+    this.map.set(lastElement, idx);
+
     this.nums.pop();
     this.map.delete(val);
 
@@ -42,8 +44,8 @@ RandomizedSet.prototype.remove = function (val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function () {
-    const randomIndex = Math.floor(Math.random() * this.nums.length);
-    return this.nums[randomIndex];
+    const idx = Math.floor(Math.random() * this.nums.length);
+    return this.nums[idx];
 };
 
 /**

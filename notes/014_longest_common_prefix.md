@@ -28,8 +28,11 @@ Output: ""
 
 **Note:**
 
-| Topic       | Time Complexity | Space Complexity |
-| ----------- | --------------- | ---------------- |
-| Brute Force | O(m\*n)         | O(1)             |
+| Algorithm        | Time Complexity | Space Complexity |
+| ---------------- | --------------- | ---------------- |
+| Horizon scanning | O(m \* n)       | O(1)             |
+| Binary Search    | ...             | ...              |
 
-從第一個 str 開始，一個字母一個字母比對其他 str 同位置的字符。只要遇到不一樣的，就回傳目前累積的 `prefix`。比完整個字串都沒差異，最後回傳整個第一個字串就是最大前綴。
+用兩個迴圈水平掃描，外層迴圈用第一個字串 `strs[0]` 作為參考字串，從左到右遍歷所有字元並存到 `char` 中；內層迴圈從左到右遍歷陣列 `strs`，檢查所有字串 `strs[j]` 的該位置字元是否與 `char` 相同，若不同則**直接回傳**目前累積的 `prefix`；若相同則將 `char` 加入 `prefix`，遍歷完第一個字串仍沒中斷，**回傳**完整 prefix。
+
+<!-- TODO: Binary Search -->

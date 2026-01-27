@@ -32,11 +32,18 @@ Output: 1
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 
-左右各放一個指針，每次算當前能裝的水量並更新最大值。因為水量受較短邊限制，所以只移動比較矮的那一邊，嘗試找到更高的牆。一路夾到中間，就能找到最大面積。
+使用兩個指標 `i`、`j` 分別指向陣列的左右兩端，計算當前容器面積 `(j - i) * min(height[i], height[j])` 並更新最大值 `maxArea`。
+
+每次比較左右兩個高度，因為面積**受限於**最短的邊，所以移動較短邊可能找到更高的邊，從而增加面積：
+
+- 若 `height[i] < height[j]`，左指標右移 `i++`
+- 若 `height[i] >= height[j]`，右指標左移 `j--`
+
+重複這個過程直到兩指標相遇，最後 `maxArea` 就會是最大容器面積。
 
 ![Demo](https://img.shields.io/badge/Demo-heights_=_[1,_8,_6,_2,_5,_4,_8,_3,_7]-white?style=flat-square)
 

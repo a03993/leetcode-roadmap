@@ -41,7 +41,7 @@ Output: [1,2]
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 

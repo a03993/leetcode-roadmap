@@ -18,7 +18,7 @@ Output: [5,4,3,2,1]
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 

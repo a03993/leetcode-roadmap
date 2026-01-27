@@ -9,7 +9,7 @@ var convert = function (s, numRows) {
     }
 
     const rows = [];
-    let curRow = 0;
+    let currRow = 0;
     let goingDown = false;
 
     for (let i = 0; i < numRows; i++) {
@@ -17,16 +17,16 @@ var convert = function (s, numRows) {
     }
 
     for (let i = 0; i < s.length; i++) {
-        rows[curRow] += s[i];
+        rows[currRow] += s[i];
 
-        if (curRow === 0 || curRow === numRows - 1) {
+        if (currRow === 0 || currRow === numRows - 1) {
             goingDown = !goingDown;
         }
 
         if (goingDown) {
-            curRow++;
+            currRow++;
         } else {
-            curRow--;
+            currRow--;
         }
     }
 

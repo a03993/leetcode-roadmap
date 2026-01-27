@@ -36,7 +36,7 @@ Output: false
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Hash Set     | O(1)            | O(1)             |
 | Two Pointers | O(1)            | O(1)             |

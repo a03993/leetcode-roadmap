@@ -49,8 +49,16 @@ Output: "A"
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| String | O(n)            | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| String    | O(n)            | O(n)             |
 
-用一個陣列 `rows` 存每一行的字串，從上到下再回到上 (e.g., 0, 1, 2, 1, 0, 1, 2, ...) 依序把 `s` 的字元加入對應行 `curRow`。碰到第一行或最後一行就透過 `goingDown` 改變方向。最後把 `rows` 每一行字串串起來，就是最終 Z 字形結果。
+建立一個長度為 `numRows` 的陣列 `rows`，使用指標 `currRow` 表示當前行，`goingDown` 控制方向（向下或向上）。
+
+遍歷字串 `s`：
+
+- 將當前字元加入 `rows[currRow]`
+- 如果走到最上面或最下面就反轉方向 `goingDown = !goingDown`
+- 根據 `goingDown` 更新 `currRow++` 或 `currRow--`
+
+最後用 `join("")` 把 `rows` 的所有行串起來，即為 zigzag 排列後的結果。

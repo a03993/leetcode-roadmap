@@ -40,8 +40,15 @@ Output: false
 
 **Note:**
 
-| Topic      | Time Complexity | Space Complexity |
-| ---------- | --------------- | ---------------- |
-| Hash Table | O(n)            | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Hash Map  | O(n)            | O(n)             |
 
-將字串 `s` 依空格拆成單詞陣列 `arr`，如果長度是否與 `pattern` 不一樣就直接 return `false`。用兩個 Map 建立雙向對應： `pattern` 字元對應 `arr` 單詞，`arr` 單詞對應 `pattern` 字元。遍歷過程中，如果對應不一致就 return `false`，最後遍歷結束就代表一致，return `true`。
+將字串 `s` 依空格拆成單詞陣列 `arr`，如果長度是否與 `pattern` 不一樣就直接 return `false`。
+
+用兩個 map 建立雙向對應：
+
+- `pattern` 字元 → `arr` 單詞
+- `arr` 單詞 → `pattern` 字元
+
+遍歷過程中，如果對應不一致就直接回傳 `false`，最後遍歷結束就代表一致，回傳 `true`。

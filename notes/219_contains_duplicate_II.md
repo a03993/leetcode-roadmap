@@ -30,10 +30,11 @@ Output: false
 
 **Note:**
 
-| Topic    | Time Complexity | Space Complexity |
-| -------- | --------------- | ---------------- |
-| Hash Map | O(n)            | O(n)             |
+| Algorithm            | Time Complexity | Space Complexity |
+| -------------------- | --------------- | ---------------- |
+| Hash Map             | O(n)            | O(n)             |
+| Sliding Window + Set | ...             | ...              |
 
-![TODO](https://img.shields.io/badge/TODO-Sliding_Window_+_Set-orange?style=flat-square)
+建立一個 map，存每個數字最後一次出現的索引，遍歷陣列 `nums`，若當前數字已經存在於 map，並且當前索引與 map 中的索引差值 ≤ `k`，就直接回傳 true；否則更新 map 中該數字的索引為當前位置。遍歷完代表都沒有符合條件，則回傳 false。
 
-用 hash table 記錄每個數字最近出現的位置，遇到相同數字且索引差 ≤ k 就回傳 true，否則遍歷完成回傳 false。
+<!-- TODO: Sliding Window + Set -->

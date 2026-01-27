@@ -29,22 +29,10 @@ Output: false
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 
-使用兩個指標 `i` 指向字串 `s`，`j` 指向字串 `t`。當 `s[i]` 等於 `t[j]` 時，`i` 前進一位。遍歷結束後，如果 `i` 已經等於 `s` 的長度，表示 `s` 的所有字元都依序出現在 `t` 中，是 `t` 的子序列。
+用雙指針， `i` 指向字串 `s`，`j` 指向字串 `t`。
 
-## Notes
-
-- Simplifying the final check to return `i == s.length` avoids an unnecessary if statement:
-
-    ```js
-    if (i < s.length) {
-        return false;
-    }
-
-    return true;
-    ```
-
-- Works even when `s` is empty (`""` is always a subsequence).
+遍歷 `t`，當 `s[i]` 等於 `t[j]` 時，`i` 前進一位，直到便利結束，回傳 `i === s.length` (如果 `i` 是 `s` 的長度就表示 `s` 的所有字元都依序出現在 `t` 中)。

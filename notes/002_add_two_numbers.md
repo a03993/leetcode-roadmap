@@ -33,9 +33,9 @@ Output: [8,9,9,9,0,0,0,1]
 
 **Note:**
 
-| Algorithm                 | Time Complexity | Space Complexity |
-| ------------------------- | --------------- | ---------------- |
-| Linked List, Two Pointers | O(max(m, n))    | O(max(m, n))     |
+| Algorithm                  | Time Complexity | Space Complexity |
+| -------------------------- | --------------- | ---------------- |
+| Linked List + Two Pointers | O(max(m, n))    | O(max(m, n))     |
 
 使用 dummy node 作為**結果** linked list 的起點，用 `curr` 作為其指標；用 `l1`、`l2` 兩個指標分別處理 linked list，並用 `carry` 記錄進位。
 

@@ -34,8 +34,8 @@ Output: [0]
 
 **Note:**
 
-| Algorithm                 | Time Complexity | Space Complexity |
-| ------------------------- | --------------- | ---------------- |
-| Linked List, Two Pointers | O(n + m)        | O(1)             |
+| Algorithm                  | Time Complexity | Space Complexity |
+| -------------------------- | --------------- | ---------------- |
+| Linked List + Two Pointers | O(n + m)        | O(1)             |
 
 用一個 dummyHead 作為新 linked list 的起點，`curr` 作為其指標，用 `n1`、`n2` 兩個指標分別指向 `list1`、`list2`，在兩個 list 都還沒走完時，比較 `n1.val` 與 `n2.val`，較小的 node 接到 `curr.next` 且該指標和 `curr` 往後移，當其中一條 list 走完後，若有剩下的 linked list 就把那一條接上，最後回傳 `dummyHead.next`。

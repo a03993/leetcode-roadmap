@@ -39,8 +39,17 @@ Output: [[0,0,0]]
 
 **Note:**
 
-| Topic               | Time Complexity | Space Complexity |
+| Algorithm           | Time Complexity | Space Complexity |
 | ------------------- | --------------- | ---------------- |
 | Sort + Two Pointers | O(n²)           | O(1)             |
 
-先把 `nums` 排序，固定一個數，剩下兩個用 two pointers 從左右往中間遍歷。根據三數總和大小決定要移動左邊還是右邊，找到 0 就記錄結果。過程中跳過重複數字，避免產生重複解。
+先將陣列 `nums` 從小到大排序，用一個迴圈固定第一個數 `nums[i]`：
+
+- 如果當前數與前一個相同，**跳過以避免重複**
+
+- 用 two pointers `j`（左指標）和 `k`（右指標）掃描剩餘數字，計算三數總和 `sum = nums[i] + nums[j] + nums[k]`
+    - 若 `sum === 0`，代表找到一組，將其 push 到 `res` 陣列中，並移動雙指標，**同時跳過重複數字**
+    - 若 `sum < 0`，左指標右移 `j++`，增加總和
+    - 若 `sum > 0`，右指標左移 `k--`，減小總和
+
+重複上述過程直到遍歷完陣列，回傳 `res`

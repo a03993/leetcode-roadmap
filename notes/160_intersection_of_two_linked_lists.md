@@ -29,7 +29,7 @@ Output: Intersected at '2'
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(m+n)          | O(1)             |
 

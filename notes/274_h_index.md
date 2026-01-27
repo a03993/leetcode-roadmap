@@ -27,7 +27,7 @@ Output: 1
 - `1 <= n <= 5000`
 - `0 <= citations[i] <= 1000`
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Brute Force  | O(n²)           | O(1)             |
 | Sort         | O(n log n)      | O(1)             |

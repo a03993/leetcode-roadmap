@@ -36,6 +36,7 @@ Output: 0
 | Algorithm      | Time Complexity | Space Complexity |
 | -------------- | --------------- | ---------------- |
 | Sliding Window | O(n)            | O(1)             |
+| ...            | O(n log(n))     | ...              |
 
 使用 Sliding Window，用兩個指標 `start`、`end` 表示當前的視窗範圍，並用 `sum` 紀錄目前視窗內的總和。
 

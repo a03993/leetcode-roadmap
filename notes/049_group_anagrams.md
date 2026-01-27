@@ -34,8 +34,12 @@ Output: [["a"]]
 
 **Note:**
 
-| Topic             | Time Complexity | Space Complexity |
-| ----------------- | --------------- | ---------------- |
-| Hash Table + Sort | O(m\*n log n)   | O(m\*n)          |
+| Algorithm       | Time Complexity | Space Complexity |
+| --------------- | --------------- | ---------------- |
+| Hash Map + Sort | O(m\*n log n)   | O(m\*n)          |
 
-對每個字串將字母排序後作為 key，如果 Map 已經存在這個 key，就把字串加入對應的 arr 中；否則建立新 arr。
+建立一個 map，key 儲存**排序後的字串**，value 儲存**索引**。
+
+遍歷 `strs`，將該項的字串拆成字元陣列、排序、再 join 回字串，把這個字串當作 key 跟 map 比對，若有這個 key 就取得該索引並 push 到 `res` 的該項中；如果沒有就把 key 存入 map，並在 `res` 新增一個 group。
+
+遍歷完 `strs` 後回傳 `res` 即為所求。

@@ -53,14 +53,20 @@ Output: 1994
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(n)            | O(1)             |
+| Algorithm                   | Time Complexity | Space Complexity |
+| --------------------------- | --------------- | ---------------- |
+| Greedy + Hash Map ✅        | O(n)            | O(1)             |
+| Greedy + Stepwise Condition | O(n)            | O(1)             |
 
-1. Greedy
+1. Greedy + Hash Map
 
-    從左到右遍歷 `s`，遇到小數字在大數字前面（例如 IV、IX）就減去，否則就加上。
-    - 這種寫法可以避免把非法輸入（例如 IM）誤判為減法
+    用 map 把每個 Roman 字母對應的整數值存起來。從左到右遍歷 `s`，**題目保證 input 是合法的羅馬數字**，因此如果 `curr` 小於 `next`，可直接視為減法組合（例如 `IV`、`IX`），就從 `sum` 中減掉當前值 `curr`；否則就把 `sum` 加上 `curr`。
+
+    Solution: 👉 [code](../codes/013_roman_to_integer.js)
+
+2. Greedy + Stepwise Condition
+
+    從左到右遍歷 `s`，直接對每個 Roman 字母做條件判斷，遇到小數字在大數字前（如 `IV`、`IX`）就減去，否則就加上。直觀且安全，**可以避免把非法輸入（例如 `IM`）誤判為減法**，但程式碼較冗長，維護成本高。
 
     ```js
     var romanToInt = function (s) {
@@ -111,10 +117,3 @@ Output: 1994
         return sum;
     };
     ```
-
-2. Greedy + Hash Table
-
-    先用一個 map 記每個羅馬字母對應的數值，從左到右遍歷 `s`。若 `curr` 小於 `next`，代表形成減法對（例如 IV、IX），扣掉 `curr`；否則就加上 `curr`，最後累加得到整數。
-    - 題目保證輸入是合法羅馬數字，因此 `curr < next` 的情況可直接視為合法減法表示
-
-        Solution: 👉 [code](../codes/013_roman_to_integer.js)

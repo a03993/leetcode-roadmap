@@ -31,8 +31,12 @@ Output: true
 
 **Note:**
 
-| Topic      | Time Complexity | Space Complexity |
-| ---------- | --------------- | ---------------- |
-| Hash Table | O(m+n)          | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Hash Map  | O(m+n)          | O(n)             |
 
-先遍歷 `ransomNote`，用 Map 記錄每個字母需要的數量，接著遍歷 `magazine`，遇到 Map 中的字母就將其數量減 1，數量減到 0 就刪除該字母。最後檢查 Map 是否為空，若是空表示 `ransomNote` 的每個字母在 `magazine` 中都有對應數量。
+用 map 儲存 `ransomNote` 的字元以及數量。
+
+先遍歷 `ransomNote`，用 Map 記錄每個字母需要的數量；接著遍歷 `magazine`，遇到 Map 中的字母就將其數量減 1，數量減到 0 就刪除該字母。
+
+最後檢查 Map 是否為空，若是空表示 `ransomNote` 的每個字母在 `magazine` 中都有對應數量。

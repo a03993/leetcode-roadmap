@@ -32,11 +32,11 @@ Output: 3
 
 **Note:**
 
-| Topic    | Time Complexity | Space Complexity |
-| -------- | --------------- | ---------------- |
-| Hash Set | O(n)            | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Hash Set  | O(n)            | O(n)             |
 
-利用 Set 快速查找序列起點，從每個起點往右擴展計算連續序列長度，更新最大值。
+用 Set 快速查找序列起點，從每個起點往右擴展計算連續序列長度，更新最大值。
 
 ![Demo](https://img.shields.io/badge/Demo-nums_=_[100,_4,_200,_1,_3,_2]-white?style=flat-square)
 

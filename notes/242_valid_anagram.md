@@ -26,8 +26,12 @@ Output: false
 
 **Note:**
 
-| Topic      | Time Complexity | Space Complexity |
-| ---------- | --------------- | ---------------- |
-| Hash Table | O(n)            | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Hash Map  | O(n)            | O(n)             |
 
-先檢查兩字串長度，如果不一樣直接 return `false`。使用 Map 記錄 `s` 中每個字母出現次數，然後遍歷 `t` 減少對應字母的數量。若數量減到 0 就刪除該字母。最後檢查 Map 是否為空，空表示兩字串字母及數量完全一致。
+先檢查兩字串長度，如果不一樣直接 return `false`。
+
+用 map 記錄 `s` 中每個字母出現次數，然後遍歷 `t` 減少對應字母的數量，若數量減到 0 就刪除該字母。
+
+最後回傳 `map.size === 0`，map 空就表示兩字串字母及數量完全一致。

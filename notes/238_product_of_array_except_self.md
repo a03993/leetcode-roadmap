@@ -31,7 +31,7 @@ Output: [0,0,9,0,0]
 
 **Note:**
 
-| Topic                   | Time Complexity | Space Complexity |
+| Algorithm               | Time Complexity | Space Complexity |
 | ----------------------- | --------------- | ---------------- |
 | Brute Force             | O(n²)           | O(n)             |
 | Division                | O(n)            | O(1)             |

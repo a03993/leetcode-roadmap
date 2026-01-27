@@ -27,11 +27,16 @@ Output: -1
 
 **Note:**
 
-| Topic       | Time Complexity | Space Complexity |
+| Algorithm   | Time Complexity | Space Complexity |
 | ----------- | --------------- | ---------------- |
 | Brute Force | O(n\*m)         | O(1)             |
 | KMP         | ...             | ...              |
 
-從 `haystack` 的每個可能起點開始嘗試對齊 `needle`，只要第一個字母對了，就往後一個一個比。中途不合就換下一個起點，全部掃完還沒中就回傳 -1。
+用 `start` 指向 `haystack` 的起始位置，最多只掃到 `haystack.length - needle.length`。當 `haystack[start]` 等於 `needle[0]` 時，檢查之後的每個字元是否與 needle 對應位置相同，用 `curr` 從 1 開始比對：
 
-<!-- TODO: 更優解 -->
+- 若整段 needle 都匹配，回傳 `start`
+- 若不匹配，`start++` 往後移，繼續檢查
+
+若掃完整個 `haystack` 都沒有找到，回傳 -1
+
+<!-- TODO: KMP -->

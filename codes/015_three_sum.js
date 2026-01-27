@@ -3,8 +3,7 @@
  * @return {number[][]}
  */
 var threeSum = function (nums) {
-    let result = [];
-
+    const res = [];
     nums.sort((a, b) => a - b);
 
     for (let i = 0; i < nums.length - 2; i++) {
@@ -18,8 +17,11 @@ var threeSum = function (nums) {
         while (j < k) {
             const sum = nums[i] + nums[j] + nums[k];
 
-            if (sum == 0) {
-                result.push([nums[i], nums[j], nums[k]]);
+            if (sum === 0) {
+                res.push([nums[i], nums[j], nums[k]]);
+
+                j++;
+                k--;
 
                 while (j < k && nums[j] == nums[j + 1]) {
                     j++;
@@ -28,9 +30,6 @@ var threeSum = function (nums) {
                 while (j < k && nums[k] == nums[k - 1]) {
                     k--;
                 }
-
-                j++;
-                k--;
             } else if (sum < 0) {
                 j++;
             } else {
@@ -39,5 +38,5 @@ var threeSum = function (nums) {
         }
     }
 
-    return result;
+    return res;
 };

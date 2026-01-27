@@ -3,7 +3,7 @@
  * @return {string}
  */
 var longestCommonPrefix = function (strs) {
-    let prefix = "";
+    const prefix = "";
 
     for (let i = 0; i < strs[0].length; i++) {
         const char = strs[0][i];

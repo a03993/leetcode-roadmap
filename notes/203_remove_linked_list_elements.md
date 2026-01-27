@@ -29,7 +29,7 @@ Output: []
 
 **Note:**
 
-| Topic       | Time Complexity | Space Complexity |
+| Algorithm   | Time Complexity | Space Complexity |
 | ----------- | --------------- | ---------------- |
 | Linked List | O(n)            | O(1)             |
 

@@ -35,22 +35,13 @@ Output: true
 
 **Note:**
 
-| Topic        | Time Complexity | Space Complexity |
+| Algorithm    | Time Complexity | Space Complexity |
 | ------------ | --------------- | ---------------- |
 | Two Pointers | O(n)            | O(1)             |
 
-1. Initialize two pointers: `i = 0` (left) and `j = s.length - 1` (right)
-2. Skip non-alphanumeric characters at both ends
-3. Compare `s[i]` and `s[j]` in lowercase
-4. If mismatch → return false
-5. Move pointers inward until they meet
-6. If loop completes → return true
+用雙指針 `i` 和 `j` 從字串左、右往中間檢查，忽略非字母數字字符，不區分大小寫，比較字母是否一致，中間只要遇到有不同的字母就直接回傳 false，比完所有字母都一致就回傳 true。
 
-左右雙指標忽略非字母數字字符，比較字母大小寫無關，檢查整個字串是否對稱。
-
-## Notes
-
-`isAlphanumeric` Implementations:
+**`isAlphanumeric` Implementations:**
 
 1. `charCodeAt` Version
 

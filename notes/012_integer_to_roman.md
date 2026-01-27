@@ -61,101 +61,109 @@ Output: "MCMXCIV"
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(1)            | O(1)             |
+| Algorithm                   | Time Complexity | Space Complexity |
+| --------------------------- | --------------- | ---------------- |
+| Greedy + Lookup Table ✅    | O(1)            | O(1)             |
+| Greedy + Stepwise Reduction | O(1)            | O(1)             |
 
-用兩個陣列分別存數值 `vals` 和對應羅馬字母 `romans`，遍歷 `vals`，每次當 `num` ≥ 當前值，就減掉該值並把對應羅馬字母加到結果字串。重複直到數字降到 0，就得到完整羅馬數字。比長 if-else 版簡潔又易讀。
+1. Greedy + Lookup Table
 
-- if-else 版：
+    用查找表演算法，準備兩個陣列：
+    - `vals` 存整數值的 Roman numeral 對應數字，按從大到小排序
+    - `romans` 存對應的羅馬字母表示
 
-    從最大數值開始逐步減去，也就是從 1000 到 1，對應加上相應的羅馬字母。需要注意特殊組合符號 (4, 9, 40, 90, 400, 900)，最後累加成完整羅馬數字。這種方法直觀，但比較不易讀。
+    遍歷 `vals`，當 `num >= vals[i]`，就把 `vals[i]` 從 `num` 扣掉，並把對應的 `romans[i]` 加入結果字串 `str`，重複這個過程直到 `num` 減為 0。
+
+    這種方法保證每次都用最大的可能值來組成 Roman numeral，演算法核心是貪婪演算法。
+
+    Solution: 👉 [code](../codes/12_integer_to_roman.js)
+
+2. Greedy + Stepwise Reduction
+
+    用逐步扣減法，從最大單位 (1000, 900, 500, ..,) 開始檢查，如果 `num >= 單位值` 就扣掉，並把對應字母加進字串 `str`。若單位需要重複多次 (如 3000 → `"MMM"`)。這種方法直觀，但比較不易讀。
 
     ```js
     var intToRoman = function (num) {
-        let n = num;
         let str = "";
 
-        if (Math.floor(n / 1000)) {
-            let count = Math.floor(n / 1000);
-            n -= count * 1000;
+        if (Math.floor(num / 1000)) {
+            let count = Math.floor(num / 1000);
 
             while (count > 0) {
+                num -= 1000;
                 str += "M";
                 count--;
             }
         }
 
-        if (Math.floor(n / 900)) {
-            n -= 900;
+        if (Math.floor(num / 900)) {
+            num -= 900;
             str += "CM";
         }
 
-        if (Math.floor(n / 500)) {
-            n -= 500;
+        if (Math.floor(num / 500)) {
+            num -= 500;
             str += "D";
         }
 
-        if (Math.floor(n / 400)) {
-            n -= 400;
+        if (Math.floor(num / 400)) {
+            num -= 400;
             str += "CD";
         }
 
-        if (Math.floor(n / 100)) {
-            let count = Math.floor(n / 100);
-            n -= count * 100;
+        if (Math.floor(num / 100)) {
+            let count = Math.floor(num / 100);
 
             while (count > 0) {
+                num -= 100;
                 str += "C";
                 count--;
             }
         }
 
-        if (Math.floor(n / 90)) {
-            n -= 90;
+        if (Math.floor(num / 90)) {
+            num -= 90;
             str += "XC";
         }
 
-        if (Math.floor(n / 50)) {
-            n -= 50;
+        if (Math.floor(num / 50)) {
+            num -= 50;
             str += "L";
         }
 
-        if (Math.floor(n / 40)) {
-            n -= 40;
+        if (Math.floor(num / 40)) {
+            num -= 40;
             str += "XL";
         }
 
-        if (Math.floor(n / 10)) {
-            let count = Math.floor(n / 10);
-            n -= count * 10;
+        if (Math.floor(num / 10)) {
+            let count = Math.floor(num / 10);
 
             while (count > 0) {
+                num -= 10;
                 str += "X";
                 count--;
             }
         }
 
-        if (Math.floor(n / 9)) {
-            n -= 9;
+        if (Math.floor(num / 9)) {
+            num -= 9;
             str += "IX";
         }
 
-        if (Math.floor(n / 5)) {
-            n -= 5;
+        if (Math.floor(num / 5)) {
+            num -= 5;
             str += "V";
         }
 
-        if (Math.floor(n / 4)) {
-            n -= 4;
+        if (Math.floor(num / 4)) {
+            num -= 4;
             str += "IV";
         }
 
-        if (n) {
-            while (n > 0) {
-                str += "I";
-                n--;
-            }
+        while (num > 0) {
+            str += "I";
+            num--;
         }
 
         return str;

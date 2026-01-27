@@ -43,8 +43,8 @@ Output:
 | Algorithm | Time Complexity | Space Complexity |
 | --------- | --------------- | ---------------- |
 | Array     | O(n)            | O(n)             |
-| Set       | O(n)            | O(n)             |
-| HashMap   | O(1) ✅         | O(n)             |
+| Hash Set  | O(n)            | O(n)             |
+| Hash Map  | O(1) ✅         | O(n)             |
 
 題目要求實作一個名為 `RandomizedSet` 資料結構，要支援 `insert`, `remove`, `getRandom` 三個操作:
 
@@ -54,10 +54,12 @@ Output:
 - `RandomizedSet.getRandom()`: 隨機回傳集合中的一個元素，每個元素被回傳的機率必須相同
 
 1. Array
+    - `RandomizedSet()` 用一個陣列 `nums` 儲存元素
+    - `insert(val)` 遍歷 `nums`，如果沒有找到包含 `val` 的元素就加入陣列
+    - `remove(val)` 遍歷 `nums`，如果有找到包含 `val` 的元素就從陣列中刪除
+    - `getRandom()` 隨機產生一個索引，回傳陣列中對應元素
 
-    用一個陣列 `nums` 儲存集合元素，`insert(val)` 檢查陣列是否已包含 `val`，若沒有就加入陣列；`remove(val)` 找出 `val` 的 index，若存在就從陣列中刪除；`getRandom()` 隨機產生一個索引，返回陣列中對應元素。
-
-    `insert(val)` 和 `remove(val)` 都需要遍歷陣列來檢查或刪除元素，因此的時間複雜度都是 O(n)，不符合題目要求。
+    ⚠️ `insert(val)` 和 `remove(val)` 都需要遍歷陣列來檢查或刪除元素，因此的時間複雜度都是 O(n)，**不符合題目要求**。
 
     ```js
     var RandomizedSet = function () {
@@ -65,8 +67,10 @@ Output:
     };
 
     RandomizedSet.prototype.insert = function (val) {
-        if (this.nums.includes(val)) {
-            return false;
+        for (let i = 0; i < this.nums.length; i++) {
+            if (this.nums[i] === val) {
+                return false;
+            }
         }
 
         this.nums.push(val);
@@ -74,27 +78,30 @@ Output:
     };
 
     RandomizedSet.prototype.remove = function (val) {
-        const idx = this.nums.indexOf(val);
-
-        if (idx === -1) {
-            return false;
+        for (let i = 0; i < this.nums.length; i++) {
+            if (this.nums[i] === val) {
+                this.nums[i] = this.nums[this.nums.length - 1];
+                this.nums.pop();
+                return true;
+            }
         }
 
-        this.nums.splice(idx, 1);
-        return true;
+        return false;
     };
 
     RandomizedSet.prototype.getRandom = function () {
-        const randomIndex = Math.floor(Math.random() * this.num.length);
+        const randomIndex = Math.floor(Math.random() * this.nums.length);
         return this.nums[randomIndex];
     };
     ```
 
-2. Set
+2. Hash Set
+    - `RandomizedSet()` 用一個 set 儲存元素
+    - `insert(val)` 用 `set.has()` 檢查 `val` 是否存在，如果不存在就加入
+    - `remove(val)` 用 `set.has()` 檢查 `val` 是否存在，如果存在就刪除
+    - `getRandom()` 先把 set 轉成陣列 `arr`，然後隨機取一個索引後回傳
 
-    用一個 Set 儲存元素，`insert(val)` 利用 `set.has()` 檢查是否存在，若不存在就加入，返回 true；`remove(val)` 利用 `set.has()` 檢查是否存在，若存在就刪除，返回 true；`getRandom()` 先把 Set 轉成陣列，然後隨機取一個索引返回對應元素。
-
-    `getRandom()` 因為每次都要把 Set 轉成陣列，時間複雜度是 O(n)，不符合題目要求。
+    ⚠️ 但 `getRandom()` 每次都要把 set 轉成陣列，時間複雜度是 O(n)，**不符合題目要求**。
 
     ```js
     var RandomizedSet = function () {
@@ -120,14 +127,24 @@ Output:
     };
 
     RandomizedSet.prototype.getRandom = function () {
-        const arr = Array.from(this.set);
-        const randomIndex = Math.floor(Math.random() * this.num.length);
-        return this.nums[randomIndex];
+        const arr = [...this.set];
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        return arr[randomIndex];
     };
     ```
 
 3. Hash Map
-
-    用一個陣列 `nums` 儲存元素，並用一個 Map 記錄元素對應的 index，`insert(val)` 利用 `map.has()` 檢查是否存在，若不存在就加入，返回 true；`remove(val)` 先找到 `val` 的 index，把陣列最後一個元素搬到這個位置，更新 Map 中最後一個元素的 index，再刪除陣列尾端元素與 Map 中的 `val`，返回 true；`getRandom()` 隨機生成一個索引，返回陣列中對應元素。
+    - 用一個陣列 `nums` 儲存元素、一個 map 記錄元素和對應 index
+    - `insert(val)` 用 `map.has()` 檢查 `val` 是否存在，若不存在：
+        - 就加入 `nums`
+        - 將 `val` 對應 `nums.length - 1` 儲存在 map 中
+    - `remove(val)` 用 `map.has()` 檢查 `val` 是否存在，若是存在：
+        - 把 `lastElement` (陣列最後一個元素) 覆寫 `val` 的位置
+        - 更新 map 中 `lastElement` 對應的索引為當前的索引 `idx`
+        - 用 `pop()` 刪除陣列尾端元素
+        - 用 `map.delete` 刪除 map 中的 `val`
+    - `getRandom()` 隨機生成一個索引，回傳陣列中對應元素。
 
     Solution: 👉 [code](../codes/380_insert_delete_getRandom_o_1.js)
+
+    💡 先把 [最後一項] 覆寫到 [該項]，再用 `pop()` 移除最後一項，用 `splice()` 的話時間複雜度會是 O(n)

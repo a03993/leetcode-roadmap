@@ -33,18 +33,58 @@ Output: 2
 
 **Note:**
 
-| Topic  | Time Complexity | Space Complexity |
-| ------ | --------------- | ---------------- |
-| Greedy | O(n)            | O(1)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Greedy    | O(n)            | O(1)             |
 
-遍歷 `nums`，用 `reach` 記錄目前跳躍能到的位置，用 `nextReach` 記下一步能跳到的最遠位置。每到達 `reach` 就增加一次跳躍，並更新 `reach` 到 `nextReach`，這樣能在最少步數下到達最後一格。
+用 `reach` 表示目前能到達的最遠位置，用 `nextReach` 暫存下一個可以到的最遠位置。
+
+遍歷 `nums` (最後一個元素不需遍歷)，每一次都更新 `nextReach = max(nextReach, i + nums[i])`，這表示從目前位置能跳到的最遠距離，當 `i === reach`，表示當前已經走到目前能跳能到的最遠位置，必須增加一次跳躍，同時更新 `reach = nextReach`，準備下一輪跳躍。
+
+題目說一定可以跳到 `nums[n - 1]`，因此最後回傳 `jumps` 即為最少跳躍次數。
 
 ![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_3,_1,_1,_4]-white?style=flat-square)
 
-| i    | nextReach | reach | jumps |
-| ---- | --------- | ----- | ----- |
-| init | 0         | 0     | 0     |
-| 0    | 2         | 2     | 1     |
-| 1    | 4         | 2     | 1     |
-| 2    | 4         | 4     | 2     |
-| 3    | 4         | 4     | 2     |
+| i          | nextReach | reach | jumps |
+| ---------- | --------- | ----- | ----- |
+| init       | 0         | 0     | 0     |
+| 0          | 2         | 2     | 1     |
+| 1          | 4         | 2     | 1     |
+| 2          | 4         | 4     | 2     |
+| 3          | 4         | 4     | 2     |
+| 4 → return | 〃        | 〃    | 〃    |
+
+```
+i=0
+ ↓
+[2, 3, 1, 1, 1]
+       ↑
+     reach
+   nextReach
+```
+
+```
+   i=1
+    ↓
+[2, 3, 1, 1, 1]
+       ↑     ↑
+     reach nextReach
+```
+
+```
+      i=2
+       ↓
+[2, 3, 1, 1, 1]
+             ↑
+           reach
+         nextReach
+```
+
+```
+         i=3
+          ↓
+[2, 3, 1, 1, 1]
+             ↑
+           reach
+         nextReach
+```

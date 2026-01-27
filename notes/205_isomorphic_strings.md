@@ -36,8 +36,8 @@ Output: true
 
 **Note:**
 
-| Topic      | Time Complexity | Space Complexity |
-| ---------- | --------------- | ---------------- |
-| Hash Table | O(n)            | O(n)             |
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
+| Hash Map  | O(n)            | O(n)             |
 
 用雙向 hash table 確保每個字符的映射是一對一對應，如果遇到不一致就返回 false，否則返回 true。
