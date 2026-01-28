@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/29-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/60-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/61-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -26,6 +26,7 @@
 | 134 | Gas Station | [Link](../codes/134_gas_station.js) | [Link](../notes/134_gas_station.md) |
 | 150 | Evaluate Reverse Polish Notation | [Link](../codes/150_evaluate_reverse_polish_notation.js) | [Link](../notes/150_evaluate_reverse_polish_notation.md) |
 | 151 | Reverse Words in a String | [Link](../codes/151_reverse_words_in_a_string.js) | [Link](../notes/151_reverse_words_in_a_string.md) |
+| 155 | Min Stack | [Link](../codes/155_min_stack.js) | [Link](../notes/155_min_stack.md) |
 | 167 | Two Sum II - Input Array Is Sorted | [Link](../codes/167_two_sum_II_input_array_is_sorted.js) | [Link](../notes/167_two_sum_II_input_array_is_sorted.md) |
 | 172 | Factorial Trailing Zeroes | [Link](../codes/172_factorial_trailing_zeroes.js) | [Link](../notes/172_factorial_trailing_zeroes.md) |
 | 189 | Rotate Array | [Link](../codes/189_rotate_array.js) | [Link](../notes/189_rotate_array.md) |
