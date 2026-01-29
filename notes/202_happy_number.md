@@ -59,10 +59,6 @@ Otherwise, it falls into a cycle without reaching 1:
 
 2. Two Pointers
 
-<div style="display:flex; justify-content:center; gap:2rem; margin-top:3rem">
-
-<div>
-
 ![Demo](https://img.shields.io/badge/Demo-nums_=_19-white?style=flat-square)
 
 |      | init | 1   | 2     |
@@ -70,20 +66,12 @@ Otherwise, it falls into a cycle without reaching 1:
 | slow | 19   | 82  | 68    |
 | fast | 82   | 100 | **1** |
 
-</div>
-
-<div>
-
 ![Demo](https://img.shields.io/badge/Demo-nums_=_2-white?style=flat-square)
 
 |      | init | 1   | 2   | 3   | 4   | 5   | 6   | 7      |
 | ---- | ---- | --- | --- | --- | --- | --- | --- | ------ |
 | slow | 2    | 4   | 16  | 37  | 58  | 89  | 145 | **42** |
 | fast | 4    | 37  | 89  | 42  | 4   | 37  | 89  | **42** |
-
-</div>
-
-</div>
 
 ```js
 var isHappy = function (n) {

@@ -66,20 +66,12 @@ dp[i] = max(dp[i − 1], dp[i − 2] + nums[i])
 | 2    | 3         | 2      | 1+3=4                | 4          | 2           |
 | 3    | 1         | 4      | 2+1=3                | 4 → return | 2           |
 
-<div style="display:flex; gap:1rem; margin-top:1rem; margin-bottom:1rem">
-
-<div>
-
 ```java
 [1, 2, 3, 1]
  ↑
 rob
 // step1:先偷第0間
 ```
-
-</div>
-
-<div>
 
 ```java
 [1, 2, 3, 1]
@@ -88,10 +80,6 @@ pass rob
 // step2:改偷第1間
 ```
 
-</div>
-
-<div>
-
 ```java
 [1, 2, 3, 1]
     ↑  ↑
@@ -99,20 +87,12 @@ pass rob
 // step3:改偷第2間
 ```
 
-</div>
-
-<div>
-
 ```java
 [1, 2, 3, 1]
        ↑  ↑
      rob  pass
 // step4:維持偷第2間
 ```
-
-</div>
-
-</div>
 
 ![Demo](https://img.shields.io/badge/Demo-nums_=_[2,_7,_9,_3,_1]-white?style=flat-square)
 
@@ -130,20 +110,12 @@ pass rob
 | 3    | 3         | 11     | 7+3=10               | 11          | 2           |
 | 4    | 1         | 11     | 11+1=12              | 12 → return | 4           |
 
-<div style="display:flex; gap:1rem; margin-top:1rem">
-
-<div>
-
 ```java
 [2, 7, 9, 3, 1]
  ↑
 rob
 // step1:先偷第0間
 ```
-
-</div>
-
-<div>
 
 ```java
 [2, 7, 9, 3, 1]
@@ -152,20 +124,12 @@ pass rob
 // step2:改偷第1間
 ```
 
-</div>
-
-<div>
-
 ```java
 [2, 7, 9, 3, 1]
     ↑  ↑
  pass  rob
 // step3:改偷第2間
 ```
-
-</div>
-
-<div>
 
 ```java
 [2, 7, 9, 3, 1]
@@ -174,17 +138,9 @@ pass rob
 // step4:維持偷第2間
 ```
 
-</div>
-
-<div>
-
 ```java
 [2, 7, 9, 3, 1]
        ↑     ↑
       pass  rob
 // step5:改偷第4間
 ```
-
-</div>
-
-</div>

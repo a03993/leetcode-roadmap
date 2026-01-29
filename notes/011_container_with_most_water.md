@@ -47,19 +47,11 @@ Output: 1
 
 ![Demo](https://img.shields.io/badge/Demo-heights_=_[1,_8,_6,_2,_5,_4,_8,_3,_7]-white?style=flat-square)
 
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 1:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 0    | 8     | 8    | 8       |
-
-</div>
-
-<div>
 
 ```java
 left                   right
@@ -72,23 +64,11 @@ left                   right
 // Move left pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 2:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 1    | 8     | 49   | 49      |
-
-</div>
-
-<div>
 
 ```java
    left                right
@@ -101,23 +81,11 @@ Step 2:
 // Move right pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 3:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 1    | 7     | 18   | 49      |
-
-</div>
-
-<div>
 
 ```java
    left             right
@@ -130,23 +98,11 @@ Step 3:
 // Move right pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 4:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 1    | 6     | 40   | 49      |
-
-</div>
-
-<div>
 
 ```java
    left          right
@@ -159,23 +115,11 @@ Step 4:
 // Move left pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 5:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 2    | 6     | 24   | 49      |
-
-</div>
-
-<div>
 
 ```java
       left       right
@@ -188,23 +132,11 @@ Step 5:
 // Move left pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 6:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 3    | 6     | 6    | 49      |
-
-</div>
-
-<div>
 
 ```java
          left    right
@@ -217,23 +149,11 @@ Step 6:
 // Move left pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 7:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 4    | 6     | 10   | 49      |
-
-</div>
-
-<div>
 
 ```java
             left right
@@ -246,23 +166,11 @@ Step 7:
 // Move left pointer
 ```
 
-</div>
-
-</div>
-
-<div style="display:flex; gap:2rem; margin-top:3rem">
-
-<div>
-
 Step 8:
 
 | left | right | area | maxArea |
 | ---- | ----- | ---- | ------- |
 | 5    | 6     | 4    | 49      |
-
-</div>
-
-<div>
 
 ```java
               left right
@@ -273,7 +181,3 @@ Step 8:
 // area = 1 * min(4,8) = 4
 // maxArea = max(49, 4) = 49
 ```
-
-</div>
-
-</div>
