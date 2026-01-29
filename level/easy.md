@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/61-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/62-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -17,6 +17,7 @@
 | 58 | Length of Last Word | [Link](../codes/058_length_of_last_word.js) | [Link](../notes/058_length_of_last_word.md) |
 | 66 | Plus One | [Link](../codes/066_plus_one.js) | [Link](../notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](../codes/069_sqrt_x.js) | [Link](../notes/069_sqrt_x.md) |
+| 70 | Climbing Stairs | [Link](../codes/070_climbing_stairs.js) | [Link](../notes/070_climbing_stairs.md) |
 | 83 | Remove Duplicates from Sorted List | [Link](../codes/083_remove_duplicates_from_sorted_list.js) | [Link](../notes/083_remove_duplicates_from_sorted_list.md) |
 | 88 | Merge Sorted Array | [Link](../codes/088_merge_sorted_array.js) | [Link](../notes/088_merge_sorted_array.md) |
 | 121 | Best Time to Buy and Sell Stock | [Link](../codes/121_best_time_to_buy_and_sell_stock.js) | [Link](../notes/121_best_time_to_buy_and_sell_stock.md) |

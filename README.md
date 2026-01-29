@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/30-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/61-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/62-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -29,6 +29,7 @@
 | 61 | Rotate List | [Link](codes/061_rotate_list.js) | [Link](notes/061_rotate_list.md) |
 | 66 | Plus One | [Link](codes/066_plus_one.js) | [Link](notes/066_plus_one.md) |
 | 69 | Sqrt(x) | [Link](codes/069_sqrt_x.js) | [Link](notes/069_sqrt_x.md) |
+| 70 | Climbing Stairs | [Link](codes/070_climbing_stairs.js) | [Link](notes/070_climbing_stairs.md) |
 | 71 | Simplify Path | [Link](codes/071_simplify_path.js) | [Link](notes/071_simplify_path.md) |
 | 80 | Remove Duplicates from Sorted Array II | [Link](codes/080_remove_duplicates_from_sorted_array_II.js) | [Link](notes/080_remove_duplicates_from_sorted_array_II.md) |
 | 82 | Remove Duplicates from Sorted List II | [Link](codes/082_remove_duplicates_from_sorted_list_II.js) | [Link](notes/082_remove_duplicates_from_sorted_list_II.md) |
