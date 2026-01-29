@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/62-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/31-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/63-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -52,6 +52,7 @@
 | 169 | Majority Element | [Link](codes/169_majority_element.js) | [Link](notes/169_majority_element.md) |
 | 172 | Factorial Trailing Zeroes | [Link](codes/172_factorial_trailing_zeroes.js) | [Link](notes/172_factorial_trailing_zeroes.md) |
 | 189 | Rotate Array | [Link](codes/189_rotate_array.js) | [Link](notes/189_rotate_array.md) |
+| 198 | House Robber | [Link](codes/198_house_robber.js) | [Link](notes/198_house_robber.md) |
 | 202 | Happy Number | [Link](codes/202_happy_number.js) | [Link](notes/202_happy_number.md) |
 | 203 | Remove Linked List Elements | [Link](codes/203_remove_linked_list_elements.js) | [Link](notes/203_remove_linked_list_elements.md) |
 | 205 | Isomorphic Strings | [Link](codes/205_isomorphic_strings.js) | [Link](notes/205_isomorphic_strings.md) |

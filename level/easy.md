@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/30-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/62-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/31-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/63-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
