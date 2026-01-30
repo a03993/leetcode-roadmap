@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/31-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/63-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/32-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/64-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -34,4 +34,5 @@
 | 209 | Minimum Size Subarray Sum | [Link](../codes/209_minimum_size_subarray_sum.js) | [Link](../notes/209_minimum_size_subarray_sum.md) |
 | 238 | Product of Array Except Self | [Link](../codes/238_product_of_array_except_self.js) | [Link](../notes/238_product_of_array_except_self.md) |
 | 274 | H-Index | [Link](../codes/274_h_index.js) | [Link](../notes/274_h_index.md) |
+| 322 | Coin Change | [Link](../codes/322_coin_change.js) | [Link](../notes/322_coin_change.md) |
 | 380 | Insert Delete GetRandom O(1) | [Link](../codes/380_insert_delete_getRandom_o_1.js) | [Link](../notes/380_insert_delete_getRandom_o_1.md) |
