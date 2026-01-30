@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/32-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/64-Total-4c1?style=flat-square)](#) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./level/easy.md) [![Medium](https://img.shields.io/badge/33-Medium-ffb800?style=flat-square)](./level/medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./level/hard.md) [![Total](https://img.shields.io/badge/65-Total-4c1?style=flat-square)](#) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -42,6 +42,7 @@
 | 125 | Valid Palindrome | [Link](codes/125_valid_palindrome.js) | [Link](notes/125_valid_palindrome.md) |
 | 128 | Longest Consecutive Sequence | [Link](codes/128_longest_consecutive_sequence.js) | [Link](notes/128_longest_consecutive_sequence.md) |
 | 134 | Gas Station | [Link](codes/134_gas_station.js) | [Link](notes/134_gas_station.md) |
+| 139 | Word Break | [Link](codes/139_word_break.js) | [Link](notes/139_word_break.md) |
 | 141 | Linked List Cycle | [Link](codes/141_linked_list_cycle.js) | [Link](notes/141_linked_list_cycle.md) |
 | 149 | Max Points on a Line | [Link](codes/149_max_points_on_a_line.js) | [Link](notes/149_max_points_on_a_line.md) |
 | 150 | Evaluate Reverse Polish Notation | [Link](codes/150_evaluate_reverse_polish_notation.js) | [Link](notes/150_evaluate_reverse_polish_notation.md) |

@@ -1,6 +1,6 @@
 # LeetCode Roadmap 
 
- [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/32-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/64-Total-4c1?style=flat-square)](../README.md) 
+ [![Easy](https://img.shields.io/badge/31-Easy-1cb8b8?style=flat-square)](./easy.md) [![Medium](https://img.shields.io/badge/33-Medium-ffb800?style=flat-square)](./medium.md) [![Hard](https://img.shields.io/badge/1-Hard-ff2d20?style=flat-square)](./hard.md) [![Total](https://img.shields.io/badge/65-Total-4c1?style=flat-square)](../README.md) 
 
  | No. | Problem | Code | Note |
 |-----|---------|------|------|
@@ -24,6 +24,7 @@
 | 122 | Best Time to Buy and Sell Stock II | [Link](../codes/122_best_time_to_buy_and_sell_stock_II.js) | [Link](../notes/122_best_time_to_buy_and_sell_stock_II.md) |
 | 128 | Longest Consecutive Sequence | [Link](../codes/128_longest_consecutive_sequence.js) | [Link](../notes/128_longest_consecutive_sequence.md) |
 | 134 | Gas Station | [Link](../codes/134_gas_station.js) | [Link](../notes/134_gas_station.md) |
+| 139 | Word Break | [Link](../codes/139_word_break.js) | [Link](../notes/139_word_break.md) |
 | 150 | Evaluate Reverse Polish Notation | [Link](../codes/150_evaluate_reverse_polish_notation.js) | [Link](../notes/150_evaluate_reverse_polish_notation.md) |
 | 151 | Reverse Words in a String | [Link](../codes/151_reverse_words_in_a_string.js) | [Link](../notes/151_reverse_words_in_a_string.md) |
 | 155 | Min Stack | [Link](../codes/155_min_stack.js) | [Link](../notes/155_min_stack.md) |
